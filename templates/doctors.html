@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Doctor Referrals — Dr.SOS EduConsult{% endblock %}
+{% block content %}
+
+<section class="page-hero page-hero-blue fade-in">
+  <div class="container text-center text-white">
+    <h1 class="display-5 fw-bold"><i class="fas fa-user-doctor me-3"></i>Doctor Referral Services</h1>
+    <p class="lead">Connecting you with specialist doctors across Ireland and internationally</p>
+  </div>
+</section>
+
+<section class="container my-5">
+  <div class="row g-4 mb-5">
+    {% for icon, title, desc in [('fa-stethoscope','General Practitioners','We connect you with experienced GPs for primary care and health checks.'),('fa-heart','Cardiologists','Specialist heart care referrals for complex cardiac conditions.'),('fa-brain','Neurologists','Expert neurological assessment and ongoing care management.'),('fa-bone','Orthopaedic Specialists','Joint replacement, sports injuries and musculoskeletal care.'),('fa-eye','Ophthalmologists','Eye care specialists for all vision conditions and surgeries.'),('fa-child','Paediatricians','Dedicated child health specialists for young patients.')] %}
+    <div class="col-md-4 col-6 fade-in">
+      <div class="service-card text-center h-100">
+        <div class="service-icon-circle"><i class="fas {{ icon }}"></i></div>
+        <h5>{{ title }}</h5>
+        <p class="small">{{ desc }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <h2 class="section-title text-center fade-in">How It Works</h2>
+  <div class="row g-4 mt-2 text-center">
+    {% for n, t, d in [(1,'Submit a Request','Fill in your details and the specialty you need via our contact form.'),(2,'Advisor Matches You','We identify the right specialist based on your location and needs.'),(3,'Appointment Arranged','We facilitate a fast-tracked appointment on your behalf.')] %}
+    <div class="col-md-4 fade-in">
+      <div class="how-step"><div class="how-step-num">{{ n }}</div><h5>{{ t }}</h5><p>{{ d }}</p></div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="text-center mt-5 fade-in">
+    <a href="{{ url_for('book') }}" class="btn btn-gold btn-lg">Request a Doctor Referral</a>
+  </div>
+</section>
+{% endblock %}

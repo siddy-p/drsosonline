@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block title %}Contact Us — Dr.SOS EduConsult{% endblock %}
+{% block content %}
+
+<section class="page-hero page-hero-green fade-in">
+  <div class="container text-center text-white">
+    <h1 class="display-5 fw-bold">Get In Touch</h1>
+    <p class="lead">Our advisors are ready to guide your global journey</p>
+  </div>
+</section>
+
+<section class="container my-5">
+  <div class="row g-5 align-items-start">
+    <!-- Contact Form -->
+    <div class="col-lg-7 fade-in">
+      <div class="dashboard-card">
+        <h3 class="mb-4"><i class="fas fa-paper-plane me-2 text-success"></i>Send Us a Message</h3>
+        <form method="POST" action="{{ url_for('contact') }}">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label-auth">Full Name *</label>
+              <input type="text" name="name" class="form-control-auth" placeholder="John Doe" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label-auth">Email Address *</label>
+              <input type="email" name="email" class="form-control-auth" placeholder="you@example.com" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label-auth">Phone Number</label>
+              <input type="tel" name="phone" class="form-control-auth" placeholder="+353 000 0000">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label-auth">Subject *</label>
+              <select name="subject" class="form-control-auth" required>
+                <option value="">Select a topic...</option>
+                <option>Education Consultancy</option>
+                <option>Visa Assistance</option>
+                <option>Palliative Care</option>
+                <option>Doctor Referral</option>
+                <option>Air Ambulance</option>
+                <option>General Enquiry</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label class="form-label-auth">Message *</label>
+              <textarea name="message" class="form-control-auth" rows="5" placeholder="Tell us how we can help you..." required></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn-auth-submit mt-3">
+            <i class="fas fa-paper-plane me-2"></i>Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="col-lg-5 fade-in">
+      <div class="contact-info-card">
+        <h4 class="mb-4">Contact Information</h4>
+        <div class="contact-info-item"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div><strong>Email</strong><p>info@drsosonline.com</p></div></div>
+        <div class="contact-info-item"><div class="contact-icon"><i class="fas fa-phone"></i></div><div><strong>Phone</strong><p>+353 000 000 0000</p></div></div>
+        <div class="contact-info-item"><div class="contact-icon"><i class="fab fa-whatsapp"></i></div><div><strong>WhatsApp</strong><p>+353 000 000 0000</p></div></div>
+        <div class="contact-info-item"><div class="contact-icon"><i class="fas fa-location-dot"></i></div><div><strong>Office</strong><p>Ireland</p></div></div>
+        <div class="contact-info-item"><div class="contact-icon"><i class="fas fa-clock"></i></div><div><strong>Hours</strong><p>Mon–Fri: 9am – 6pm GMT<br>Weekends: By appointment</p></div></div>
+
+        <a href="https://wa.me/your-number" class="btn btn-success w-100 mt-3" target="_blank">
+          <i class="fab fa-whatsapp me-2"></i>Chat on WhatsApp
+        </a>
+      </div>
+
+      <!-- Map Placeholder -->
+      <div class="map-placeholder fade-in mt-4">
+        <i class="fas fa-map-location-dot"></i>
+        <p>Ireland — Full map coming soon</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

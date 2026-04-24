@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+{% block title %}Education Consultancy — Dr.SOS EduConsult{% endblock %}
+{% block content %}
+
+<!-- Hero -->
+<section class="page-hero page-hero-green fade-in">
+  <div class="container text-center text-white">
+    <h1 class="display-5 fw-bold">Global Education, Unlocked</h1>
+    <p class="lead">Expert guidance from application to arrival — we handle every step.</p>
+    <a href="{{ url_for('book') }}" class="btn btn-gold btn-lg mt-3">Start Your Journey</a>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="trust-bar fade-in">
+  <div class="container d-flex justify-content-around flex-wrap gap-3 text-center">
+    <div class="trust-item"><span class="counter" data-target="1000">0</span><span>+</span><p>Students Helped</p></div>
+    <div class="trust-item"><span class="counter" data-target="95">0</span><span>%</span><p>Visa Success Rate</p></div>
+    <div class="trust-item"><span class="counter" data-target="10">0</span><span>+</span><p>Destination Countries</p></div>
+    <div class="trust-item"><span class="counter" data-target="50">0</span><span>+</span><p>Partner Universities</p></div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="container my-5">
+  <h2 class="section-title text-center fade-in">Our Education Services</h2>
+  <p class="section-subtitle text-center fade-in">Everything you need from first enquiry to arriving on campus</p>
+  <div class="row g-4 mt-3">
+    {% set services = [
+      ('fa-graduation-cap','Admission Guidance','We identify the right universities for your profile and handle the entire application process on your behalf.'),
+      ('fa-passport','Visa Assistance','Expert visa support for Ireland, UK, Canada, Australia, Germany and beyond with a 95% success rate.'),
+      ('fa-pen-to-square','SOP & Essays','Compelling Statements of Purpose and personal essays that make your application stand out.'),
+      ('fa-award','Scholarship Search','We search and apply for scholarships and funding opportunities to reduce your financial burden.'),
+      ('fa-plane-departure','Pre-Departure Support','Accommodation guidance, bank accounts, insurance and everything you need before you fly.'),
+      ('fa-headset','24/7 Advisor Support','Your dedicated advisor is always available to answer questions and keep your application moving.')
+    ] %}
+    {% for icon, title, desc in services %}
+    <div class="col-md-4 fade-in">
+      <div class="service-card h-100">
+        <div class="service-icon-circle"><i class="fas {{ icon }}"></i></div>
+        <h4>{{ title }}</h4>
+        <p>{{ desc }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- Study Destinations -->
+<section class="destinations fade-in" id="destinations">
+  <div class="container">
+    <h2 class="fw-bold text-white text-center mb-2">Study Destinations</h2>
+    <p class="text-center text-white-50 mb-5">We have strong partnerships with top universities across these countries</p>
+    <div class="row g-4 justify-content-center">
+      {% set countries = [('🇮🇪','Ireland','Top QS-ranked universities. Post-study work visa available.','from €10,000/year'),('🇬🇧','United Kingdom','World-leading Russell Group universities.','from £12,000/year'),('🇨🇦','Canada','3-year post-grad work permit. PR pathway available.','from CAD $15,000/year'),('🇦🇺','Australia','Globally respected qualifications, sunny lifestyle.','from AUD $18,000/year'),('🇩🇪','Germany','Tuition-free public universities for international students.','Often free + living costs'),('🇺🇸','USA','Home to 8 of the top 10 universities in the world.','from $20,000/year')] %}
+      {% for flag, name, desc, cost in countries %}
+      <div class="col-lg-4 col-md-6 fade-in">
+        <div class="destination-card">
+          <div class="dest-flag">{{ flag }}</div>
+          <h5>{{ name }}</h5>
+          <p>{{ desc }}</p>
+          <span class="dest-cost"><i class="fas fa-tag me-1"></i>{{ cost }}</span>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- How It Works -->
+<section class="container my-5">
+  <h2 class="section-title text-center fade-in">How It Works</h2>
+  <div class="row g-4 mt-3 text-center">
+    {% for step, title, desc in [(1,'Free Consultation','Book a call with your dedicated advisor to discuss your goals and profile.'), (2,'Profile Assessment','We assess your qualifications and shortlist the best programmes for you.'), (3,'Application Submission','We prepare and submit your applications to multiple universities.'),(4,'Visa & Arrival','We guide you through the visa process and pre-departure preparations.')] %}
+    <div class="col-md-3 fade-in">
+      <div class="how-step">
+        <div class="how-step-num">{{ step }}</div>
+        <h5>{{ title }}</h5>
+        <p>{{ desc }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials-section fade-in">
+  <div class="container">
+    <h2 class="section-title text-center text-white mb-5">What Our Students Say</h2>
+    <div class="testimonials-slider" id="testimonialSlider">
+      {% set testimonials = [
+        ('Amara O.','Nigeria → Ireland, MSc Data Analytics','Dr.SOS made my dream of studying in Ireland a reality. My advisor handled everything — from finding the right university to my visa approval in just 3 weeks!','⭐⭐⭐⭐⭐'),
+        ('Khalid M.','Pakistan → UK, MBA','I was rejected once before. After working with Dr.SOS, I got accepted to 3 universities including my first choice. Absolutely incredible service.','⭐⭐⭐⭐⭐'),
+        ('Priya S.','India → Canada, MSc Computer Science','The team was always available for questions and made the IRCC application so simple. I now have my study permit and I\'m loving life in Toronto!','⭐⭐⭐⭐⭐')
+      ] %}
+      {% for name, detail, quote, stars in testimonials %}
+      <div class="testimonial-slide {% if loop.first %}active{% endif %}">
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"{{ quote }}"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">{{ name[0] }}</div>
+            <div><strong>{{ name }}</strong><span>{{ detail }}</span></div>
+            <div class="ms-auto">{{ stars }}</div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="testimonial-dots text-center mt-3">
+      <span class="t-dot active" onclick="goToSlide(0)"></span>
+      <span class="t-dot" onclick="goToSlide(1)"></span>
+      <span class="t-dot" onclick="goToSlide(2)"></span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta fade-in">
+  <h2>Ready to Study Abroad?</h2>
+  <p>Join 1,000+ students who trusted Dr.SOS for their global education</p>
+  <a href="{{ url_for('book') }}" class="btn btn-gold btn-lg mt-2">Book Free Consultation</a>
+</section>
+{% endblock %}

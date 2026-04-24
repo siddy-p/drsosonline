@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+{% block title %}Education & Preferences — Dr.SOS EduConsult{% endblock %}
+{% block content %}
+<section class="auth-section auth-section-wide">
+  <div class="auth-card auth-card-wide">
+    <div class="step-indicator">
+      <div class="step done"><span><i class="fas fa-check"></i></span><p>Account</p></div>
+      <div class="step-line active"></div>
+      <div class="step done"><span><i class="fas fa-check"></i></span><p>Profile</p></div>
+      <div class="step-line active"></div>
+      <div class="step active"><span>3</span><p>Education</p></div>
+    </div>
+
+    <div class="auth-header">
+      <h1>Education & Study Preferences</h1>
+      <p>Help us match you with the best universities and programmes</p>
+    </div>
+
+    <form method="POST" action="{{ url_for('register_education') }}">
+
+      <div class="form-section-title"><i class="fas fa-graduation-cap me-2"></i>Education History</div>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label-auth">Highest Qualification *</label>
+          <select name="highest_qualification" class="form-control-auth" required>
+            <option value="">Select...</option>
+            <option>Secondary School / O-Level</option>
+            <option>A-Level / Higher Secondary</option>
+            <option>Bachelor's Degree</option>
+            <option>Master's Degree</option>
+            <option>PhD / Doctorate</option>
+            <option>Diploma / HND</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label-auth">Institution Name *</label>
+          <input type="text" name="institution_name" class="form-control-auth" placeholder="University of Lagos" required>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label-auth">Field of Study</label>
+          <input type="text" name="field_of_study" class="form-control-auth" placeholder="Computer Science">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label-auth">Graduation Year</label>
+          <input type="number" name="graduation_year" class="form-control-auth" placeholder="2023" min="1980" max="2030">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label-auth">Grade / Result</label>
+          <input type="text" name="grade_achieved" class="form-control-auth" placeholder="e.g. 2:1, 3.8 GPA">
+        </div>
+      </div>
+
+      <div class="form-section-title mt-4"><i class="fas fa-language me-2"></i>English Language Test</div>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label-auth">English Test Type</label>
+          <select name="english_test" class="form-control-auth" id="englishTest">
+            <option value="None">None / Not yet taken</option>
+            <option value="IELTS">IELTS</option>
+            <option value="TOEFL">TOEFL</option>
+            <option value="PTE">PTE Academic</option>
+            <option value="Duolingo">Duolingo English Test</option>
+            <option value="Cambridge">Cambridge (C1/C2)</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label-auth">Score / Band</label>
+          <input type="text" name="english_score" class="form-control-auth" placeholder="e.g. 6.5 / 90 / C1">
+        </div>
+      </div>
+
+      <div class="form-section-title mt-4"><i class="fas fa-earth-europe me-2"></i>Study Preferences</div>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label-auth">Preferred Study Destination *</label>
+          <select name="preferred_country" class="form-control-auth" required>
+            <option value="">Select country...</option>
+            <option>Ireland</option>
+            <option>United Kingdom</option>
+            <option>Canada</option>
+            <option>Australia</option>
+            <option>Germany</option>
+            <option>USA</option>
+            <option>Netherlands</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label-auth">Preferred Course / Programme *</label>
+          <input type="text" name="preferred_course" class="form-control-auth" placeholder="e.g. MSc Data Science" required>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label-auth">Intake Year</label>
+          <select name="intake_year" class="form-control-auth">
+            <option>2025</option>
+            <option>2026</option>
+            <option>2027</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label-auth">Intake Month</label>
+          <select name="intake_month" class="form-control-auth">
+            <option>January</option>
+            <option>May</option>
+            <option>September</option>
+            <option>October</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label-auth">Annual Budget (USD)</label>
+          <select name="budget_range" class="form-control-auth">
+            <option value="">Select range...</option>
+            <option>Under $10,000</option>
+            <option>$10,000 – $20,000</option>
+            <option>$20,000 – $35,000</option>
+            <option>$35,000 – $50,000</option>
+            <option>$50,000+</option>
+          </select>
+        </div>
+        <div class="col-12">
+          <label class="form-label-auth">Additional Notes / Goals</label>
+          <textarea name="additional_notes" class="form-control-auth" rows="3" placeholder="Tell us anything else that would help us advise you better..."></textarea>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-auth-submit mt-4">
+        Complete Registration <i class="fas fa-check ms-2"></i>
+      </button>
+    </form>
+  </div>
+</section>
+{% endblock %}

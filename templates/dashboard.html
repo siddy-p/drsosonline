@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+{% block title %}Dashboard — Dr.SOS EduConsult{% endblock %}
+{% block content %}
+<section class="dashboard-section">
+  <div class="container">
+
+    <!-- Welcome Banner -->
+    <div class="dashboard-welcome fade-in">
+      <div>
+        <h1>Welcome back, {{ current_user.profile.first_name if current_user.profile and current_user.profile.first_name else current_user.email.split('@')[0] }} 👋</h1>
+        <p>Here's an overview of your education journey with Dr.SOS.</p>
+      </div>
+      <a href="{{ url_for('book') }}" class="btn btn-gold"><i class="fas fa-calendar-plus me-2"></i>Book Appointment</a>
+    </div>
+
+    <!-- Profile Completion -->
+    {% if current_user.profile %}
+    {% set pct = current_user.profile.completion_percentage %}
+    <div class="dashboard-card fade-in mb-4">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <h6 class="mb-0"><i class="fas fa-user-check me-2 text-success"></i>Profile Completion</h6>
+        <span class="badge-pct">{{ pct }}%</span>
+      </div>
+      <div class="progress-bar-outer">
+        <div class="progress-bar-inner" style="width: {{ pct }}%"></div>
+      </div>
+      {% if pct < 100 %}
+      <p class="mt-2 small text-muted">Complete your profile to improve your application. <a href="{{ url_for('profile') }}">Update now →</a></p>
+      {% else %}
+      <p class="mt-2 small text-success"><i class="fas fa-check-circle me-1"></i>Your profile is complete!</p>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    <!-- Stat Cards -->
+    <div class="row g-4 mb-4">
+      <div class="col-md-4 fade-in">
+        <div class="stat-card">
+          <div class="stat-icon bg-green"><i class="fas fa-file-lines"></i></div>
+          <div>
+            <h3>{{ applications|length }}</h3>
+            <p>Application{{ 's' if applications|length != 1 else '' }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 fade-in">
+        <div class="stat-card">
+          <div class="stat-icon bg-gold"><i class="fas fa-calendar-check"></i></div>
+          <div>
+            <h3>{{ bookings|length }}</h3>
+            <p>Appointment{{ 's' if bookings|length != 1 else '' }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 fade-in">
+        <div class="stat-card">
+          <div class="stat-icon bg-blue"><i class="fas fa-earth-europe"></i></div>
+          <div>
+            <h3>{{ current_user.profile.preferred_country if current_user.profile and current_user.profile.preferred_country else '—' }}</h3>
+            <p>Target Country</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <!-- Recent Applications -->
+      <div class="col-lg-7 fade-in">
+        <div class="dashboard-card">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="mb-0"><i class="fas fa-file-lines me-2"></i>Recent Applications</h5>
+            <a href="{{ url_for('applications') }}" class="btn-link-green">View All</a>
+          </div>
+          {% if applications %}
+          <div class="table-responsive">
+            <table class="dash-table">
+              <thead><tr><th>Service</th><th>Country</th><th>Status</th><th>Date</th></tr></thead>
+              <tbody>
+                {% for app in applications %}
+                <tr>
+                  <td>{{ app.service_type }}</td>
+                  <td>{{ app.preferred_country or '—' }}</td>
+                  <td><span class="status-badge status-{{ app.status.lower().replace(' ', '-') }}">{{ app.status }}</span></td>
+                  <td>{{ app.created_at.strftime('%d %b %Y') }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          {% else %}
+          <div class="empty-state">
+            <i class="fas fa-folder-open"></i>
+            <p>No applications yet</p>
+            <a href="{{ url_for('book') }}" class="btn btn-gold btn-sm">Start Application</a>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Profile Summary -->
+      <div class="col-lg-5 fade-in">
+        <div class="dashboard-card">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="mb-0"><i class="fas fa-user me-2"></i>Profile Summary</h5>
+            <a href="{{ url_for('profile') }}" class="btn-link-green">Edit</a>
+          </div>
+          {% if current_user.profile %}
+          {% set p = current_user.profile %}
+          <ul class="profile-summary-list">
+            <li><span>Name</span><strong>{{ p.full_name }}</strong></li>
+            <li><span>Email</span><strong>{{ current_user.email }}</strong></li>
+            <li><span>Phone</span><strong>{{ p.phone or '—' }}</strong></li>
+            <li><span>Nationality</span><strong>{{ p.nationality or '—' }}</strong></li>
+            <li><span>Destination</span><strong>{{ p.preferred_country or '—' }}</strong></li>
+            <li><span>Course</span><strong>{{ p.preferred_course or '—' }}</strong></li>
+            <li><span>Intake</span><strong>{{ (p.intake_month + ' ' + p.intake_year) if p.intake_month and p.intake_year else '—' }}</strong></li>
+          </ul>
+          {% endif %}
+          <a href="{{ url_for('profile') }}" class="btn-auth-submit mt-3" style="padding:10px 20px;font-size:0.9rem;">
+            <i class="fas fa-pen me-2"></i>Update Full Profile
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="row g-3 mt-2 fade-in">
+      <div class="col-md-3 col-6">
+        <a href="{{ url_for('education') }}" class="quick-action-card">
+          <i class="fas fa-graduation-cap"></i>
+          <span>Explore Universities</span>
+        </a>
+      </div>
+      <div class="col-md-3 col-6">
+        <a href="{{ url_for('book') }}" class="quick-action-card">
+          <i class="fas fa-calendar-plus"></i>
+          <span>Book Appointment</span>
+        </a>
+      </div>
+      <div class="col-md-3 col-6">
+        <a href="{{ url_for('contact') }}" class="quick-action-card">
+          <i class="fas fa-headset"></i>
+          <span>Contact Advisor</span>
+        </a>
+      </div>
+      <div class="col-md-3 col-6">
+        <a href="{{ url_for('applications') }}" class="quick-action-card">
+          <i class="fas fa-file-lines"></i>
+          <span>My Applications</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+{% endblock %}

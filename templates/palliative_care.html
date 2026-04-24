@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Palliative Care — Dr.SOS EduConsult{% endblock %}
+{% block content %}
+
+<section class="page-hero page-hero-teal fade-in">
+  <div class="container text-center text-white">
+    <h1 class="display-5 fw-bold"><i class="fas fa-heart-pulse me-3"></i>Palliative Care Services</h1>
+    <p class="lead">Compassionate, expert support for patients and families at every stage</p>
+  </div>
+</section>
+
+<section class="container my-5">
+  <div class="row g-4 align-items-center mb-5">
+    <div class="col-lg-6 fade-in">
+      <h2 class="fw-bold mb-3">We Care, So You Can Focus on What Matters</h2>
+      <p class="text-muted">Dr.SOS connects patients and families with qualified palliative care specialists, hospice referrals, and home care services across Ireland and internationally. Our team ensures dignity, comfort, and expert medical support at every step of the journey.</p>
+      <a href="{{ url_for('contact') }}" class="btn btn-gold mt-3">Speak to an Advisor</a>
+    </div>
+    <div class="col-lg-6 fade-in">
+      <div class="row g-3">
+        {% for icon, title, desc in [('fa-house-medical','Home Care Coordination','We arrange qualified nurses and carers to support patients at home.'),('fa-hospital','Hospice Referrals','We connect families with trusted hospice facilities for end-of-life care.'),('fa-pills','Pain Management','Working with specialist teams to ensure patient comfort and dignity.'),('fa-hands-holding-heart','Family Support','Emotional and practical support services for family members and caregivers.')] %}
+        <div class="col-6">
+          <div class="service-card h-100 text-center p-3">
+            <i class="fas {{ icon }} fa-2x mb-2" style="color:var(--primary-color)"></i>
+            <h6 class="fw-bold">{{ title }}</h6>
+            <p class="small text-muted">{{ desc }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Process -->
+  <h2 class="section-title text-center fade-in">How We Help</h2>
+  <div class="row g-4 mt-2 text-center">
+    {% for n, t, d in [(1,'Initial Assessment','We assess the patient\'s needs and discuss care options.'),(2,'Care Planning','A personalised care plan is developed with the medical team.'),(3,'Ongoing Support','Continuous monitoring and family communication throughout.') ] %}
+    <div class="col-md-4 fade-in">
+      <div class="how-step">
+        <div class="how-step-num">{{ n }}</div>
+        <h5>{{ t }}</h5><p>{{ d }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="cta fade-in">
+  <h2>Need Palliative Care Support?</h2>
+  <p>Contact our compassionate team today — we're here to help</p>
+  <a href="{{ url_for('contact') }}" class="btn btn-gold btn-lg mt-2">Contact Us Now</a>
+</section>
+{% endblock %}

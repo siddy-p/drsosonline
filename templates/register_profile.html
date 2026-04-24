@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% block title %}Complete Your Profile — Dr.SOS EduConsult{% endblock %}
+{% block content %}
+<section class="auth-section auth-section-wide">
+  <div class="auth-card auth-card-wide">
+    <div class="step-indicator">
+      <div class="step done"><span><i class="fas fa-check"></i></span><p>Account</p></div>
+      <div class="step-line active"></div>
+      <div class="step active"><span>2</span><p>Profile</p></div>
+      <div class="step-line"></div>
+      <div class="step"><span>3</span><p>Education</p></div>
+    </div>
+
+    <div class="auth-header">
+      <h1>Personal & Address Details</h1>
+      <p>This information is needed to process your education application</p>
+    </div>
+
+    <form method="POST" action="{{ url_for('register_profile') }}">
+
+      <div class="form-section-title"><i class="fas fa-user me-2"></i>Personal Information</div>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label-auth">First Name *</label>
+          <input type="text" name="first_name" class="form-control-auth" placeholder="John" required>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label-auth">Last Name *</label>
+          <input type="text" name="last_name" class="form-control-auth" placeholder="Doe" required>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label-auth">Date of Birth *</label>
+          <input type="date" name="date_of_birth" class="form-control-auth" required>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label-auth">Gender</label>
+          <select name="gender" class="form-control-auth">
+            <option value="">Select...</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Non-binary</option>
+            <option>Prefer not to say</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label-auth">Nationality *</label>
+          <input type="text" name="nationality" class="form-control-auth" placeholder="e.g. Nigerian" required>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label-auth">Phone Number *</label>
+          <input type="tel" name="phone" class="form-control-auth" placeholder="+234 000 0000" required>
+        </div>
+      </div>
+
+      <div class="form-section-title mt-4"><i class="fas fa-house me-2"></i>Home Address</div>
+      <div class="row g-3">
+        <div class="col-12">
+          <label class="form-label-auth">Street Address *</label>
+          <input type="text" name="street_address" class="form-control-auth" placeholder="123 Main Street" required>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label-auth">City *</label>
+          <input type="text" name="city" class="form-control-auth" placeholder="Lagos" required>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label-auth">County / State</label>
+          <input type="text" name="county_state" class="form-control-auth" placeholder="Lagos State">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label-auth">Country *</label>
+          <input type="text" name="country" class="form-control-auth" placeholder="Nigeria" required>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label-auth">Postcode / ZIP</label>
+          <input type="text" name="postcode" class="form-control-auth" placeholder="100001">
+        </div>
+      </div>
+
+      <div class="form-section-title mt-4"><i class="fas fa-passport me-2"></i>Passport / ID</div>
+      <div class="row g-3">
+        <div class="col-md-4">
+          <label class="form-label-auth">Passport Number</label>
+          <input type="text" name="passport_number" class="form-control-auth" placeholder="A12345678">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label-auth">Expiry Date</label>
+          <input type="date" name="passport_expiry" class="form-control-auth">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label-auth">Issuing Country</label>
+          <input type="text" name="passport_country" class="form-control-auth" placeholder="Nigeria">
+        </div>
+      </div>
+
+      <button type="submit" class="btn-auth-submit mt-4">
+        Continue to Education <i class="fas fa-arrow-right ms-2"></i>
+      </button>
+    </form>
+  </div>
+</section>
+{% endblock %}
