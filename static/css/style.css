@@ -90,7 +90,7 @@ a:hover{color:var(--primary);}
 .hero-float-card i{font-size:1.4rem;color:var(--primary);}
 .hero-float-card strong{display:block;font-size:1rem;font-weight:700;color:#111;}
 .hero-float-card span{color:#666;font-size:.78rem;}
-.hero-float-top{top:-10px;right:16px;animation:float 5s ease-in-out infinite;animation-delay:-2.5s;}
+.hero-float-top{top:-25px;right:16px;animation:float 5s ease-in-out infinite;animation-delay:-2.5s;}
 .hero-float-bottom{bottom:-40px;left:8px;animation:float 5s ease-in-out infinite;animation-delay:-.5s;}
 .hero-img-col{padding-top:20px;}
 
