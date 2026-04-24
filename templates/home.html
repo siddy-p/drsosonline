@@ -1,149 +1,297 @@
 {% extends "base.html" %}
+{% block title %}Dr.SOS EduConsult — Your Global Education Starts Here{% endblock %}
 
 {% block content %}
 
-<!-- HERO -->
-<section class="hero d-flex align-items-center text-white fade-in">
+<!-- ===== HERO ===== -->
+<section class="hero-home">
+  <!-- Decorative blobs -->
+  <div class="hero-blob hero-blob-1"></div>
+  <div class="hero-blob hero-blob-2"></div>
+
+  <div class="container hero-home-inner">
+    <div class="row align-items-center g-5">
+
+      <div class="col-lg-6 hero-text-col">
+        <div class="hero-badge">🌍 Trusted by 1,000+ Students Worldwide</div>
+        <h1 class="hero-heading">Your Global Education <span class="hero-highlight">Starts Here</span></h1>
+        <p class="hero-subtext">Expert guidance for university admissions, visa applications, and everything in between — from first enquiry to landing on campus.</p>
+        <div class="hero-actions">
+          <a href="{{ url_for('book') }}" class="btn btn-gold btn-lg">Book Free Consultation</a>
+          <a href="{{ url_for('education') }}" class="btn-ghost-white">Explore Services <i class="fas fa-arrow-right ms-1"></i></a>
+        </div>
+        <div class="hero-trust-pills">
+          <span><i class="fas fa-circle-check"></i> 95% Visa Success</span>
+          <span><i class="fas fa-circle-check"></i> 10+ Countries</span>
+          <span><i class="fas fa-circle-check"></i> Free Consultation</span>
+        </div>
+      </div>
+
+      <div class="col-lg-6 text-center hero-img-col">
+        <div class="hero-img-wrap">
+          <img src="/static/images/hero.jpg" class="hero-img" alt="Students studying abroad">
+          <!-- Floating cards -->
+          <div class="hero-float-card hero-float-1">
+            <i class="fas fa-graduation-cap"></i>
+            <div><strong>500+</strong><span>Universities</span></div>
+          </div>
+          <div class="hero-float-card hero-float-2">
+            <i class="fas fa-passport"></i>
+            <div><strong>95%</strong><span>Visa Rate</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== STATS BAR ===== -->
+<section class="stats-bar">
   <div class="container">
-    <div class="row align-items-center">
-
-      <div class="col-md-6 fade-in">
-        <h1 class="display-4 fw-bold">Your Global Education Starts Here</h1>
-        <p class="lead">We help you secure admissions in top universities worldwide</p>
-        <a href="/book" class="btn btn-gold btn-lg mt-3 fade-in">Book Free Consultation</a>
+    <div class="stats-grid">
+      <div class="stat-pill reveal">
+        <span class="stat-num"><span class="counter" data-target="1000">0</span>+</span>
+        <span class="stat-label">Students Placed</span>
       </div>
-
-      <div class="col-md-6 text-center fade-in">
-        <img src="/static/images/hero.jpg" class="img-fluid hero-img">
+      <div class="stat-divider"></div>
+      <div class="stat-pill reveal">
+        <span class="stat-num"><span class="counter" data-target="95">0</span>%</span>
+        <span class="stat-label">Visa Success Rate</span>
       </div>
-
+      <div class="stat-divider"></div>
+      <div class="stat-pill reveal">
+        <span class="stat-num"><span class="counter" data-target="10">0</span>+</span>
+        <span class="stat-label">Countries Covered</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-pill reveal">
+        <span class="stat-num"><span class="counter" data-target="50">0</span>+</span>
+        <span class="stat-label">Partner Universities</span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- TRUST BAR -->
-<section class="trust-bar text-center py-3 fade-in">
-  <div class="container d-flex justify-content-around">
-    <span>✔ 1000+ Students</span>
-    <span>✔ 95% Visa Success</span>
-    <span>✔ 10+ Countries</span>
+<!-- ===== SERVICES ===== -->
+<section class="section-padded">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-eyebrow">What We Do</p>
+      <h2 class="section-title">Everything You Need to Study Abroad</h2>
+      <p class="section-subtitle">From shortlisting universities to landing at the airport — we handle every step.</p>
+    </div>
+    <div class="row g-4 mt-2">
+      <div class="col-lg-4 col-md-6 reveal">
+        <div class="home-service-card">
+          <div class="hsc-icon"><i class="fas fa-graduation-cap"></i></div>
+          <h4>Admission Guidance</h4>
+          <p>We identify the best universities for your profile and manage the full application process on your behalf.</p>
+          <a href="{{ url_for('education') }}" class="hsc-link">Learn more <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 reveal">
+        <div class="home-service-card hsc-featured">
+          <div class="hsc-icon"><i class="fas fa-passport"></i></div>
+          <h4>Visa Assistance</h4>
+          <p>Expert visa support for Ireland, UK, Canada, Australia & Germany with a 95% success rate — guaranteed peace of mind.</p>
+          <a href="{{ url_for('education') }}" class="hsc-link">Learn more <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 reveal">
+        <div class="home-service-card">
+          <div class="hsc-icon"><i class="fas fa-pen-to-square"></i></div>
+          <h4>SOP & Documentation</h4>
+          <p>Compelling statements of purpose and application documents that make your profile stand out from the crowd.</p>
+          <a href="{{ url_for('education') }}" class="hsc-link">Learn more <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 reveal">
+        <div class="home-service-card">
+          <div class="hsc-icon"><i class="fas fa-award"></i></div>
+          <h4>Scholarship Search</h4>
+          <p>We hunt for and apply to scholarships and funding opportunities to ease your financial burden.</p>
+          <a href="{{ url_for('education') }}" class="hsc-link">Learn more <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 reveal">
+        <div class="home-service-card">
+          <div class="hsc-icon"><i class="fas fa-plane-departure"></i></div>
+          <h4>Pre-Departure Support</h4>
+          <p>Accommodation, bank accounts, insurance and everything you need before you fly — sorted.</p>
+          <a href="{{ url_for('education') }}" class="hsc-link">Learn more <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 reveal">
+        <div class="home-service-card">
+          <div class="hsc-icon"><i class="fas fa-headset"></i></div>
+          <h4>24/7 Support</h4>
+          <p>Your dedicated advisor is always available via WhatsApp, email or phone — whenever you need us.</p>
+          <a href="{{ url_for('contact') }}" class="hsc-link">Learn more <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- SERVICES -->
-<section class="container mt-5 fade-in">
-  <h2 class="text-center fw-bold fade-in">Our Services</h2>
-  <div class="row mt-4">
-
-    <div class="col-md-4 fade-in">
-      <div class="card service-card p-4 text-center">
-        <h4>🎓 Admission Guidance</h4>
-        <p>Expert support to secure university admissions</p>
-      </div>
+<!-- ===== DESTINATIONS ===== -->
+<section class="destinations-home">
+  <div class="container">
+    <div class="section-header reveal" style="color:#fff">
+      <p class="section-eyebrow" style="color:var(--gold)">Where We'll Take You</p>
+      <h2 class="section-title text-white">Popular Study Destinations</h2>
     </div>
-
-    <div class="col-md-4 fade-in">
-      <div class="card service-card p-4 text-center">
-        <h4>🛂 Visa Assistance</h4>
-        <p>Complete visa process handled professionally</p>
-      </div>
+    <div class="dest-scroll-row reveal">
+      <div class="dest-tile"><span class="dest-flag">🇮🇪</span><strong>Ireland</strong></div>
+      <div class="dest-tile"><span class="dest-flag">🇬🇧</span><strong>UK</strong></div>
+      <div class="dest-tile"><span class="dest-flag">🇨🇦</span><strong>Canada</strong></div>
+      <div class="dest-tile"><span class="dest-flag">🇦🇺</span><strong>Australia</strong></div>
+      <div class="dest-tile"><span class="dest-flag">🇩🇪</span><strong>Germany</strong></div>
+      <div class="dest-tile"><span class="dest-flag">🇺🇸</span><strong>USA</strong></div>
     </div>
-
-    <div class="col-md-4 fade-in">
-      <div class="card service-card p-4 text-center">
-        <h4>✍️ SOP & Documentation</h4>
-        <p>Strong SOPs that boost your acceptance chances</p>
-      </div>
+    <div class="text-center mt-5 reveal">
+      <a href="{{ url_for('education') }}#destinations" class="btn btn-gold">View All Destinations</a>
     </div>
-
   </div>
 </section>
 
-<!-- STUDY DESTINATIONS -->
-<section class="destinations text-center mt-5 p-5 fade-in">
-  <h2 class="fw-bold text-white">Study Destinations</h2>
-  <div class="d-flex justify-content-center gap-4 mt-4 flex-wrap">
-    <div class="country-card fade-in">🇮🇪 Ireland</div>
-    <div class="country-card fade-in">🇬🇧 UK</div>
-    <div class="country-card fade-in">🇨🇦 Canada</div>
-    <div class="country-card fade-in">🇦🇺 Australia</div>
-    <div class="country-card fade-in">🇩🇪 Germany</div>
+<!-- ===== HOW IT WORKS ===== -->
+<section class="section-padded how-home">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-eyebrow">Simple Process</p>
+      <h2 class="section-title">How It Works</h2>
+    </div>
+    <div class="how-steps-row">
+      <div class="how-home-step reveal">
+        <div class="hhs-num">01</div>
+        <div class="hhs-icon"><i class="fas fa-calendar-check"></i></div>
+        <h5>Free Consultation</h5>
+        <p>Book a call with your dedicated advisor to discuss your goals and academic profile.</p>
+      </div>
+      <div class="how-connector"></div>
+      <div class="how-home-step reveal">
+        <div class="hhs-num">02</div>
+        <div class="hhs-icon"><i class="fas fa-magnifying-glass-chart"></i></div>
+        <h5>Profile Assessment</h5>
+        <p>We assess your qualifications and shortlist the best programmes and universities.</p>
+      </div>
+      <div class="how-connector"></div>
+      <div class="how-home-step reveal">
+        <div class="hhs-num">03</div>
+        <div class="hhs-icon"><i class="fas fa-file-circle-check"></i></div>
+        <h5>Application Submitted</h5>
+        <p>We prepare and submit strong applications to multiple universities on your behalf.</p>
+      </div>
+      <div class="how-connector"></div>
+      <div class="how-home-step reveal">
+        <div class="hhs-num">04</div>
+        <div class="hhs-icon"><i class="fas fa-plane"></i></div>
+        <h5>Visa & Arrival</h5>
+        <p>We guide you through the visa process and pre-departure prep until you land.</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- WHY US -->
-<section class="container mt-5 text-center fade-in">
-  <h2 class="fw-bold">Why Choose Us?</h2>
-  <div class="row mt-4">
-
-    <div class="col-md-3 fade-in"><h3>1000+</h3><p>Students</p></div>
-    <div class="col-md-3 fade-in"><h3>95%</h3><p>Success</p></div>
-    <div class="col-md-3 fade-in"><h3>10+</h3><p>Countries</p></div>
-    <div class="col-md-3 fade-in"><h3>24/7</h3><p>Support</p></div>
-
+<!-- ===== OTHER SERVICES ===== -->
+<section class="section-padded other-services-home" style="background:#f7f9f7">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-eyebrow">Beyond Education</p>
+      <h2 class="section-title">Our Healthcare Services</h2>
+      <p class="section-subtitle">Dr.SOS goes beyond education — we support your health and safety too.</p>
+    </div>
+    <div class="row g-4 mt-2">
+      <div class="col-md-4 reveal">
+        <a href="{{ url_for('palliative_care') }}" class="other-svc-card">
+          <div class="osvc-icon" style="background:rgba(192,57,43,.1);color:#c0392b"><i class="fas fa-heart-pulse"></i></div>
+          <h5>Palliative Care</h5>
+          <p>Compassionate home care, hospice referrals and pain management support.</p>
+          <span class="osvc-arrow"><i class="fas fa-arrow-right"></i></span>
+        </a>
+      </div>
+      <div class="col-md-4 reveal">
+        <a href="{{ url_for('doctors') }}" class="other-svc-card">
+          <div class="osvc-icon" style="background:rgba(46,134,193,.1);color:#2e86c1"><i class="fas fa-user-doctor"></i></div>
+          <h5>Doctor Referrals</h5>
+          <p>Fast-tracked specialist referrals across Ireland and internationally.</p>
+          <span class="osvc-arrow"><i class="fas fa-arrow-right"></i></span>
+        </a>
+      </div>
+      <div class="col-md-4 reveal">
+        <a href="{{ url_for('air_ambulance') }}" class="other-svc-card">
+          <div class="osvc-icon" style="background:rgba(243,156,18,.1);color:#e67e22"><i class="fas fa-helicopter"></i></div>
+          <h5>Air Ambulance</h5>
+          <p>24/7 international medical air transport with full ICU equipment on board.</p>
+          <span class="osvc-arrow"><i class="fas fa-arrow-right"></i></span>
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- OTHER SERVICES -->
-<section class="container mt-5 fade-in">
-  <h3 class="text-center fw-bold fade-in">Other Services</h3>
-  <div class="row mt-4 text-center">
-
-    <div class="col-md-4 fade-in">
-      <div class="card other-card p-3">
-        <h5>Palliative Care</h5>
+<!-- ===== TESTIMONIAL ===== -->
+<section class="section-padded testimonial-home">
+  <div class="container">
+    <div class="section-header reveal" style="color:#fff">
+      <p class="section-eyebrow" style="color:var(--gold)">Success Stories</p>
+      <h2 class="section-title text-white">What Our Students Say</h2>
+    </div>
+    <div class="testimonials-slider reveal" id="testimonialSlider">
+      <div class="testimonial-slide active">
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"Dr.SOS made my dream of studying in Ireland a reality. My advisor handled everything — from finding the right university to my visa approval in just 3 weeks!"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">A</div>
+            <div><strong>Amara O.</strong><span>Nigeria → Ireland, MSc Data Analytics</span></div>
+            <div class="ms-auto">⭐⭐⭐⭐⭐</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-slide">
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"I was rejected once before. After working with Dr.SOS, I got accepted to 3 universities including my first choice. Absolutely incredible service."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">K</div>
+            <div><strong>Khalid M.</strong><span>Pakistan → UK, MBA</span></div>
+            <div class="ms-auto">⭐⭐⭐⭐⭐</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-slide">
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"The team was always available and made the IRCC application so simple. I now have my study permit and I'm loving life in Toronto!"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">P</div>
+            <div><strong>Priya S.</strong><span>India → Canada, MSc Computer Science</span></div>
+            <div class="ms-auto">⭐⭐⭐⭐⭐</div>
+          </div>
+        </div>
       </div>
     </div>
-
-    <div class="col-md-4 fade-in">
-      <div class="card other-card p-3">
-        <h5>Doctors</h5>
-      </div>
+    <div class="testimonial-dots text-center mt-4">
+      <span class="t-dot active" onclick="goToSlide(0)"></span>
+      <span class="t-dot" onclick="goToSlide(1)"></span>
+      <span class="t-dot" onclick="goToSlide(2)"></span>
     </div>
-
-    <div class="col-md-4 fade-in">
-      <div class="card other-card p-3">
-        <h5>Air Ambulance</h5>
-      </div>
-    </div>
-
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta text-center text-white mt-5 p-5 fade-in">
-  <h2>Start Your Journey Today</h2>
-  <p>Get expert guidance now</p>
-  <a href="/book" class="btn btn-primary mt-3 fade-in">Apply Now</a>
+<!-- ===== CTA ===== -->
+<section class="cta-home">
+  <div class="container">
+    <div class="cta-home-inner reveal">
+      <div>
+        <h2>Ready to Start Your Journey?</h2>
+        <p>Join 1,000+ students who trusted Dr.SOS to unlock their global education.</p>
+      </div>
+      <div class="cta-home-btns">
+        <a href="{{ url_for('register') }}" class="btn btn-gold btn-lg">Create Free Account</a>
+        <a href="{{ url_for('book') }}" class="btn-ghost-dark">Book Consultation</a>
+      </div>
+    </div>
+  </div>
 </section>
-
-<!-- CUSTOM CURSOR -->
-<div class="custom-cursor"></div>
-
-<!-- FADE-IN SCROLL SCRIPT -->
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    const faders = document.querySelectorAll(".fade-in");
-
-    const appearOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px"
-    };
-
-    const appearOnScroll = new IntersectionObserver((entries, observer) => {
-        entries.forEach((entry) => {
-            if(entry.isIntersecting){
-                entry.target.classList.add("visible");
-                observer.unobserve(entry.target);
-            }
-        });
-    }, appearOptions);
-
-    faders.forEach((fader, index) => {
-        fader.style.transitionDelay = `${index * 0.08}s`; // faster stagger
-        appearOnScroll.observe(fader);
-    });
-});
-</script>
 
 {% endblock %}
