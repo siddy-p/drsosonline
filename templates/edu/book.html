@@ -15,7 +15,7 @@
       <div class="dashboard-card">
         <h3 class="mb-1"><i class="fas fa-calendar-plus me-2 text-success"></i>Schedule Your Appointment</h3>
         <p class="text-muted mb-4">Free 30-minute consultation with a qualified advisor.</p>
-        <form method="POST" action="{{ url_for('book') }}">
+        <form method="POST" action="/edu/book">
           <div class="row g-3">
             <div class="col-md-6">
               <label class="form-label-auth">Full Name *</label>
@@ -36,18 +36,13 @@
               <label class="form-label-auth">Service *</label>
               <select name="service" class="form-control-auth" required>
                 <option value="">Select a service...</option>
-                <optgroup label="Education">
-                  <option>University Admissions Guidance</option>
-                  <option>Visa Application Support</option>
-                  <option>SOP / Personal Statement Writing</option>
-                  <option>Scholarship Research</option>
-                </optgroup>
-                <optgroup label="Healthcare">
-                  <option>Palliative Care Referral</option>
-                  <option>Doctor / Specialist Referral</option>
-                  <option>Air Ambulance Enquiry</option>
-                </optgroup>
-                <option>General Enquiry</option>
+                <option>University Admissions Guidance</option>
+                <option>Visa Application Support</option>
+                <option>SOP / Personal Statement Writing</option>
+                <option>Scholarship Research</option>
+                <option>Pre-Departure Support</option>
+                <option>Profile Assessment / Eligibility Check</option>
+                <option>General Education Enquiry</option>
               </select>
             </div>
             <div class="col-md-6">

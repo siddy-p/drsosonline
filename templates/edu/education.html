@@ -7,7 +7,7 @@
   <div class="container text-center text-white">
     <h1 class="display-5 fw-bold">Global Education, Unlocked</h1>
     <p class="lead">Expert guidance from application to arrival — we handle every step.</p>
-    <a href="{{ url_for('book') }}" class="btn btn-gold btn-lg mt-3">Start Your Journey</a>
+    <a href="/edu/book" class="btn btn-gold btn-lg mt-3">Start Your Journey</a>
   </div>
 </section>
 
@@ -46,6 +46,96 @@
   </div>
 </section>
 
+<!-- WHY CHOOSE US – NEW -->
+<section class="edu-why-section fade-in">
+  <div class="container">
+    <h2 class="section-title text-center text-white mb-2">Why Students Choose Dr.SOS</h2>
+    <p class="text-center text-white-50 mb-5">We don't just advise — we partner with you from day one until you land on campus</p>
+    <div class="row g-4">
+      {% for icon, title, desc in [
+        ('fa-handshake','Personalised Mentorship','Every student is assigned a dedicated advisor who understands your goals, budget and academic profile.'),
+        ('fa-shield-halved','95% Visa Success Rate','Our documentation experts have a proven track record of visa approvals across all major destinations.'),
+        ('fa-building-columns','50+ University Partners','Direct partnerships mean faster application processing, fee waivers, and better scholarship opportunities.'),
+        ('fa-clock','Fast Turnaround','Most offers are received within 2–4 weeks. Urgent applications processed within 48 hours.'),
+        ('fa-comments-dollar','Transparent Pricing','No hidden fees. Clear upfront pricing for every service — and your initial consultation is always free.'),
+        ('fa-earth-americas','End-to-End Support','From university shortlisting to airport pickup in your destination country — we handle everything.')
+      ] %}
+      <div class="col-md-4 fade-in">
+        <div class="edu-why-card">
+          <div class="edu-why-icon"><i class="fas {{ icon }}"></i></div>
+          <h5>{{ title }}</h5>
+          <p>{{ desc }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ELIGIBILITY CHECKER – NEW -->
+<section class="container my-5">
+  <div class="edu-eligibility-wrap fade-in">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5">
+        <div class="edu-elig-badge"><i class="fas fa-wand-magic-sparkles me-2"></i>Quick Assessment</div>
+        <h2 class="fw-bold mb-3">Check Your Eligibility</h2>
+        <p class="text-muted">Not sure if you qualify? Answer a few quick questions and our system will tell you which countries and programmes are the best fit for your profile.</p>
+        <ul class="edu-elig-list">
+          <li><i class="fas fa-circle-check"></i> Takes less than 2 minutes</li>
+          <li><i class="fas fa-circle-check"></i> Personalised country recommendations</li>
+          <li><i class="fas fa-circle-check"></i> Suggested programmes based on your profile</li>
+          <li><i class="fas fa-circle-check"></i> Completely free, no commitment</li>
+        </ul>
+        <a href="/edu/book" class="btn btn-gold btn-lg mt-3">Get Your Free Assessment</a>
+      </div>
+      <div class="col-lg-7">
+        <div class="edu-elig-preview">
+          <div class="edu-elig-q">
+            <span class="edu-elig-qn">1</span>
+            <div>
+              <strong>What is your highest qualification?</strong>
+              <div class="edu-elig-opts">
+                <span>High School / 12th</span>
+                <span class="selected">Bachelor's Degree</span>
+                <span>Master's Degree</span>
+              </div>
+            </div>
+          </div>
+          <div class="edu-elig-q">
+            <span class="edu-elig-qn">2</span>
+            <div>
+              <strong>Which country are you most interested in?</strong>
+              <div class="edu-elig-opts">
+                <span>🇮🇪 Ireland</span>
+                <span>🇬🇧 UK</span>
+                <span class="selected">🇨🇦 Canada</span>
+                <span>🇦🇺 Australia</span>
+              </div>
+            </div>
+          </div>
+          <div class="edu-elig-q">
+            <span class="edu-elig-qn">3</span>
+            <div>
+              <strong>Do you have an English language test score?</strong>
+              <div class="edu-elig-opts">
+                <span class="selected">Yes — IELTS / PTE</span>
+                <span>Not yet</span>
+              </div>
+            </div>
+          </div>
+          <div class="edu-elig-result">
+            <i class="fas fa-circle-check"></i>
+            <div>
+              <strong>Great news! You're eligible for 23 programmes</strong>
+              <span>in Canada, Ireland & UK</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- Study Destinations -->
 <section class="destinations fade-in" id="destinations">
   <div class="container">
@@ -67,6 +157,33 @@
   </div>
 </section>
 
+<!-- POPULAR PROGRAMMES – NEW -->
+<section class="container my-5">
+  <h2 class="section-title text-center fade-in">Popular Programmes</h2>
+  <p class="section-subtitle text-center fade-in">Top fields our students choose — all with strong career prospects</p>
+  <div class="row g-4 mt-3">
+    {% for icon, title, countries, intake in [
+      ('fa-laptop-code','Computer Science & IT','Ireland, Canada, UK, Germany','Sep & Jan intake'),
+      ('fa-chart-line','Business & MBA','UK, Canada, Australia, USA','Sep & Jan intake'),
+      ('fa-flask','Data Science & AI','Ireland, UK, Germany','Sep intake'),
+      ('fa-stethoscope','Nursing & Healthcare','Ireland, UK, Australia','Sep & Feb intake'),
+      ('fa-microchip','Engineering','Germany, Canada, UK','Sep & Jan intake'),
+      ('fa-palette','Design & Media','UK, Australia, Ireland','Sep intake')
+    ] %}
+    <div class="col-lg-4 col-md-6 fade-in">
+      <div class="edu-prog-card">
+        <div class="edu-prog-icon"><i class="fas {{ icon }}"></i></div>
+        <div>
+          <h5>{{ title }}</h5>
+          <p class="mb-1"><i class="fas fa-globe me-1"></i>{{ countries }}</p>
+          <span class="edu-prog-intake"><i class="fas fa-calendar me-1"></i>{{ intake }}</span>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
 <!-- How It Works -->
 <section class="container my-5">
   <h2 class="section-title text-center fade-in">How It Works</h2>
@@ -83,6 +200,36 @@
   </div>
 </section>
 
+<!-- FAQ – NEW -->
+<section class="edu-faq-section fade-in">
+  <div class="container">
+    <h2 class="section-title text-center mb-2">Frequently Asked Questions</h2>
+    <p class="section-subtitle text-center mb-5">Quick answers to common questions from students</p>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        {% for q, a in [
+          ('How much does the consultation cost?','Your initial consultation is completely free. We discuss your goals, assess your profile, and give you a clear roadmap — no obligation to proceed.'),
+          ('What documents do I need to apply?','Typically you need your academic transcripts, passport copy, English test score (IELTS/PTE/TOEFL), a Statement of Purpose (which we help write), and financial documents.'),
+          ('How long does the application process take?','From consultation to university offer, it typically takes 2–6 weeks depending on the university and country. Visa processing is usually 4–12 weeks after that.'),
+          ('Can you help with scholarships?','Absolutely. We actively search for scholarship opportunities and help you apply. Many of our partner universities offer exclusive scholarships for our students.'),
+          ('Do I need IELTS to study abroad?','Most countries require an English language test, but some universities accept PTE, TOEFL, or Duolingo. A few universities in Ireland and UK waive this requirement for certain applicants.'),
+          ('What happens if my visa is rejected?','While our visa success rate is 95%, if a rejection happens, we analyse the reason and re-apply at no additional cost. We also guide you through the appeal process if applicable.')
+        ] %}
+        <div class="edu-faq-item fade-in">
+          <div class="edu-faq-q" onclick="this.parentElement.classList.toggle('open')">
+            <span>{{ q }}</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="edu-faq-a">
+            <p>{{ a }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- Testimonials -->
 <section class="testimonials-section fade-in">
   <div class="container">
@@ -91,7 +238,7 @@
       {% set testimonials = [
         ('Amara O.','Nigeria → Ireland, MSc Data Analytics','Dr.SOS made my dream of studying in Ireland a reality. My advisor handled everything — from finding the right university to my visa approval in just 3 weeks!','⭐⭐⭐⭐⭐'),
         ('Khalid M.','Pakistan → UK, MBA','I was rejected once before. After working with Dr.SOS, I got accepted to 3 universities including my first choice. Absolutely incredible service.','⭐⭐⭐⭐⭐'),
-        ('Priya S.','India → Canada, MSc Computer Science','The team was always available for questions and made the IRCC application so simple. I now have my study permit and I\'m loving life in Toronto!','⭐⭐⭐⭐⭐')
+        ('Priya S.','India → Canada, MSc Computer Science','The team was always available for questions and made the IRCC application so simple. I now have my study permit and loving life in Toronto!','⭐⭐⭐⭐⭐')
       ] %}
       {% for name, detail, quote, stars in testimonials %}
       <div class="testimonial-slide {% if loop.first %}active{% endif %}">
@@ -118,6 +265,6 @@
 <section class="cta fade-in">
   <h2>Ready to Study Abroad?</h2>
   <p>Join 1,000+ students who trusted Dr.SOS for their global education</p>
-  <a href="{{ url_for('book') }}" class="btn btn-gold btn-lg mt-2">Book Free Consultation</a>
+  <a href="/edu/book" class="btn btn-gold btn-lg mt-2">Book Free Consultation</a>
 </section>
 {% endblock %}

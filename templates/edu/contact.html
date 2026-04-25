@@ -15,7 +15,7 @@
     <div class="col-lg-7 fade-in">
       <div class="dashboard-card">
         <h3 class="mb-4"><i class="fas fa-paper-plane me-2 text-success"></i>Send Us a Message</h3>
-        <form method="POST" action="{{ url_for('contact') }}">
+        <form method="POST" action="/edu/contact">
           <div class="row g-3">
             <div class="col-md-6">
               <label class="form-label-auth">Full Name *</label>
@@ -33,11 +33,12 @@
               <label class="form-label-auth">Subject *</label>
               <select name="subject" class="form-control-auth" required>
                 <option value="">Select a topic...</option>
-                <option>Education Consultancy</option>
+                <option>University Admissions</option>
                 <option>Visa Assistance</option>
-                <option>Palliative Care</option>
-                <option>Doctor Referral</option>
-                <option>Air Ambulance</option>
+                <option>Scholarship Enquiry</option>
+                <option>SOP / Documentation Help</option>
+                <option>Pre-Departure Support</option>
+                <option>Eligibility Check</option>
                 <option>General Enquiry</option>
               </select>
             </div>
