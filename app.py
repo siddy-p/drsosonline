@@ -225,6 +225,15 @@ def register_profile():
                       'passport_number','passport_expiry','passport_country']:
             setattr(p, field, request.form.get(field))
         db.session.commit()
+        
+        action = request.form.get('action')
+        if action == 'finish':
+            session.pop('reg_user_id', None)
+            login_user(user)
+            name = p.first_name or 'there'
+            flash(f'Welcome, {name}! Your account is set up for Medical Consultations.', 'success')
+            return redirect(url_for('dashboard'))
+            
         return redirect(url_for('register_education'))
     return render_template('register_profile.html', step=2)
 

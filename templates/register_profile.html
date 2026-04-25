@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Complete Your Profile — Dr.SOS EduConsult{% endblock %}
+{% block title %}Complete Your Profile — Dr.SOS{% endblock %}
 {% block content %}
 <section class="auth-section auth-section-wide">
   <div class="auth-card auth-card-wide">
@@ -12,8 +12,8 @@
     </div>
 
     <div class="auth-header">
-      <h1>Personal & Address Details</h1>
-      <p>This information is needed to process your education application</p>
+      <h1>Personal Details</h1>
+      <p>Basic information required for your account</p>
     </div>
 
     <form method="POST" action="{{ url_for('register_profile') }}">
@@ -92,9 +92,14 @@
         </div>
       </div>
 
-      <button type="submit" class="btn-auth-submit mt-4">
-        Continue to Education <i class="fas fa-arrow-right ms-2"></i>
-      </button>
+      <div class="d-flex flex-column gap-2 mt-4">
+        <button type="submit" name="action" value="finish" class="btn-auth-submit" style="background: linear-gradient(135deg,#0d9488,#14b8a6); color: #fff;">
+          Finish Registration (Medical Only) <i class="fas fa-check ms-2"></i>
+        </button>
+        <button type="submit" name="action" value="edu" class="btn-ghost-dark text-center justify-content-center">
+          Continue to Education Details <i class="fas fa-arrow-right ms-2"></i>
+        </button>
+      </div>
     </form>
   </div>
 </section>
