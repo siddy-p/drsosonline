@@ -228,6 +228,6 @@
 .on-emergency-banner p{color:var(--on-muted);margin-bottom:0;}
 
 /* FOOTER */
-.online-footer{background:var(--on-dark);padding:60px 0 20px;border-top:1px solid rgba(255,255,255,.06);}
+.online-footer{background:var(--on-dark);color:rgba(255,255,255,.7);padding:60px 0 20px;border-top:1px solid rgba(255,255,255,.06);}
 .on-footer-brand{font-size:1.3rem;font-weight:800;margin-bottom:12px;}
 .on-footer-tagline{color:rgba(255,255,255,.45);font-size:.85rem;line-height:1.7;}
