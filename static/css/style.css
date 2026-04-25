@@ -381,11 +381,18 @@ select.form-control-auth{cursor:pointer;}
 }
 
 /* ===================== EDU PORTAL NAV ===================== */
-.edu-nav{background:rgba(0,0,0,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);position:sticky;top:0;z-index:1000;}
-.edu-brand{font-weight:800;font-size:1.3rem;color:#fff!important;text-decoration:none;}
-.brand-sub{color:rgba(255,255,255,.6);font-weight:400;font-size:1rem;margin-left:4px;}
-.edu-back-link{border:1px solid rgba(255,255,255,.2);border-radius:8px;font-size:.82rem!important;}
-.edu-back-link:hover{background:rgba(255,255,255,.08);}
+.edu-nav{background:rgba(13,43,26,.95);backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px);position:sticky;top:0;z-index:1000;border-bottom:1px solid rgba(255,255,255,.05);padding:14px 0;}
+.edu-brand{font-weight:800;font-size:1.45rem;color:#fff!important;text-decoration:none;letter-spacing:-.5px;}
+.brand-sub{color:rgba(255,255,255,.7);font-weight:400;font-size:1.05rem;margin-left:6px;}
+.edu-nav .navbar-nav .nav-link{font-size:.95rem;padding:8px 16px!important;margin:0 2px;border-radius:8px;transition:all .3s ease;color:rgba(255,255,255,.85)!important;}
+.edu-nav .navbar-nav .nav-link:hover{background:rgba(255,255,255,.1);color:#fff!important;}
+.edu-nav .navbar-nav .nav-link::after{display:none;} /* Override global nav-link underline */
+.edu-back-link{border:1px solid rgba(255,255,255,.25);font-size:.85rem!important;padding:8px 14px!important;}
+.edu-back-link:hover{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.4);}
+.edu-nav .navbar-toggler{border:none;color:#fff;}
+.edu-nav .navbar-toggler:focus{box-shadow:none;}
+.edu-nav .navbar-collapse{padding-top:10px;}
+@media(min-width:992px){.edu-nav .navbar-collapse{padding-top:0;}}
 
 /* Ghost buttons */
 .btn-ghost-white{display:inline-flex;align-items:center;background:transparent;color:rgba(255,255,255,.85);border:2px solid rgba(255,255,255,.3);padding:12px 26px;border-radius:8px;font-weight:600;font-size:.95rem;transition:all .3s;}

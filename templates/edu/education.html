@@ -1,38 +1,38 @@
 {% extends "edu/base_edu.html" %}
-{% block title %}Education Consultancy — Dr.SOS EduConsult{% endblock %}
+{% block title %}MBBS Abroad Services — Dr.SOS EduConsult{% endblock %}
 {% block content %}
 
 <!-- Hero -->
 <section class="page-hero page-hero-green fade-in">
   <div class="container text-center text-white">
-    <h1 class="display-5 fw-bold">Global Education, Unlocked</h1>
-    <p class="lead">Expert guidance from application to arrival — we handle every step.</p>
-    <a href="/edu/book" class="btn btn-gold btn-lg mt-3">Start Your Journey</a>
+    <h1 class="display-5 fw-bold">MBBS Abroad — Complete Guide</h1>
+    <p class="lead">NMC-approved universities, affordable fees, English-medium courses — your complete pathway to becoming a doctor.</p>
+    <a href="/edu/book" class="btn btn-gold btn-lg mt-3">Get Free Counselling</a>
   </div>
 </section>
 
 <!-- Stats -->
 <section class="trust-bar fade-in">
   <div class="container d-flex justify-content-around flex-wrap gap-3 text-center">
-    <div class="trust-item"><span class="counter" data-target="1000">0</span><span>+</span><p>Students Helped</p></div>
-    <div class="trust-item"><span class="counter" data-target="95">0</span><span>%</span><p>Visa Success Rate</p></div>
-    <div class="trust-item"><span class="counter" data-target="10">0</span><span>+</span><p>Destination Countries</p></div>
-    <div class="trust-item"><span class="counter" data-target="50">0</span><span>+</span><p>Partner Universities</p></div>
+    <div class="trust-item"><span class="counter" data-target="1000">0</span><span>+</span><p>Students Placed</p></div>
+    <div class="trust-item"><span class="counter" data-target="95">0</span><span>%</span><p>Admission Success</p></div>
+    <div class="trust-item"><span class="counter" data-target="8">0</span><span>+</span><p>Countries</p></div>
+    <div class="trust-item"><span class="counter" data-target="30">0</span><span>+</span><p>NMC Universities</p></div>
   </div>
 </section>
 
 <!-- Services -->
 <section class="container my-5">
-  <h2 class="section-title text-center fade-in">Our Education Services</h2>
-  <p class="section-subtitle text-center fade-in">Everything you need from first enquiry to arriving on campus</p>
+  <h2 class="section-title text-center fade-in">Our MBBS Abroad Services</h2>
+  <p class="section-subtitle text-center fade-in">End-to-end support from NEET counselling to landing on campus</p>
   <div class="row g-4 mt-3">
     {% set services = [
-      ('fa-graduation-cap','Admission Guidance','We identify the right universities for your profile and handle the entire application process on your behalf.'),
-      ('fa-passport','Visa Assistance','Expert visa support for Ireland, UK, Canada, Australia, Germany and beyond with a 95% success rate.'),
-      ('fa-pen-to-square','SOP & Essays','Compelling Statements of Purpose and personal essays that make your application stand out.'),
-      ('fa-award','Scholarship Search','We search and apply for scholarships and funding opportunities to reduce your financial burden.'),
-      ('fa-plane-departure','Pre-Departure Support','Accommodation guidance, bank accounts, insurance and everything you need before you fly.'),
-      ('fa-headset','24/7 Advisor Support','Your dedicated advisor is always available to answer questions and keep your application moving.')
+      ('fa-stethoscope','MBBS Admission Guidance','We identify the best NMC-approved universities matching your NEET score, budget and preferences.'),
+      ('fa-passport','Visa & Documentation','Complete visa support including invitation letter, medical check-ups, apostille, and embassy assistance.'),
+      ('fa-pen-to-square','Application & Offer Letter','We prepare and submit your application, secure your offer letter, and handle all university communications.'),
+      ('fa-indian-rupee-sign','Fee Structure & Loans','Transparent fee breakdowns. We help you apply for education loans from nationalised banks.'),
+      ('fa-plane-departure','Pre-Departure & Arrival','Forex, travel insurance, airport pickup, hostel arrangement, and city orientation — all sorted.'),
+      ('fa-book-medical','FMGE / NEXT Coaching','Post-MBBS support including FMGE/NEXT exam preparation guidance and PG pathway counselling.')
     ] %}
     {% for icon, title, desc in services %}
     <div class="col-md-4 fade-in">
@@ -46,19 +46,19 @@
   </div>
 </section>
 
-<!-- WHY CHOOSE US – NEW -->
+<!-- WHY CHOOSE US -->
 <section class="edu-why-section fade-in">
   <div class="container">
     <h2 class="section-title text-center text-white mb-2">Why Students Choose Dr.SOS</h2>
-    <p class="text-center text-white-50 mb-5">We don't just advise — we partner with you from day one until you land on campus</p>
+    <p class="text-center text-white-50 mb-5">Kerala-based consultancy with a proven track record in MBBS abroad admissions</p>
     <div class="row g-4">
       {% for icon, title, desc in [
-        ('fa-handshake','Personalised Mentorship','Every student is assigned a dedicated advisor who understands your goals, budget and academic profile.'),
-        ('fa-shield-halved','95% Visa Success Rate','Our documentation experts have a proven track record of visa approvals across all major destinations.'),
-        ('fa-building-columns','50+ University Partners','Direct partnerships mean faster application processing, fee waivers, and better scholarship opportunities.'),
-        ('fa-clock','Fast Turnaround','Most offers are received within 2–4 weeks. Urgent applications processed within 48 hours.'),
-        ('fa-comments-dollar','Transparent Pricing','No hidden fees. Clear upfront pricing for every service — and your initial consultation is always free.'),
-        ('fa-earth-americas','End-to-End Support','From university shortlisting to airport pickup in your destination country — we handle everything.')
+        ('fa-handshake','Personalised Counselling','Every student gets a dedicated counsellor who understands your NEET score, budget, and career goals.'),
+        ('fa-shield-halved','95% Admission Success','Our documentation and university liaison teams have a proven track record across all partner countries.'),
+        ('fa-building-columns','30+ NMC Universities','Direct tie-ups mean faster processing, confirmed seats, and no agent chain — deal directly with us.'),
+        ('fa-clock','Fast Processing','Offer letters within 7 days. Visa processing support from day one. Most students fly within 45 days.'),
+        ('fa-comments-dollar','No Hidden Costs','Complete fee transparency. No donation, no capitation, no management quota. What we quote is what you pay.'),
+        ('fa-earth-americas','Post-MBBS Support','FMGE/NEXT exam guidance, PG admission counselling for MD/MS in India or abroad — we are with you beyond MBBS.')
       ] %}
       <div class="col-md-4 fade-in">
         <div class="edu-why-card">
@@ -72,62 +72,63 @@
   </div>
 </section>
 
-<!-- ELIGIBILITY CHECKER – NEW -->
+<!-- ELIGIBILITY CHECKER -->
 <section class="container my-5">
   <div class="edu-eligibility-wrap fade-in">
     <div class="row align-items-center g-5">
       <div class="col-lg-5">
         <div class="edu-elig-badge"><i class="fas fa-wand-magic-sparkles me-2"></i>Quick Assessment</div>
-        <h2 class="fw-bold mb-3">Check Your Eligibility</h2>
-        <p class="text-muted">Not sure if you qualify? Answer a few quick questions and our system will tell you which countries and programmes are the best fit for your profile.</p>
+        <h2 class="fw-bold mb-3">Am I Eligible for MBBS Abroad?</h2>
+        <p class="text-muted">If you meet these basic criteria, you are eligible. Book a free session and we will match you with the best university.</p>
         <ul class="edu-elig-list">
-          <li><i class="fas fa-circle-check"></i> Takes less than 2 minutes</li>
-          <li><i class="fas fa-circle-check"></i> Personalised country recommendations</li>
-          <li><i class="fas fa-circle-check"></i> Suggested programmes based on your profile</li>
-          <li><i class="fas fa-circle-check"></i> Completely free, no commitment</li>
+          <li><i class="fas fa-circle-check"></i> Passed 12th with Physics, Chemistry & Biology (BiPC)</li>
+          <li><i class="fas fa-circle-check"></i> NEET qualified (50th percentile for General, 40th for OBC/SC/ST)</li>
+          <li><i class="fas fa-circle-check"></i> Age 17+ at the time of admission</li>
+          <li><i class="fas fa-circle-check"></i> Valid Indian passport (or willing to apply)</li>
         </ul>
-        <a href="/edu/book" class="btn btn-gold btn-lg mt-3">Get Your Free Assessment</a>
+        <a href="/edu/book" class="btn btn-gold btn-lg mt-3">Get Free Eligibility Check</a>
       </div>
       <div class="col-lg-7">
         <div class="edu-elig-preview">
           <div class="edu-elig-q">
             <span class="edu-elig-qn">1</span>
             <div>
-              <strong>What is your highest qualification?</strong>
+              <strong>What is your 12th stream?</strong>
               <div class="edu-elig-opts">
-                <span>High School / 12th</span>
-                <span class="selected">Bachelor's Degree</span>
-                <span>Master's Degree</span>
+                <span class="selected">BiPC (Biology)</span>
+                <span>MPC (Maths)</span>
+                <span>Commerce</span>
               </div>
             </div>
           </div>
           <div class="edu-elig-q">
             <span class="edu-elig-qn">2</span>
             <div>
-              <strong>Which country are you most interested in?</strong>
+              <strong>Have you qualified NEET?</strong>
               <div class="edu-elig-opts">
-                <span>🇮🇪 Ireland</span>
-                <span>🇬🇧 UK</span>
-                <span class="selected">🇨🇦 Canada</span>
-                <span>🇦🇺 Australia</span>
+                <span class="selected">Yes — Qualified</span>
+                <span>Appearing this year</span>
+                <span>Not yet</span>
               </div>
             </div>
           </div>
           <div class="edu-elig-q">
             <span class="edu-elig-qn">3</span>
             <div>
-              <strong>Do you have an English language test score?</strong>
+              <strong>Preferred country?</strong>
               <div class="edu-elig-opts">
-                <span class="selected">Yes — IELTS / PTE</span>
-                <span>Not yet</span>
+                <span>🇷🇺 Russia</span>
+                <span class="selected">🇬🇪 Georgia</span>
+                <span>🇵🇭 Philippines</span>
+                <span>🇰🇿 Kazakhstan</span>
               </div>
             </div>
           </div>
           <div class="edu-elig-result">
             <i class="fas fa-circle-check"></i>
             <div>
-              <strong>Great news! You're eligible for 23 programmes</strong>
-              <span>in Canada, Ireland & UK</span>
+              <strong>You are eligible for 12 NMC-approved universities!</strong>
+              <span>in Georgia, Russia & Philippines</span>
             </div>
           </div>
         </div>
@@ -139,12 +140,21 @@
 <!-- Study Destinations -->
 <section class="destinations fade-in" id="destinations">
   <div class="container">
-    <h2 class="fw-bold text-white text-center mb-2">Study Destinations</h2>
-    <p class="text-center text-white-50 mb-5">We have strong partnerships with top universities across these countries</p>
+    <h2 class="fw-bold text-white text-center mb-2">MBBS Abroad Destinations</h2>
+    <p class="text-center text-white-50 mb-5">NMC-approved, WHO-listed universities with affordable fees for Indian students</p>
     <div class="row g-4 justify-content-center">
-      {% set countries = [('🇮🇪','Ireland','Top QS-ranked universities. Post-study work visa available.','from €10,000/year'),('🇬🇧','United Kingdom','World-leading Russell Group universities.','from £12,000/year'),('🇨🇦','Canada','3-year post-grad work permit. PR pathway available.','from CAD $15,000/year'),('🇦🇺','Australia','Globally respected qualifications, sunny lifestyle.','from AUD $18,000/year'),('🇩🇪','Germany','Tuition-free public universities for international students.','Often free + living costs'),('🇺🇸','USA','Home to 8 of the top 10 universities in the world.','from $20,000/year')] %}
+      {% set countries = [
+        ('🇷🇺','Russia','Top NMC-approved universities. 6-year programme in English.','₹18–30 Lakhs total'),
+        ('🇬🇪','Georgia','European standard education. No IELTS required. Safe & affordable.','₹20–35 Lakhs total'),
+        ('🇵🇭','Philippines','US-based curriculum. English-speaking country. Clinical rotations included.','₹15–25 Lakhs total'),
+        ('🇰🇿','Kazakhstan','Growing medical hub. NMC-approved. Modern facilities.','₹18–28 Lakhs total'),
+        ('🇰🇬','Kyrgyzstan','Most affordable option. NMC-approved. Indian food available.','₹12–20 Lakhs total'),
+        ('🇧🇩','Bangladesh','Closest to home. Similar culture. NMC-approved private universities.','₹20–35 Lakhs total'),
+        ('🇺🇿','Uzbekistan','Emerging destination. Government universities with low fees.','₹15–22 Lakhs total'),
+        ('🇬🇧','UK (PG/PLAB)','For MBBS graduates seeking PG in UK. PLAB pathway guidance.','Varies by programme')
+      ] %}
       {% for flag, name, desc, cost in countries %}
-      <div class="col-lg-4 col-md-6 fade-in">
+      <div class="col-lg-3 col-md-6 fade-in">
         <div class="destination-card">
           <div class="dest-flag">{{ flag }}</div>
           <h5>{{ name }}</h5>
@@ -157,18 +167,18 @@
   </div>
 </section>
 
-<!-- POPULAR PROGRAMMES – NEW -->
+<!-- POPULAR COURSES -->
 <section class="container my-5">
-  <h2 class="section-title text-center fade-in">Popular Programmes</h2>
-  <p class="section-subtitle text-center fade-in">Top fields our students choose — all with strong career prospects</p>
+  <h2 class="section-title text-center fade-in">Courses We Support</h2>
+  <p class="section-subtitle text-center fade-in">MBBS is our primary focus, plus PG pathways for medical graduates</p>
   <div class="row g-4 mt-3">
     {% for icon, title, countries, intake in [
-      ('fa-laptop-code','Computer Science & IT','Ireland, Canada, UK, Germany','Sep & Jan intake'),
-      ('fa-chart-line','Business & MBA','UK, Canada, Australia, USA','Sep & Jan intake'),
-      ('fa-flask','Data Science & AI','Ireland, UK, Germany','Sep intake'),
-      ('fa-stethoscope','Nursing & Healthcare','Ireland, UK, Australia','Sep & Feb intake'),
-      ('fa-microchip','Engineering','Germany, Canada, UK','Sep & Jan intake'),
-      ('fa-palette','Design & Media','UK, Australia, Ireland','Sep intake')
+      ('fa-stethoscope','MBBS (Bachelor of Medicine)','Russia, Georgia, Philippines, Kazakhstan','Sep & Feb intake'),
+      ('fa-user-doctor','MD / MS (Postgraduate)','Russia, UK, Georgia, Germany','Varies by country'),
+      ('fa-tooth','BDS (Dentistry)','Bangladesh, Philippines, Kyrgyzstan','Sep intake'),
+      ('fa-pills','B.Pharm / Pharm.D','Philippines, Bangladesh','Sep intake'),
+      ('fa-heart-pulse','BSc Nursing','Philippines, UK, Georgia','Sep & Jan intake'),
+      ('fa-flask','FMGE / NEXT Coaching','India-based coaching support','Year-round')
     ] %}
     <div class="col-lg-4 col-md-6 fade-in">
       <div class="edu-prog-card">
@@ -188,7 +198,7 @@
 <section class="container my-5">
   <h2 class="section-title text-center fade-in">How It Works</h2>
   <div class="row g-4 mt-3 text-center">
-    {% for step, title, desc in [(1,'Free Consultation','Book a call with your dedicated advisor to discuss your goals and profile.'), (2,'Profile Assessment','We assess your qualifications and shortlist the best programmes for you.'), (3,'Application Submission','We prepare and submit your applications to multiple universities.'),(4,'Visa & Arrival','We guide you through the visa process and pre-departure preparations.')] %}
+    {% for step, title, desc in [(1,'Free Counselling','Book a call with our MBBS abroad expert. We assess your NEET score, budget & preferences.'), (2,'University Selection','We shortlist NMC-approved universities and present options with complete fee breakdowns.'), (3,'Admission & Visa','We submit your application, secure the offer letter, and handle the complete visa process.'),(4,'Fly & Start MBBS','Pre-departure briefing, airport pickup, hostel check-in — you are ready to start your MBBS journey.')] %}
     <div class="col-md-3 fade-in">
       <div class="how-step">
         <div class="how-step-num">{{ step }}</div>
@@ -200,20 +210,20 @@
   </div>
 </section>
 
-<!-- FAQ – NEW -->
-<section class="edu-faq-section fade-in">
+<!-- FAQ -->
+<section class="edu-faq-section fade-in" id="faq">
   <div class="container">
     <h2 class="section-title text-center mb-2">Frequently Asked Questions</h2>
-    <p class="section-subtitle text-center mb-5">Quick answers to common questions from students</p>
+    <p class="section-subtitle text-center mb-5">Common questions from students and parents about MBBS abroad</p>
     <div class="row justify-content-center">
       <div class="col-lg-8">
         {% for q, a in [
-          ('How much does the consultation cost?','Your initial consultation is completely free. We discuss your goals, assess your profile, and give you a clear roadmap — no obligation to proceed.'),
-          ('What documents do I need to apply?','Typically you need your academic transcripts, passport copy, English test score (IELTS/PTE/TOEFL), a Statement of Purpose (which we help write), and financial documents.'),
-          ('How long does the application process take?','From consultation to university offer, it typically takes 2–6 weeks depending on the university and country. Visa processing is usually 4–12 weeks after that.'),
-          ('Can you help with scholarships?','Absolutely. We actively search for scholarship opportunities and help you apply. Many of our partner universities offer exclusive scholarships for our students.'),
-          ('Do I need IELTS to study abroad?','Most countries require an English language test, but some universities accept PTE, TOEFL, or Duolingo. A few universities in Ireland and UK waive this requirement for certain applicants.'),
-          ('What happens if my visa is rejected?','While our visa success rate is 95%, if a rejection happens, we analyse the reason and re-apply at no additional cost. We also guide you through the appeal process if applicable.')
+          ('Is NEET mandatory for MBBS abroad?','Yes, as per NMC guidelines, Indian students must qualify NEET to be eligible for MBBS admission abroad. The minimum cutoff is 50th percentile for General and 40th for reserved categories.'),
+          ('Will my MBBS degree be valid in India?','Yes, all our partner universities are NMC-approved and WHO-listed. After completing MBBS, you need to clear the FMGE/NEXT exam to practice in India.'),
+          ('What is the total cost of MBBS abroad?','Depending on the country, the total cost (including tuition, hostel, food) ranges from ₹12 Lakhs to ₹35 Lakhs for the entire course — significantly lower than private medical colleges in India.'),
+          ('Is it safe for Indian students?','Absolutely. Our partner universities have dedicated Indian student coordinators, Indian food in hostels, and strong Indian student communities. We also provide 24/7 emergency support.'),
+          ('How long is the MBBS course abroad?','Typically 5–6 years including internship, depending on the country. Russia is 6 years, Georgia and Philippines are 5.5–6 years, and Bangladesh is 5 years.'),
+          ('Do you help with education loans?','Yes, we assist with education loan applications from nationalised banks. Most of our partner universities are approved by banks for student education loans.')
         ] %}
         <div class="edu-faq-item fade-in">
           <div class="edu-faq-q" onclick="this.parentElement.classList.toggle('open')">
@@ -236,9 +246,9 @@
     <h2 class="section-title text-center text-white mb-5">What Our Students Say</h2>
     <div class="testimonials-slider" id="testimonialSlider">
       {% set testimonials = [
-        ('Amara O.','Nigeria → Ireland, MSc Data Analytics','Dr.SOS made my dream of studying in Ireland a reality. My advisor handled everything — from finding the right university to my visa approval in just 3 weeks!','⭐⭐⭐⭐⭐'),
-        ('Khalid M.','Pakistan → UK, MBA','I was rejected once before. After working with Dr.SOS, I got accepted to 3 universities including my first choice. Absolutely incredible service.','⭐⭐⭐⭐⭐'),
-        ('Priya S.','India → Canada, MSc Computer Science','The team was always available for questions and made the IRCC application so simple. I now have my study permit and loving life in Toronto!','⭐⭐⭐⭐⭐')
+        ('Ananya R.','Kerala → Russia, MBBS','Dr.SOS made my dream of becoming a doctor possible. They handled everything from NEET counselling to my visa. Now studying MBBS in Moscow!','⭐⭐⭐⭐⭐'),
+        ('Vishnu M.','Karnataka → Georgia, MBBS','After struggling with private college fees, MBBS abroad was the best decision. Dr.SOS found me a great university in Tbilisi at half the cost.','⭐⭐⭐⭐⭐'),
+        ('Sneha P.','Tamil Nadu → Philippines, MBBS','The team was available 24/7. My parents were worried but the transparency and support from Dr.SOS put them at ease completely.','⭐⭐⭐⭐⭐')
       ] %}
       {% for name, detail, quote, stars in testimonials %}
       <div class="testimonial-slide {% if loop.first %}active{% endif %}">
@@ -263,8 +273,8 @@
 
 <!-- CTA -->
 <section class="cta fade-in">
-  <h2>Ready to Study Abroad?</h2>
-  <p>Join 1,000+ students who trusted Dr.SOS for their global education</p>
-  <a href="/edu/book" class="btn btn-gold btn-lg mt-2">Book Free Consultation</a>
+  <h2>Ready to Study MBBS Abroad?</h2>
+  <p>Join 1,000+ Indian medical students who trusted Dr.SOS EduConsult</p>
+  <a href="/edu/book" class="btn btn-gold btn-lg mt-2">Book Free Counselling</a>
 </section>
 {% endblock %}

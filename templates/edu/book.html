@@ -1,11 +1,11 @@
 {% extends "edu/base_edu.html" %}
-{% block title %}Book a Free Consultation — Dr.SOS EduConsult{% endblock %}
+{% block title %}Book Free MBBS Counselling — Dr.SOS EduConsult{% endblock %}
 {% block content %}
 
 <section class="page-hero page-hero-gold fade-in">
   <div class="container text-center">
-    <h1 class="display-5 fw-bold">Book a Free Consultation</h1>
-    <p class="lead">Let our experts guide your path to a global education</p>
+    <h1 class="display-5 fw-bold">Book Free MBBS Counselling</h1>
+    <p class="lead">Get expert guidance on MBBS abroad from our Kerala office</p>
   </div>
 </section>
 
@@ -13,8 +13,8 @@
   <div class="row justify-content-center">
     <div class="col-lg-8 fade-in">
       <div class="dashboard-card">
-        <h3 class="mb-1"><i class="fas fa-calendar-plus me-2 text-success"></i>Schedule Your Appointment</h3>
-        <p class="text-muted mb-4">Free 30-minute consultation with a qualified advisor.</p>
+        <h3 class="mb-1"><i class="fas fa-calendar-plus me-2 text-success"></i>Schedule Your MBBS Counselling</h3>
+        <p class="text-muted mb-4">Free 30-minute session with our MBBS abroad expert.</p>
         <form method="POST" action="/edu/book">
           <div class="row g-3">
             <div class="col-md-6">
@@ -29,20 +29,21 @@
             </div>
             <div class="col-md-6">
               <label class="form-label-auth">Phone Number</label>
-              <input type="tel" name="phone" class="form-control-auth" placeholder="+353 000 0000"
+              <input type="tel" name="phone" class="form-control-auth" placeholder="+91 98765 43210"
                 value="{{ current_user.profile.phone if current_user.is_authenticated and current_user.profile else '' }}">
             </div>
             <div class="col-md-6">
               <label class="form-label-auth">Service *</label>
               <select name="service" class="form-control-auth" required>
                 <option value="">Select a service...</option>
-                <option>University Admissions Guidance</option>
-                <option>Visa Application Support</option>
-                <option>SOP / Personal Statement Writing</option>
-                <option>Scholarship Research</option>
-                <option>Pre-Departure Support</option>
-                <option>Profile Assessment / Eligibility Check</option>
-                <option>General Education Enquiry</option>
+                <option>MBBS Abroad — Admission Guidance</option>
+                <option>NEET Score Assessment</option>
+                <option>University & Country Selection</option>
+                <option>Visa & Documentation Support</option>
+                <option>Education Loan Assistance</option>
+                <option>PG / MD / MS Abroad</option>
+                <option>FMGE / NEXT Exam Guidance</option>
+                <option>General Enquiry</option>
               </select>
             </div>
             <div class="col-md-6">
