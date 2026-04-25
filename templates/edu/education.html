@@ -119,7 +119,7 @@
               <div class="edu-elig-opts">
                 <span>🇷🇺 Russia</span>
                 <span class="selected">🇬🇪 Georgia</span>
-                <span>🇵🇭 Philippines</span>
+                <span>🇨🇳 China</span>
                 <span>🇰🇿 Kazakhstan</span>
               </div>
             </div>
@@ -128,7 +128,7 @@
             <i class="fas fa-circle-check"></i>
             <div>
               <strong>You are eligible for 12 NMC-approved universities!</strong>
-              <span>in Georgia, Russia & Philippines</span>
+              <span>in Georgia, Russia & China</span>
             </div>
           </div>
         </div>
@@ -146,10 +146,9 @@
       {% set countries = [
         ('🇷🇺','Russia','Top NMC-approved universities. 6-year programme in English.','₹18–30 Lakhs total'),
         ('🇬🇪','Georgia','European standard education. No IELTS required. Safe & affordable.','₹20–35 Lakhs total'),
-        ('🇵🇭','Philippines','US-based curriculum. English-speaking country. Clinical rotations included.','₹15–25 Lakhs total'),
+        ('🇨🇳','China','World-class infrastructure. Excellent clinical exposure. Affordable fees.','₹15–25 Lakhs total'),
         ('🇰🇿','Kazakhstan','Growing medical hub. NMC-approved. Modern facilities.','₹18–28 Lakhs total'),
         ('🇰🇬','Kyrgyzstan','Most affordable option. NMC-approved. Indian food available.','₹12–20 Lakhs total'),
-        ('🇧🇩','Bangladesh','Closest to home. Similar culture. NMC-approved private universities.','₹20–35 Lakhs total'),
         ('🇺🇿','Uzbekistan','Emerging destination. Government universities with low fees.','₹15–22 Lakhs total'),
         ('🇬🇧','UK (PG/PLAB)','For MBBS graduates seeking PG in UK. PLAB pathway guidance.','Varies by programme')
       ] %}
@@ -173,11 +172,11 @@
   <p class="section-subtitle text-center fade-in">MBBS is our primary focus, plus PG pathways for medical graduates</p>
   <div class="row g-4 mt-3">
     {% for icon, title, countries, intake in [
-      ('fa-stethoscope','MBBS (Bachelor of Medicine)','Russia, Georgia, Philippines, Kazakhstan','Sep & Feb intake'),
+      ('fa-stethoscope','MBBS (Bachelor of Medicine)','Russia, Georgia, China, Kazakhstan','Sep & Feb intake'),
       ('fa-user-doctor','MD / MS (Postgraduate)','Russia, UK, Georgia, Germany','Varies by country'),
-      ('fa-tooth','BDS (Dentistry)','Bangladesh, Philippines, Kyrgyzstan','Sep intake'),
-      ('fa-pills','B.Pharm / Pharm.D','Philippines, Bangladesh','Sep intake'),
-      ('fa-heart-pulse','BSc Nursing','Philippines, UK, Georgia','Sep & Jan intake'),
+      ('fa-tooth','BDS (Dentistry)','China, Kyrgyzstan','Sep intake'),
+      ('fa-pills','B.Pharm / Pharm.D','China, Georgia','Sep intake'),
+      ('fa-heart-pulse','BSc Nursing','UK, Georgia','Sep & Jan intake'),
       ('fa-flask','FMGE / NEXT Coaching','India-based coaching support','Year-round')
     ] %}
     <div class="col-lg-4 col-md-6 fade-in">
@@ -222,7 +221,7 @@
           ('Will my MBBS degree be valid in India?','Yes, all our partner universities are NMC-approved and WHO-listed. After completing MBBS, you need to clear the FMGE/NEXT exam to practice in India.'),
           ('What is the total cost of MBBS abroad?','Depending on the country, the total cost (including tuition, hostel, food) ranges from ₹12 Lakhs to ₹35 Lakhs for the entire course — significantly lower than private medical colleges in India.'),
           ('Is it safe for Indian students?','Absolutely. Our partner universities have dedicated Indian student coordinators, Indian food in hostels, and strong Indian student communities. We also provide 24/7 emergency support.'),
-          ('How long is the MBBS course abroad?','Typically 5–6 years including internship, depending on the country. Russia is 6 years, Georgia and Philippines are 5.5–6 years, and Bangladesh is 5 years.'),
+          ('How long is the MBBS course abroad?','Typically 5–6 years including internship, depending on the country. Russia and China are 6 years, Georgia is 6 years, and Kazakhstan is 5 years.'),
           ('Do you help with education loans?','Yes, we assist with education loan applications from nationalised banks. Most of our partner universities are approved by banks for student education loans.')
         ] %}
         <div class="edu-faq-item fade-in">
@@ -248,7 +247,7 @@
       {% set testimonials = [
         ('Ananya R.','Kerala → Russia, MBBS','Dr.SOS made my dream of becoming a doctor possible. They handled everything from NEET counselling to my visa. Now studying MBBS in Moscow!','⭐⭐⭐⭐⭐'),
         ('Vishnu M.','Karnataka → Georgia, MBBS','After struggling with private college fees, MBBS abroad was the best decision. Dr.SOS found me a great university in Tbilisi at half the cost.','⭐⭐⭐⭐⭐'),
-        ('Sneha P.','Tamil Nadu → Philippines, MBBS','The team was available 24/7. My parents were worried but the transparency and support from Dr.SOS put them at ease completely.','⭐⭐⭐⭐⭐')
+        ('Sneha P.','Tamil Nadu → China, MBBS','The team was available 24/7. My parents were worried but the transparency and support from Dr.SOS put them at ease completely.','⭐⭐⭐⭐⭐')
       ] %}
       {% for name, detail, quote, stars in testimonials %}
       <div class="testimonial-slide {% if loop.first %}active{% endif %}">

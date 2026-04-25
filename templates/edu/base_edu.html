@@ -46,19 +46,18 @@
         <li class="nav-item"><a class="nav-link" href="/edu/education">MBBS Abroad</a></li>
         <li class="nav-item"><a class="nav-link" href="/edu/education#faq">FAQs</a></li>
         <li class="nav-item"><a class="nav-link" href="/edu/contact">Contact</a></li>
-        <li class="nav-item"><a class="nav-link edu-back-link ms-lg-2" href="/"><i class="fas fa-th-large me-1"></i>All Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="/">All Services</a></li>
       </ul>
-      <div class="d-flex align-items-center gap-2">
+      <div class="d-flex align-items-center gap-3 mt-3 mt-lg-0">
         {% if current_user.is_authenticated %}
-        <a href="/dashboard" class="btn btn-gold btn-sm">
-          <div class="nav-avatar me-1">{{ (current_user.profile.first_name or current_user.email)[0].upper() }}</div>
+        <a href="/dashboard" class="text-white text-decoration-none fw-medium d-flex align-items-center">
+          <div class="nav-avatar me-2">{{ (current_user.profile.first_name or current_user.email)[0].upper() }}</div>
           Dashboard
         </a>
-        <a href="/logout" class="btn btn-outline-gold btn-sm">Logout</a>
+        <a href="/logout" class="text-white-50 text-decoration-none"><i class="fas fa-right-from-bracket"></i></a>
         {% else %}
-        <a href="/login" class="btn btn-outline-gold btn-sm">Login</a>
-        <a href="/register" class="btn btn-gold btn-sm">Register</a>
-        <a href="/edu/book" class="btn btn-gold btn-sm ms-1">Free Counselling</a>
+        <a href="/login" class="text-white text-decoration-none fw-medium" style="font-size: 0.95rem;">Login</a>
+        <a href="/edu/book" class="btn btn-gold px-3 py-2 fw-bold" style="border-radius: 8px;">Free Counselling</a>
         {% endif %}
       </div>
     </div>
@@ -95,7 +94,7 @@
         <ul class="footer-links">
           <li><a href="/edu/education#destinations">🇷🇺 Russia</a></li>
           <li><a href="/edu/education#destinations">🇬🇪 Georgia</a></li>
-          <li><a href="/edu/education#destinations">🇵🇭 Philippines</a></li>
+          <li><a href="/edu/education#destinations">🇨🇳 China</a></li>
           <li><a href="/edu/education#destinations">🇰🇿 Kazakhstan</a></li>
           <li><a href="/edu/education#destinations">🇰🇬 Kyrgyzstan</a></li>
         </ul>
