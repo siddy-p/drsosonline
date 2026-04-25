@@ -1,0 +1,209 @@
+{% extends "online/base_online.html" %}
+{% block title %}Dr.SOS Online — See a Doctor Today from ₹99{% endblock %}
+{% block content %}
+
+<!-- HERO -->
+<section class="on-hero">
+  <div class="on-hero-blob on-blob-1"></div>
+  <div class="on-hero-blob on-blob-2"></div>
+  <div class="on-hero-blob on-blob-3"></div>
+  <div class="container on-hero-inner">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 on-hero-text">
+        <div class="on-badge"><span class="on-badge-dot"></span>Available Mon–Sat · 9am–7pm IST</div>
+        <h1 class="on-hero-h1">See a Doctor <br><span class="on-accent">From ₹99</span></h1>
+        <p class="on-hero-sub">Phone, WhatsApp or video consultations with experienced doctors — from the comfort of your home. Quick, affordable, and confidential.</p>
+        <div class="on-consult-cards">
+          <div class="on-price-card">
+            <div class="on-price-icon phone-icon"><i class="fas fa-phone"></i></div>
+            <div>
+              <strong>Phone / WhatsApp</strong>
+              <span>General, follow-up, quick consult</span>
+            </div>
+            <div class="on-price-tag">₹99</div>
+          </div>
+          <div class="on-price-card on-price-featured">
+            <div class="on-price-icon video-icon"><i class="fas fa-video"></i></div>
+            <div>
+              <strong>Video Consultation</strong>
+              <span>Face-to-face with your doctor</span>
+            </div>
+            <div class="on-price-tag">₹199</div>
+          </div>
+        </div>
+        <div class="on-hero-actions">
+          <a href="/online/consult" class="btn-online-book">Book Appointment <i class="fas fa-arrow-right"></i></a>
+          <a href="/online/doctors" class="btn-online-ghost">View Doctors</a>
+        </div>
+        <div class="on-trust-strip">
+          <span><i class="fas fa-shield-halved"></i> 100% Confidential</span>
+          <span><i class="fas fa-clock"></i> Confirmed in 30 min</span>
+          <span><i class="fas fa-star"></i> 4.9★ Rated</span>
+        </div>
+      </div>
+      <div class="col-lg-6 on-hero-img-col">
+        <div class="on-hero-img-wrap">
+          <img src="/static/images/online_hero.png" class="on-hero-img" alt="Online Doctor Consultation">
+          <div class="on-float-card on-float-top">
+            <i class="fas fa-user-doctor"></i>
+            <div><strong>{{ doctors|length }}+</strong><span>Expert Doctors</span></div>
+          </div>
+          <div class="on-float-card on-float-bottom">
+            <i class="fas fa-calendar-check"></i>
+            <div><strong>500+</strong><span>Consultations Done</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="on-stats-bar">
+  <div class="container">
+    <div class="on-stats-grid">
+      <div class="on-stat"><span class="on-stat-n"><span class="counter" data-target="500">0</span>+</span><span>Patients Served</span></div>
+      <div class="on-stat-div"></div>
+      <div class="on-stat"><span class="on-stat-n"><span class="counter" data-target="2">0</span>+</span><span>Specialist Doctors</span></div>
+      <div class="on-stat-div"></div>
+      <div class="on-stat"><span class="on-stat-n">₹99</span><span>Starting Price</span></div>
+      <div class="on-stat-div"></div>
+      <div class="on-stat"><span class="on-stat-n">4.9<i class="fas fa-star ms-1" style="color:#f59e0b;font-size:.8rem"></i></span><span>Average Rating</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="on-section">
+  <div class="container">
+    <div class="on-section-header reveal">
+      <p class="on-eyebrow">Simple &amp; Fast</p>
+      <h2>How It Works</h2>
+    </div>
+    <div class="on-steps-row">
+      {% for icon, n, t, d in [
+        ('fa-calendar-plus','01','Book Your Slot','Choose your doctor, preferred time, and consultation type — phone, WhatsApp or video.'),
+        ('fa-circle-check','02','We Confirm','You'll receive a confirmation call or message within 30 minutes of booking.'),
+        ('fa-stethoscope','03','Consult Doctor','At your scheduled time, your doctor calls you directly — no travel, no waiting.'),
+        ('fa-file-medical','04','Get Prescription','Receive your prescription or health advice digitally after your consultation.')
+      ] %}
+      <div class="on-step reveal">
+        <div class="on-step-num">{{ n }}</div>
+        <div class="on-step-icon"><i class="fas {{ icon }}"></i></div>
+        <h5>{{ t }}</h5>
+        <p>{{ d }}</p>
+      </div>
+      {% if not loop.last %}<div class="on-step-connector"></div>{% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED DOCTORS -->
+<section class="on-section on-doctors-home">
+  <div class="container">
+    <div class="on-section-header reveal">
+      <p class="on-eyebrow">Meet Our Team</p>
+      <h2>Our Doctors</h2>
+      <a href="/online/doctors" class="on-see-all">See All Doctors <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="row g-4 mt-2">
+      {% for doc in doctors %}
+      <div class="col-lg-4 col-md-6 reveal">
+        <div class="on-doc-card">
+          <div class="on-doc-photo-wrap">
+            <img src="{{ doc.photo_url }}" alt="{{ doc.name }}" class="on-doc-photo">
+            <div class="on-doc-rating"><i class="fas fa-star"></i> {{ doc.rating }}</div>
+          </div>
+          <div class="on-doc-info">
+            <h5>{{ doc.name }}</h5>
+            <p class="on-doc-spec">{{ doc.specialty }}</p>
+            <p class="on-doc-qual">{{ doc.qualification }}</p>
+            <div class="on-doc-langs">
+              {% for lang in doc.language_list %}<span>{{ lang }}</span>{% endfor %}
+            </div>
+            <div class="on-doc-fees">
+              <span><i class="fas fa-phone"></i> ₹{{ doc.fee_phone }}</span>
+              <span><i class="fas fa-video"></i> ₹{{ doc.fee_video }}</span>
+            </div>
+            <div class="on-doc-actions">
+              <a href="/online/doctors/{{ doc.id }}" class="btn-online-outline-sm">View Profile</a>
+              <a href="/online/consult?doctor_id={{ doc.id }}" class="btn-online-sm">Book Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES STRIP -->
+<section class="on-services-strip">
+  <div class="container">
+    <div class="on-section-header reveal" style="color:#fff">
+      <p class="on-eyebrow" style="color:#5eead4">More Services</p>
+      <h2 style="color:#fff">Comprehensive Healthcare</h2>
+    </div>
+    <div class="row g-4 mt-2">
+      {% for icon, title, desc, link in [
+        ('fa-heart-pulse','Palliative Care','Compassionate in-home care for patients with serious illness — dignified and expert.','/online/palliative-care'),
+        ('fa-helicopter','Air Ambulance','24/7 medical air transport for emergencies across India.','/online/air-ambulance'),
+        ('fa-user-doctor','Specialist Referrals','We connect you with specialist consultants in cardiology, orthopaedics, neurology & more.','/online/doctors'),
+        ('fa-notes-medical','Second Opinion','Get a second medical opinion from our panel of experienced consultants.','/online/consult')
+      ] %}
+      <div class="col-lg-3 col-md-6 reveal">
+        <div class="on-service-card">
+          <div class="on-svc-icon"><i class="fas {{ icon }}"></i></div>
+          <h5>{{ title }}</h5>
+          <p>{{ desc }}</p>
+          <a href="{{ link }}" class="on-svc-link">Learn more <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="on-section">
+  <div class="container">
+    <div class="on-section-header reveal">
+      <p class="on-eyebrow">Patient Reviews</p>
+      <h2>What Our Patients Say</h2>
+    </div>
+    <div class="row g-4 mt-2">
+      {% for q, name, init, stars in [
+        ('"Booked a phone consultation and the doctor called me within the hour. So convenient and affordable!"','Riya Patel, Ahmedabad','R',5),
+        ('"My child had a fever at midnight. Dr. Mehta was available on WhatsApp and guided us through. Lifesaver!"','Suresh Kumar, Chennai','S',5),
+        ('"Highly professional. Video call with Dr. Sharma was just like being in a clinic — she was thorough and kind."','Anjali Nair, Kochi','A',5)
+      ] %}
+      <div class="col-lg-4 col-md-6 reveal">
+        <div class="on-review-card">
+          <div class="on-review-stars">{{ '⭐' * stars }}</div>
+          <p class="on-review-text">{{ q }}</p>
+          <div class="on-review-author">
+            <div class="on-review-avatar">{{ init }}</div>
+            <strong>{{ name }}</strong>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="on-cta">
+  <div class="container">
+    <div class="on-cta-inner reveal">
+      <div class="on-cta-text">
+        <h2>Talk to a Doctor Today</h2>
+        <p>Phone or WhatsApp from ₹99 · Video from ₹199 · Confirmed in 30 minutes</p>
+      </div>
+      <a href="/online/consult" class="btn-online-book-lg">Book Appointment <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

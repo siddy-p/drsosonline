@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Dr.SOS EduConsult{% endblock %}</title>
+  <meta name="description" content="{% block meta_desc %}Dr.SOS EduConsult — Expert university admissions, visa guidance and study abroad support.{% endblock %}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+  {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+<!-- Custom cursor -->
+<div class="custom-cursor" id="customCursor"></div>
+
+<!-- Flash messages -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<div class="flash-container">
+  {% for cat, msg in messages %}
+  <div class="flash-toast flash-{{ cat }}">
+    <i class="fas {% if cat=='success' %}fa-circle-check{% elif cat=='danger' %}fa-circle-xmark{% elif cat=='warning' %}fa-triangle-exclamation{% else %}fa-circle-info{% endif %}"></i>
+    {{ msg }}
+    <button class="flash-close" onclick="this.parentElement.remove()">×</button>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+
+<!-- EDU Navbar -->
+<nav class="navbar navbar-expand-lg edu-nav" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand edu-brand" href="/edu/">
+      <span class="brand-dr">Dr.</span><span class="brand-sos">SOS</span> <span class="brand-sub">EduConsult</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMain">
+      <ul class="navbar-nav mx-auto gap-1">
+        <li class="nav-item"><a class="nav-link" href="/edu/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/edu/education">Education Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="/edu/contact">Contact</a></li>
+        <li class="nav-item"><a class="nav-link edu-back-link" href="/"><i class="fas fa-th-large me-1"></i>All Services</a></li>
+      </ul>
+      <div class="d-flex align-items-center gap-2">
+        {% if current_user.is_authenticated %}
+        <a href="/dashboard" class="btn btn-gold btn-sm">
+          <div class="nav-avatar me-1">{{ (current_user.profile.first_name or current_user.email)[0].upper() }}</div>
+          Dashboard
+        </a>
+        <a href="/logout" class="btn btn-outline-gold btn-sm">Logout</a>
+        {% else %}
+        <a href="/login" class="btn btn-outline-gold btn-sm">Login</a>
+        <a href="/register" class="btn btn-gold btn-sm">Register</a>
+        <a href="/edu/book" class="btn btn-gold btn-sm ms-1">Book Free Consult</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</nav>
+
+{% block content %}{% endblock %}
+
+<!-- EDU Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="footer-brand"><span class="brand-dr">Dr.</span><span style="color:#fff">SOS</span> <span style="color:rgba(255,255,255,.6);font-weight:400">EduConsult</span></div>
+        <p class="footer-tagline mt-2">Your trusted partner for global education. We help students from India reach universities in Ireland, UK, Canada, Australia and beyond.</p>
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://wa.me/your-number" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-6">
+        <h6 class="footer-heading">Services</h6>
+        <ul class="footer-links">
+          <li><a href="/edu/education">Education Services</a></li>
+          <li><a href="/edu/book">Book Consultation</a></li>
+          <li><a href="/edu/contact">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-6">
+        <h6 class="footer-heading">Destinations</h6>
+        <ul class="footer-links">
+          <li><a href="#">Ireland</a></li><li><a href="#">United Kingdom</a></li>
+          <li><a href="#">Canada</a></li><li><a href="#">Australia</a></li><li><a href="#">Germany</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <h6 class="footer-heading">Contact</h6>
+        <ul class="footer-links">
+          <li><i class="fas fa-envelope me-2"></i>edu@drsosonline.com</li>
+          <li><i class="fab fa-whatsapp me-2"></i>WhatsApp Us</li>
+          <li><i class="fas fa-clock me-2"></i>Mon–Sat, 9am–6pm</li>
+        </ul>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <p class="footer-bottom text-center">© 2024 Dr.SOS EduConsult. All rights reserved. | <a href="/" style="color:rgba(255,255,255,.4)">DrSOS Home</a></p>
+  </div>
+</footer>
+
+<a href="https://wa.me/your-number" class="whatsapp-float" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/static/js/main.js"></script>
+{% block extra_js %}{% endblock %}
+</body>
+</html>

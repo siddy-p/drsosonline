@@ -1,0 +1,62 @@
+{% extends "online/base_online.html" %}
+{% block title %}Our Doctors — Dr.SOS Online{% endblock %}
+{% block content %}
+
+<section class="on-page-hero">
+  <div class="container text-center">
+    <h1><i class="fas fa-user-doctor me-3"></i>Our Doctors</h1>
+    <p class="lead">Experienced, verified physicians available for phone, WhatsApp &amp; video consultations</p>
+  </div>
+</section>
+
+<section class="on-section">
+  <div class="container">
+    <!-- Filter bar -->
+    <div class="on-filter-bar reveal">
+      <a href="/online/doctors" class="on-filter-btn {% if not selected %}active{% endif %}">All Specialties</a>
+      {% for spec in specialties %}
+      <a href="/online/doctors?specialty={{ spec }}" class="on-filter-btn {% if selected==spec %}active{% endif %}">{{ spec }}</a>
+      {% endfor %}
+    </div>
+
+    <div class="row g-4 mt-3">
+      {% for doc in doctors %}
+      <div class="col-lg-4 col-md-6 reveal">
+        <div class="on-doc-card">
+          <div class="on-doc-photo-wrap">
+            <img src="{{ doc.photo_url }}" alt="{{ doc.name }}" class="on-doc-photo">
+            <div class="on-doc-rating"><i class="fas fa-star"></i> {{ doc.rating }}</div>
+          </div>
+          <div class="on-doc-info">
+            <h5>{{ doc.name }}</h5>
+            <p class="on-doc-spec">{{ doc.specialty }}</p>
+            <p class="on-doc-qual">{{ doc.qualification }}</p>
+            <p class="on-doc-exp"><i class="fas fa-briefcase me-1"></i>{{ doc.years_experience }} years experience</p>
+            <div class="on-doc-langs">
+              {% for lang in doc.language_list %}<span>{{ lang }}</span>{% endfor %}
+            </div>
+            <div class="on-doc-days"><i class="fas fa-calendar me-1"></i>{{ doc.available_days.replace(',', ' · ') }}</div>
+            <div class="on-doc-fees">
+              <span><i class="fas fa-phone"></i> ₹{{ doc.fee_phone }}</span>
+              <span><i class="fas fa-video"></i> ₹{{ doc.fee_video }}</span>
+            </div>
+            <div class="on-doc-actions">
+              <a href="/online/doctors/{{ doc.id }}" class="btn-online-outline-sm">View Profile</a>
+              <a href="/online/consult?doctor_id={{ doc.id }}" class="btn-online-sm">Book Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      {% if not doctors %}
+      <div class="col-12 text-center py-5">
+        <i class="fas fa-user-doctor fa-3x mb-3" style="color:#0d9488;opacity:.4"></i>
+        <h5 style="color:#666">No doctors found for this specialty</h5>
+        <a href="/online/doctors" class="btn-online-sm mt-3 d-inline-block">View All</a>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}

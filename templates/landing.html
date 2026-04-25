@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr.SOS — Choose Your Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Poppins',sans-serif;height:100vh;overflow:hidden;cursor:none;}
+
+    /* ── Split container ── */
+    .split{display:flex;height:100vh;width:100%;}
+    .panel{flex:1;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 48px;overflow:hidden;transition:flex .55s cubic-bezier(.77,0,.175,1);}
+    .panel:hover{flex:1.55;}
+    .panel-link{position:absolute;inset:0;z-index:10;cursor:pointer;}
+
+    /* ── Edu panel ── */
+    .panel-edu{background:linear-gradient(145deg,#0d2b1a 0%,#1a4a35 40%,#2d7a55 100%);}
+    .panel-edu::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 30%,rgba(212,175,55,.18),transparent 60%);pointer-events:none;}
+
+    /* ── Online panel ── */
+    .panel-online{background:linear-gradient(145deg,#060f1e 0%,#0f2744 40%,#1a4a7a 100%);}
+    .panel-online::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 70%,rgba(13,148,136,.22),transparent 60%);pointer-events:none;}
+
+    /* ── Blob shapes ── */
+    .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.25;pointer-events:none;animation:blobPulse 8s ease-in-out infinite;}
+    .blob-edu-1{width:400px;height:400px;background:#d4af37;top:-100px;right:-60px;}
+    .blob-edu-2{width:300px;height:300px;background:#4db68a;bottom:-80px;left:-40px;animation-delay:-4s;}
+    .blob-on-1{width:380px;height:380px;background:#0d9488;top:-80px;left:-60px;}
+    .blob-on-2{width:280px;height:280px;background:#3b82f6;bottom:-60px;right:-40px;animation-delay:-4s;}
+    @keyframes blobPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.1) translate(8px,-8px);}}
+
+    /* ── Content ── */
+    .panel-content{position:relative;z-index:5;color:#fff;max-width:440px;}
+    .portal-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 18px;border-radius:50px;font-size:.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:20px;border:1.5px solid;}
+    .panel-edu .portal-badge{background:rgba(212,175,55,.15);border-color:rgba(212,175,55,.5);color:#f5d96f;}
+    .panel-online .portal-badge{background:rgba(13,148,136,.15);border-color:rgba(13,148,136,.5);color:#5eead4;}
+    .panel-icon{font-size:4rem;margin-bottom:22px;display:block;transition:transform .3s;}
+    .panel:hover .panel-icon{transform:scale(1.12) translateY(-6px);}
+    .panel-edu .panel-icon{color:#d4af37;}
+    .panel-online .panel-icon{color:#0d9488;}
+    .panel-title{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:900;line-height:1.1;margin-bottom:12px;}
+    .panel-title span{display:block;}
+    .panel-edu .panel-title .brand-accent{color:#d4af37;}
+    .panel-online .panel-title .brand-accent{color:#0d9488;}
+    .panel-tagline{font-size:clamp(1rem,1.5vw,1.2rem);font-weight:600;opacity:.75;margin-bottom:16px;}
+    .panel-desc{font-size:.88rem;opacity:.6;line-height:1.65;margin-bottom:32px;max-width:340px;margin-left:auto;margin-right:auto;}
+    .panel-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:36px;}
+    .pill{padding:5px 14px;border-radius:30px;font-size:.75rem;font-weight:600;}
+    .panel-edu .pill{background:rgba(212,175,55,.15);color:#f5d96f;border:1px solid rgba(212,175,55,.3);}
+    .panel-online .pill{background:rgba(13,148,136,.15);color:#5eead4;border:1px solid rgba(13,148,136,.3);}
+    .enter-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border-radius:50px;font-size:1rem;font-weight:700;font-family:'Poppins',sans-serif;border:none;cursor:pointer;transition:all .3s;letter-spacing:.3px;}
+    .panel-edu .enter-btn{background:linear-gradient(135deg,#d4af37,#f5d96f);color:#0d2b1a;}
+    .panel-online .enter-btn{background:linear-gradient(135deg,#0d9488,#14b8a6);color:#fff;}
+    .enter-btn:hover{transform:scale(1.05);box-shadow:0 8px 24px rgba(0,0,0,.3);}
+    .enter-btn i{transition:transform .3s;}
+    .enter-btn:hover i{transform:translateX(4px);}
+
+    /* ── Divider ── */
+    .divider{width:2px;background:rgba(255,255,255,.08);flex-shrink:0;position:relative;display:flex;align-items:center;justify-content:center;}
+    .divider-logo{position:absolute;width:56px;height:56px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:800;color:#0d2b1a;box-shadow:0 4px 20px rgba(0,0,0,.4);z-index:20;user-select:none;}
+
+    /* ── Custom cursor ── */
+    .cursor{width:18px;height:18px;border-radius:50%;position:fixed;pointer-events:none;transform:translate(-50%,-50%);z-index:99999;transition:background .2s,transform .1s;}
+    .cursor-edu{background:radial-gradient(circle,#d4af37,#a07a20);}
+    .cursor-online{background:radial-gradient(circle,#0d9488,#065f56);}
+    #customCursor{background:radial-gradient(circle,#d4af37,#a07a20);}
+
+    /* ── Mobile ── */
+    @media(max-width:768px){
+      body{overflow:auto;}
+      .split{flex-direction:column;height:auto;min-height:100vh;}
+      .panel{flex:none;min-height:50vh;padding:48px 28px;}
+      .panel:hover{flex:none;}
+      .divider{width:100%;height:2px;flex-shrink:0;}
+      .divider-logo{transform:none;}
+    }
+  </style>
+</head>
+<body>
+  <div id="customCursor" class="cursor cursor-edu"></div>
+
+  <div class="split">
+
+    <!-- ═══ EDU PANEL ═══ -->
+    <div class="panel panel-edu" id="panelEdu">
+      <div class="blob blob-edu-1"></div>
+      <div class="blob blob-edu-2"></div>
+      <a href="/edu/" class="panel-link" aria-label="Enter EduConsult portal"></a>
+      <div class="panel-content">
+        <div class="portal-badge"><i class="fas fa-graduation-cap"></i>Education</div>
+        <i class="fas fa-graduation-cap panel-icon"></i>
+        <h1 class="panel-title">Dr.SOS<span><span class="brand-accent">EduConsult</span></span></h1>
+        <p class="panel-tagline">Study Abroad, Study Smart</p>
+        <p class="panel-desc">University admissions, visa guidance, scholarships, SOP writing, and pre-departure support — we get you there.</p>
+        <div class="panel-pills">
+          <span class="pill">🎓 Admissions</span>
+          <span class="pill">🛂 Visa Guidance</span>
+          <span class="pill">✍️ SOP Writing</span>
+          <span class="pill">🌍 10+ Countries</span>
+        </div>
+        <button class="enter-btn">Enter EduConsult <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+
+    <!-- ═══ DIVIDER ═══ -->
+    <div class="divider">
+      <div class="divider-logo">SOS</div>
+    </div>
+
+    <!-- ═══ ONLINE PANEL ═══ -->
+    <div class="panel panel-online" id="panelOnline">
+      <div class="blob blob-on-1"></div>
+      <div class="blob blob-on-2"></div>
+      <a href="/online/" class="panel-link" aria-label="Enter Online Consultation portal"></a>
+      <div class="panel-content">
+        <div class="portal-badge"><i class="fas fa-stethoscope"></i>Medical</div>
+        <i class="fas fa-stethoscope panel-icon"></i>
+        <h1 class="panel-title">Dr.SOS<span><span class="brand-accent">Online</span></span></h1>
+        <p class="panel-tagline">See a Doctor Today</p>
+        <p class="panel-desc">Phone &amp; WhatsApp consultations from ₹99. Video consultations at ₹199. Specialist referrals, palliative care, air ambulance — all in one place.</p>
+        <div class="panel-pills">
+          <span class="pill">📞 Phone/WhatsApp ₹99</span>
+          <span class="pill">🎥 Video ₹199</span>
+          <span class="pill">👨‍⚕️ Specialists</span>
+          <span class="pill">🚁 Air Ambulance</span>
+        </div>
+        <button class="enter-btn">Enter Dr.SOS Online <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Custom cursor colour follows hovered panel
+    const cursor = document.getElementById('customCursor');
+    let mouseX = 0, mouseY = 0, curX = 0, curY = 0;
+    document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
+    function animCursor(){ curX += (mouseX-curX)*.18; curY += (mouseY-curY)*.18; cursor.style.left=curX+'px'; cursor.style.top=curY+'px'; requestAnimationFrame(animCursor); }
+    requestAnimationFrame(animCursor);
+    document.getElementById('panelEdu').addEventListener('mouseenter', () => cursor.className = 'cursor cursor-edu');
+    document.getElementById('panelOnline').addEventListener('mouseenter', () => cursor.className = 'cursor cursor-online');
+  </script>
+</body>
+</html>

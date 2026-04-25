@@ -379,3 +379,45 @@ select.form-control-auth{cursor:pointer;}
   .dest-scroll-row{gap:10px;}
   .dest-tile{padding:20px 24px;min-width:100px;}
 }
+
+/* ===================== EDU PORTAL NAV ===================== */
+.edu-nav{background:rgba(0,0,0,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);position:sticky;top:0;z-index:1000;}
+.edu-brand{font-weight:800;font-size:1.3rem;color:#fff!important;text-decoration:none;}
+.brand-sub{color:rgba(255,255,255,.6);font-weight:400;font-size:1rem;margin-left:4px;}
+.edu-back-link{border:1px solid rgba(255,255,255,.2);border-radius:8px;font-size:.82rem!important;}
+.edu-back-link:hover{background:rgba(255,255,255,.08);}
+
+/* Ghost buttons */
+.btn-ghost-white{display:inline-flex;align-items:center;background:transparent;color:rgba(255,255,255,.85);border:2px solid rgba(255,255,255,.3);padding:12px 26px;border-radius:8px;font-weight:600;font-size:.95rem;transition:all .3s;}
+.btn-ghost-white:hover{border-color:#fff;color:#fff;}
+.btn-ghost-dark{display:inline-flex;align-items:center;background:transparent;color:var(--primary);border:2px solid var(--primary);padding:12px 26px;border-radius:8px;font-weight:600;font-size:.95rem;transition:all .3s;}
+.btn-ghost-dark:hover{background:var(--primary);color:#fff;}
+
+/* ===================== EDU HOME – HOW STEPS ===================== */
+.how-home{background:#f8fafc;}
+.how-steps-row{display:flex;align-items:flex-start;justify-content:center;gap:0;flex-wrap:wrap;margin-top:40px;}
+.how-home-step{flex:1;min-width:160px;max-width:200px;text-align:center;padding:0 10px;}
+.hhs-num{font-size:2.5rem;font-weight:900;color:var(--primary);opacity:.2;line-height:1;}
+.hhs-icon{width:60px;height:60px;border-radius:50%;background:var(--primary-light);display:flex;align-items:center;justify-content:center;margin:10px auto 12px;font-size:1.4rem;color:var(--primary);}
+.how-home-step h5{font-size:.95rem;font-weight:700;margin-bottom:6px;color:#1a1a1a;}
+.how-home-step p{font-size:.8rem;color:#666;line-height:1.6;}
+.how-connector{flex-shrink:0;width:48px;border-top:2px dashed rgba(61,126,100,.3);margin-top:30px;}
+
+/* ===================== TESTIMONIAL SLIDER ===================== */
+.testimonial-home{background:linear-gradient(135deg,#0d2b1a,#1a4a35);padding:80px 0;}
+.testimonials-slider{position:relative;overflow:hidden;}
+.testimonial-slide{display:none;}
+.testimonial-slide.active{display:block;}
+.testimonial-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:32px;}
+.testimonial-quote{font-size:1.05rem;color:rgba(255,255,255,.85);line-height:1.8;font-style:italic;margin-bottom:20px;}
+.testimonial-author{display:flex;align-items:center;gap:14px;color:rgba(255,255,255,.65);font-size:.85rem;}
+.testimonial-avatar{width:44px;height:44px;border-radius:50%;background:var(--gold);color:#000;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;flex-shrink:0;}
+.t-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.25);display:inline-block;margin:0 4px;cursor:pointer;transition:background .3s;}
+.t-dot.active{background:var(--gold);}
+
+/* ===================== CTA HOME ===================== */
+.cta-home{padding:60px 0;background:#fff;}
+.cta-home-inner{background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:24px;padding:48px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.cta-home-inner h2{font-size:1.9rem;font-weight:800;color:#fff;margin-bottom:6px;}
+.cta-home-inner p{color:rgba(255,255,255,.75);}
+.cta-home-btns{display:flex;gap:12px;flex-wrap:wrap;}

@@ -1,0 +1,40 @@
+{% extends "online/base_online.html" %}
+{% block title %}Air Ambulance — Dr.SOS Online{% endblock %}
+{% block content %}
+<section class="on-page-hero" style="background:linear-gradient(135deg,#060f1e 0%,#1a3a5c 100%)">
+  <div class="container text-center">
+    <h1><i class="fas fa-helicopter me-3"></i>Air Ambulance Services</h1>
+    <p class="lead">24/7 emergency medical air transport across India — fast, professional, life-saving</p>
+  </div>
+</section>
+<section class="on-section">
+  <div class="container">
+    <div class="row g-4 mb-5">
+      {% for icon, title, desc in [
+        ('fa-helicopter','Emergency Air Transport','Rapid aircraft dispatch for critical patients requiring immediate hospital transfer anywhere in India.'),
+        ('fa-kit-medical','ICU-Equipped Aircraft','Fully equipped mobile ICUs with ventilators, cardiac monitors, and life-support systems.'),
+        ('fa-user-nurse','Medical Flight Team','Board-certified doctors and flight nurses accompany every patient throughout the journey.'),
+        ('fa-clock','24/7 Availability','Our coordination centre operates round-the-clock, 365 days a year.'),
+        ('fa-map-location-dot','Pan-India Coverage','Air ambulance services available from and to all major cities and tier-2 towns across India.'),
+        ('fa-file-medical','Insurance Assistance','We assist with pre-authorisation and documentation for health insurance claims.')
+      ] %}
+      <div class="col-md-4 col-6 reveal">
+        <div class="on-service-card-light">
+          <div class="on-svc-icon-light"><i class="fas {{ icon }}"></i></div>
+          <h5>{{ title }}</h5>
+          <p>{{ desc }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="on-emergency-banner reveal">
+      <i class="fas fa-triangle-exclamation fa-2x"></i>
+      <div>
+        <strong>Emergency? Call Us Now</strong>
+        <p>Our dispatch team is available 24/7. Don't hesitate — every second counts.</p>
+      </div>
+      <a href="/online/contact" class="btn-online-book">Emergency Contact <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+{% endblock %}

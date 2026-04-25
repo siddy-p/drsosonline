@@ -1,0 +1,58 @@
+{% extends "online/base_online.html" %}
+{% block title %}Dr. {{ doctor.name }} — Dr.SOS Online{% endblock %}
+{% block content %}
+
+<section class="on-section pt-5">
+  <div class="container">
+    <a href="/online/doctors" class="on-back-link"><i class="fas fa-arrow-left me-2"></i>Back to Doctors</a>
+    <div class="on-doc-detail-wrap mt-4 reveal">
+      <div class="row g-0">
+        <div class="col-lg-4 on-doc-detail-left">
+          <img src="{{ doctor.photo_url }}" alt="{{ doctor.name }}" class="on-doc-detail-photo">
+          <div class="on-doc-detail-meta">
+            <div class="on-doc-rating-lg"><i class="fas fa-star"></i> {{ doctor.rating }} <span>/ 5</span></div>
+            <p><i class="fas fa-briefcase me-2"></i>{{ doctor.years_experience }} years experience</p>
+            <p><i class="fas fa-stethoscope me-2"></i>{{ doctor.specialty }}</p>
+            <p><i class="fas fa-certificate me-2"></i>{{ doctor.qualification }}</p>
+            <p><i class="fas fa-language me-2"></i>{{ doctor.languages }}</p>
+            <p><i class="fas fa-calendar-check me-2"></i>{{ doctor.total_consultations }}+ consultations</p>
+            <hr style="border-color:rgba(255,255,255,.15)">
+            <p><i class="fas fa-clock me-2"></i>{{ doctor.available_from }} – {{ doctor.available_to }}</p>
+            <p><i class="fas fa-calendar me-2"></i>{{ doctor.available_days.replace(',', ' · ') }}</p>
+          </div>
+        </div>
+        <div class="col-lg-8 on-doc-detail-right">
+          <h1>{{ doctor.name }}</h1>
+          <p class="on-doc-detail-spec">{{ doctor.specialty }} Specialist</p>
+          <p class="on-doc-detail-bio">{{ doctor.bio }}</p>
+
+          <div class="on-detail-pricing">
+            <div class="on-detail-price-card">
+              <div class="on-price-icon phone-icon"><i class="fas fa-phone"></i></div>
+              <div>
+                <strong>Phone / WhatsApp Call</strong>
+                <p>Quick consultation, prescription, follow-up</p>
+              </div>
+              <div class="on-price-tag">₹{{ doctor.fee_phone }}</div>
+            </div>
+            <div class="on-detail-price-card on-price-featured">
+              <div class="on-price-icon video-icon"><i class="fas fa-video"></i></div>
+              <div>
+                <strong>Video Consultation</strong>
+                <p>Face-to-face consultation, detailed assessment</p>
+              </div>
+              <div class="on-price-tag">₹{{ doctor.fee_video }}</div>
+            </div>
+          </div>
+
+          <a href="/online/consult?doctor_id={{ doctor.id }}" class="btn-online-book mt-4 d-inline-flex">
+            Book with Dr. {{ doctor.name.split()[-1] }} <i class="fas fa-arrow-right ms-2"></i>
+          </a>
+          <a href="/online/consult" class="btn-online-ghost mt-4 ms-3 d-inline-flex">Any Available Doctor</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

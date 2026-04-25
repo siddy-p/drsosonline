@@ -1,0 +1,158 @@
+{% extends "online/base_online.html" %}
+{% block title %}Book a Consultation — Dr.SOS Online{% endblock %}
+{% block content %}
+
+<section class="on-page-hero">
+  <div class="container text-center">
+    <h1><i class="fas fa-calendar-plus me-3"></i>Book a Consultation</h1>
+    <p class="lead">Phone / WhatsApp ₹99 &nbsp;·&nbsp; Video ₹199 &nbsp;·&nbsp; Confirmed within 30 minutes</p>
+  </div>
+</section>
+
+<section class="on-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+
+        <!-- Type selector -->
+        <div class="on-type-selector reveal">
+          <div class="on-type-card" onclick="selectType('phone',99)" id="type-phone">
+            <i class="fas fa-phone"></i>
+            <strong>Phone / WhatsApp</strong>
+            <span>₹99</span>
+            <p>Quick advice, prescription, follow-up</p>
+          </div>
+          <div class="on-type-card" onclick="selectType('video',199)" id="type-video">
+            <i class="fas fa-video"></i>
+            <strong>Video Consultation</strong>
+            <span>₹199</span>
+            <p>Face-to-face detailed assessment</p>
+          </div>
+        </div>
+
+        <!-- Booking Form -->
+        <form action="/online/consult" method="POST" class="on-book-form reveal" id="bookForm">
+          <input type="hidden" name="consult_type" id="consultTypeInput" value="phone">
+          <input type="hidden" name="fee" id="feeInput" value="99">
+
+          <h5 class="on-form-section-title"><i class="fas fa-user me-2"></i>Your Details</h5>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="on-label">Full Name *</label>
+              <input type="text" name="patient_name" class="on-input" required
+                value="{{ current_user.profile.full_name if current_user.is_authenticated and current_user.profile.first_name else '' }}"
+                placeholder="Your full name">
+            </div>
+            <div class="col-md-6">
+              <label class="on-label">Phone Number *</label>
+              <input type="tel" name="patient_phone" class="on-input" required
+                value="{{ current_user.profile.phone if current_user.is_authenticated else '' }}"
+                placeholder="+91 XXXXX XXXXX">
+            </div>
+            <div class="col-md-6">
+              <label class="on-label">Email Address *</label>
+              <input type="email" name="patient_email" class="on-input" required
+                value="{{ current_user.email if current_user.is_authenticated else '' }}"
+                placeholder="your@email.com">
+            </div>
+            <div class="col-md-3">
+              <label class="on-label">Age</label>
+              <input type="number" name="patient_age" class="on-input" placeholder="Age" min="1" max="120">
+            </div>
+            <div class="col-md-3">
+              <label class="on-label">Gender</label>
+              <select name="patient_gender" class="on-input">
+                <option value="">Select</option>
+                <option>Male</option><option>Female</option><option>Other</option><option>Prefer not to say</option>
+              </select>
+            </div>
+          </div>
+
+          <h5 class="on-form-section-title mt-4"><i class="fas fa-user-doctor me-2"></i>Doctor &amp; Appointment</h5>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="on-label">Choose Doctor</label>
+              <select name="doctor_id" class="on-input" id="doctorSelect">
+                <option value="">Any Available Doctor</option>
+                {% for doc in doctors %}
+                <option value="{{ doc.id }}" {% if prefill_doctor|string == doc.id|string %}selected{% endif %}>
+                  {{ doc.name }} — {{ doc.specialty }}
+                </option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="col-md-3">
+              <label class="on-label">Preferred Date *</label>
+              <input type="date" name="appointment_date" class="on-input" required id="apptDate">
+            </div>
+            <div class="col-md-3">
+              <label class="on-label">Preferred Time *</label>
+              <select name="appointment_time" class="on-input" required>
+                <option value="">Select time</option>
+                {% for h in range(9, 19) %}
+                <option value="{{ '%02d:00'|format(h) }}">{{ '%02d:00'|format(h) }}</option>
+                <option value="{{ '%02d:30'|format(h) }}">{{ '%02d:30'|format(h) }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+
+          <h5 class="on-form-section-title mt-4"><i class="fas fa-notes-medical me-2"></i>Medical Information</h5>
+          <div class="row g-3">
+            <div class="col-12">
+              <label class="on-label">Reason for Consultation *</label>
+              <input type="text" name="reason" class="on-input" required placeholder="e.g. Fever, back pain, prescription renewal">
+            </div>
+            <div class="col-12">
+              <label class="on-label">Describe Your Symptoms</label>
+              <textarea name="symptoms" class="on-input on-textarea" rows="4" placeholder="Please describe your symptoms, how long you've had them, and any relevant medical history..."></textarea>
+            </div>
+          </div>
+
+          <div class="on-book-summary reveal" id="bookSummary">
+            <div class="on-summary-row">
+              <span>Consultation Type:</span><strong id="summaryType">Phone / WhatsApp</strong>
+            </div>
+            <div class="on-summary-row">
+              <span>Fee:</span><strong id="summaryFee">₹99</strong>
+            </div>
+            <div class="on-summary-note"><i class="fas fa-circle-info me-2"></i>Payment is collected at the time of consultation. UPI, bank transfer or cash accepted.</div>
+          </div>
+
+          <div class="text-center mt-4">
+            <button type="submit" class="btn-online-book-lg">
+              <i class="fas fa-calendar-check me-2"></i>Confirm Booking
+            </button>
+            <p class="on-book-disclaimer">We'll confirm your appointment within 30 minutes via phone/WhatsApp.</p>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+{% block extra_js %}
+<script>
+// Set min date to today
+document.getElementById('apptDate').min = new Date().toISOString().split('T')[0];
+
+// Type selector
+function selectType(type, fee){
+  document.getElementById('consultTypeInput').value = type;
+  document.getElementById('feeInput').value = fee;
+  document.querySelectorAll('.on-type-card').forEach(c => c.classList.remove('selected'));
+  document.getElementById('type-' + type).classList.add('selected');
+  document.getElementById('summaryType').textContent = type === 'video' ? 'Video Consultation' : 'Phone / WhatsApp';
+  document.getElementById('summaryFee').textContent = '₹' + fee;
+}
+// Default select phone
+selectType('phone', 99);
+
+// Pre-fill doctor if coming from doctor page
+const urlParams = new URLSearchParams(window.location.search);
+const docId = urlParams.get('doctor_id');
+if(docId){ const sel = document.getElementById('doctorSelect'); if(sel) sel.value = docId; }
+</script>
+{% endblock %}

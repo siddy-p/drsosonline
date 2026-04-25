@@ -1,0 +1,37 @@
+{% extends "online/base_online.html" %}
+{% block title %}Palliative Care — Dr.SOS Online{% endblock %}
+{% block content %}
+<section class="on-page-hero">
+  <div class="container text-center">
+    <h1><i class="fas fa-heart-pulse me-3"></i>Palliative Care Services</h1>
+    <p class="lead">Compassionate, dignified care for patients with serious illness — at home across India</p>
+  </div>
+</section>
+<section class="on-section">
+  <div class="container">
+    <div class="row g-4 mb-5">
+      {% for icon, title, desc in [
+        ('fa-house-medical','Home Palliative Care','Expert nursing and medical support delivered to the patient\'s home, ensuring comfort and dignity.'),
+        ('fa-heart','Pain Management','Comprehensive pain and symptom management programmes tailored to each patient.'),
+        ('fa-people-carry-box','Family Support','Counselling, education and emotional support for families and caregivers throughout the care journey.'),
+        ('fa-phone-volume','24/7 Helpline','Round-the-clock medical advice and support for patients and families.',),
+        ('fa-syringe','Medication Management','Expert review and management of complex medication regimes.',),
+        ('fa-notes-medical','Advance Care Planning','Helping patients and families plan for future healthcare decisions.',)
+      ] %}
+      <div class="col-md-4 col-6 reveal">
+        <div class="on-service-card-light">
+          <div class="on-svc-icon-light"><i class="fas {{ icon }}"></i></div>
+          <h5>{{ title }}</h5>
+          <p>{{ desc }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="on-cta-simple reveal">
+      <h3>Need Palliative Care Support?</h3>
+      <p>Contact our team for a compassionate consultation — we're here for you and your family.</p>
+      <a href="/online/contact" class="btn-online-book">Get in Touch <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+{% endblock %}

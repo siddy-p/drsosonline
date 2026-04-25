@@ -1,0 +1,169 @@
+{% extends "edu/base_edu.html" %}
+{% block title %}Dr.SOS EduConsult — Study Abroad Starts Here{% endblock %}
+{% block content %}
+
+<!-- HERO -->
+<section class="hero-home">
+  <div class="hero-blob hero-blob-1"></div>
+  <div class="hero-blob hero-blob-2"></div>
+  <div class="container hero-home-inner">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 hero-text-col">
+        <div class="hero-badge">🌍 Trusted by 1,000+ Students Worldwide</div>
+        <h1 class="hero-heading">Your Global Education <span class="hero-highlight">Starts Here</span></h1>
+        <p class="hero-subtext">Expert guidance for university admissions, visa applications, and everything in between — from first enquiry to landing on campus.</p>
+        <div class="hero-actions">
+          <a href="/edu/book" class="btn btn-gold btn-lg">Book Free Consultation</a>
+          <a href="/edu/education" class="btn-ghost-white">Explore Services <i class="fas fa-arrow-right ms-1"></i></a>
+        </div>
+        <div class="hero-trust-pills">
+          <span><i class="fas fa-circle-check"></i> 95% Visa Success</span>
+          <span><i class="fas fa-circle-check"></i> 10+ Countries</span>
+          <span><i class="fas fa-circle-check"></i> Free Consultation</span>
+        </div>
+      </div>
+      <div class="col-lg-6 text-center hero-img-col">
+        <div class="hero-img-wrap">
+          <div class="hero-float-card hero-float-top">
+            <i class="fas fa-passport"></i>
+            <div><strong>95%</strong><span>Visa Success</span></div>
+          </div>
+          <img src="/static/images/hero.jpg" class="hero-img" alt="Students studying abroad">
+          <div class="hero-float-card hero-float-bottom">
+            <i class="fas fa-graduation-cap"></i>
+            <div><strong>500+</strong><span>Universities</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-bar">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-pill reveal"><span class="stat-num"><span class="counter" data-target="1000">0</span>+</span><span class="stat-label">Students Placed</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat-pill reveal"><span class="stat-num"><span class="counter" data-target="95">0</span>%</span><span class="stat-label">Visa Success Rate</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat-pill reveal"><span class="stat-num"><span class="counter" data-target="10">0</span>+</span><span class="stat-label">Countries Covered</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat-pill reveal"><span class="stat-num"><span class="counter" data-target="50">0</span>+</span><span class="stat-label">Partner Universities</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section-padded">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-eyebrow">What We Do</p>
+      <h2 class="section-title">Everything You Need to Study Abroad</h2>
+    </div>
+    <div class="row g-4 mt-2">
+      {% for icon, title, desc, link in [
+        ('fa-graduation-cap','Admission Guidance','We identify the best universities and manage the full application process on your behalf.','/edu/education'),
+        ('fa-passport','Visa Assistance','Expert visa support for Ireland, UK, Canada, Australia & Germany with a 95% success rate.','/edu/education'),
+        ('fa-pen-to-square','SOP & Documentation','Compelling statements of purpose that make your profile stand out from the crowd.','/edu/education'),
+        ('fa-award','Scholarship Search','We hunt for and apply to scholarships to ease your financial burden.','/edu/education'),
+        ('fa-plane-departure','Pre-Departure Support','Accommodation, bank accounts, insurance — sorted before you fly.','/edu/education'),
+        ('fa-headset','24/7 Support','Your advisor is always available via WhatsApp, email or phone.','/edu/contact')
+      ] %}
+      <div class="col-lg-4 col-md-6 reveal">
+        <div class="home-service-card">
+          <div class="hsc-icon"><i class="fas {{ icon }}"></i></div>
+          <h4>{{ title }}</h4><p>{{ desc }}</p>
+          <a href="{{ link }}" class="hsc-link">Learn more <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- DESTINATIONS -->
+<section class="destinations-home">
+  <div class="container">
+    <div class="section-header reveal" style="color:#fff">
+      <p class="section-eyebrow" style="color:var(--gold)">Where We'll Take You</p>
+      <h2 class="section-title text-white">Popular Study Destinations</h2>
+    </div>
+    <div class="dest-scroll-row reveal">
+      <div class="dest-tile"><span class="dest-flag">🇮🇪</span><strong>Ireland</strong></div>
+      <div class="dest-tile"><span class="dest-flag">🇬🇧</span><strong>UK</strong></div>
+      <div class="dest-tile"><span class="dest-flag">🇨🇦</span><strong>Canada</strong></div>
+      <div class="dest-tile"><span class="dest-flag">🇦🇺</span><strong>Australia</strong></div>
+      <div class="dest-tile"><span class="dest-flag">🇩🇪</span><strong>Germany</strong></div>
+      <div class="dest-tile"><span class="dest-flag">🇺🇸</span><strong>USA</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section-padded how-home">
+  <div class="container">
+    <div class="section-header reveal"><p class="section-eyebrow">Simple Process</p><h2 class="section-title">How It Works</h2></div>
+    <div class="how-steps-row">
+      {% for n, t, d in [('01','Free Consultation','Book a call with your advisor to discuss your goals.'),('02','Profile Assessment','We shortlist the best programmes and universities for you.'),('03','Applications Submitted','We prepare and submit strong applications on your behalf.'),('04','Visa & Arrival','We guide you through the visa process until you land.')] %}
+      <div class="how-home-step reveal">
+        <div class="hhs-num">{{ n }}</div>
+        <div class="hhs-icon"><i class="fas {% if loop.index==1 %}fa-calendar-check{% elif loop.index==2 %}fa-magnifying-glass-chart{% elif loop.index==3 %}fa-file-circle-check{% else %}fa-plane{% endif %}"></i></div>
+        <h5>{{ t }}</h5><p>{{ d }}</p>
+      </div>
+      {% if not loop.last %}<div class="how-connector"></div>{% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section-padded testimonial-home">
+  <div class="container">
+    <div class="section-header reveal" style="color:#fff">
+      <p class="section-eyebrow" style="color:var(--gold)">Success Stories</p>
+      <h2 class="section-title text-white">What Our Students Say</h2>
+    </div>
+    <div class="testimonials-slider reveal" id="testimonialSlider">
+      {% for q, name, route, init in [
+        ('"Dr.SOS made my dream of studying in Ireland a reality. My advisor handled everything — from university to visa approval in just 3 weeks!"','Amara O. — Nigeria → Ireland, MSc Data Analytics','A',5),
+        ('"I was rejected once before. After working with Dr.SOS, I got accepted to 3 universities including my first choice. Incredible service."','Khalid M. — Pakistan → UK, MBA','K',5),
+        ('"The team made my IRCC application so simple. I now have my study permit and loving life in Toronto!"','Priya S. — India → Canada, MSc Computer Science','P',5)
+      ] %}
+      <div class="testimonial-slide {% if loop.first %}active{% endif %}">
+        <div class="testimonial-card">
+          <p class="testimonial-quote">{{ q }}</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">{{ init }}</div>
+            <div><strong>{{ name }}</strong></div>
+            <div class="ms-auto">{{ '⭐' * init }}</div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="testimonial-dots text-center mt-4">
+      <span class="t-dot active" onclick="goToSlide(0)"></span>
+      <span class="t-dot" onclick="goToSlide(1)"></span>
+      <span class="t-dot" onclick="goToSlide(2)"></span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-home">
+  <div class="container">
+    <div class="cta-home-inner reveal">
+      <div>
+        <h2>Ready to Start Your Journey?</h2>
+        <p>Join 1,000+ students who trusted Dr.SOS EduConsult.</p>
+      </div>
+      <div class="cta-home-btns">
+        <a href="/register" class="btn btn-gold btn-lg">Create Free Account</a>
+        <a href="/edu/book" class="btn-ghost-dark">Book Consultation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
