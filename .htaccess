@@ -1,0 +1,9 @@
+# ── Block direct access to Python/sensitive files ─────────
+<FilesMatch "\.(py|pyc|db|sqlite3|env|sh)$">
+    Require all denied
+</FilesMatch>
+
+# ── Force HTTPS ────────────────────────────────────────────
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]

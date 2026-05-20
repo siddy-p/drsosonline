@@ -1,6 +1,8 @@
+from dotenv import load_dotenv; load_dotenv()  # loads .env file on ServerbYT
 from flask import Flask, Blueprint, render_template, redirect, url_for, flash, request, session
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from flask_bcrypt import Bcrypt
+from flask_mail import Mail, Message
 from models import db, User, Profile, Application, Booking, ContactMessage, Doctor, Appointment
 import os
 
@@ -12,8 +14,22 @@ if db_url.startswith('postgres://'):
 app.config['SQLALCHEMY_DATABASE_URI'] = db_url
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
+# ── Flask-Mail (configure via environment variables on cPanel) ──
+app.config['MAIL_SERVER']   = os.environ.get('MAIL_SERVER', 'smtp.drsosonline.com')
+app.config['MAIL_PORT']     = int(os.environ.get('MAIL_PORT', 587))
+app.config['MAIL_USE_TLS']  = os.environ.get('MAIL_USE_TLS', 'true').lower() == 'true'
+app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME', '')   # e.g. noreply@drsosonline.com
+app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD', '')   # cPanel email password
+app.config['MAIL_DEFAULT_SENDER'] = os.environ.get('MAIL_USERNAME', 'noreply@drsosonline.com')
+# Admin email that receives booking notifications
+ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL', 'admin@drsosonline.com')
+# UPI ID for payments
+UPI_ID = '7025361771@ptsbi'
+UPI_NAME = 'Dr SOS Online'
+
 db.init_app(app)
 bcrypt = Bcrypt(app)
+mail = Mail(app)
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 login_manager.login_message = 'Please log in to access this page.'
@@ -23,6 +39,26 @@ login_manager.login_message_category = 'warning'
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
+
+
+def send_notification(subject, body):
+    """Send an email notification to the admin. Silently fails if mail is not configured."""
+    try:
+        if app.config.get('MAIL_USERNAME'):
+            msg = Message(subject=subject, recipients=[ADMIN_EMAIL], body=body)
+            mail.send(msg)
+    except Exception as e:
+        app.logger.warning(f'Mail send failed: {e}')
+
+
+def send_booking_confirmation(recipient_email, recipient_name, subject, body):
+    """Send confirmation email to the patient."""
+    try:
+        if app.config.get('MAIL_USERNAME'):
+            msg = Message(subject=subject, recipients=[recipient_email], body=body)
+            mail.send(msg)
+    except Exception as e:
+        app.logger.warning(f'Confirmation mail failed: {e}')
 
 
 # ─────────────────────────── BLUEPRINTS ───────────────────────────
@@ -77,6 +113,33 @@ def book():
         )
         db.session.add(booking)
         db.session.commit()
+        # Notify admin
+        send_notification(
+            subject=f'[Dr.SOS EduConsult] New Booking – {booking.name}',
+            body=(
+                f'New education consultation booking received:\n\n'
+                f'Name    : {booking.name}\n'
+                f'Email   : {booking.email}\n'
+                f'Phone   : {booking.phone}\n'
+                f'Service : {booking.service}\n'
+                f'Date    : {booking.preferred_date}\n'
+                f'Message : {booking.message}\n'
+            )
+        )
+        # Confirm to patient
+        send_booking_confirmation(
+            recipient_email=booking.email,
+            recipient_name=booking.name,
+            subject='Your EduConsult Booking is Received – Dr.SOS',
+            body=(
+                f'Dear {booking.name},\n\n'
+                f'Thank you for booking an education consultation with Dr.SOS.\n'
+                f'We will confirm your appointment within 24 hours.\n\n'
+                f'Service : {booking.service}\n'
+                f'Date    : {booking.preferred_date}\n\n'
+                f'Regards,\nDr.SOS EduConsult Team'
+            )
+        )
         flash('Consultation request submitted! We will confirm shortly.', 'success')
         return redirect(url_for('edu.book'))
     return render_template('edu/book.html')
@@ -132,12 +195,50 @@ def consult():
             reason=request.form.get('reason'),
             symptoms=request.form.get('symptoms'),
             fee=fee,
-            status='pending'
+            status='pending',
+            payment_status='pending'
         )
         db.session.add(apt)
         db.session.commit()
-        flash(f'Appointment booked! We will confirm within 30 minutes. Fee: ₹{fee}', 'success')
-        return redirect(url_for('online.consult'))
+        # Notify admin
+        send_notification(
+            subject=f'[Dr.SOS Online] New Appointment #{apt.id} – {apt.patient_name}',
+            body=(
+                f'New doctor appointment received:\n\n'
+                f'ID          : #{apt.id}\n'
+                f'Patient     : {apt.patient_name}\n'
+                f'Email       : {apt.patient_email}\n'
+                f'Phone       : {apt.patient_phone}\n'
+                f'Type        : {apt.consult_type}\n'
+                f'Fee         : ₹{apt.fee}\n'
+                f'Date & Time : {apt.appointment_date} at {apt.appointment_time}\n'
+                f'Reason      : {apt.reason}\n'
+                f'Symptoms    : {apt.symptoms}\n'
+            )
+        )
+        # Confirm to patient
+        send_booking_confirmation(
+            recipient_email=apt.patient_email,
+            recipient_name=apt.patient_name,
+            subject='Appointment Confirmed – Dr.SOS Online',
+            body=(
+                f'Dear {apt.patient_name},\n\n'
+                f'Your consultation appointment (#{apt.id}) has been received.\n\n'
+                f'Type  : {apt.consult_type.title()} Consultation\n'
+                f'Date  : {apt.appointment_date} at {apt.appointment_time}\n'
+                f'Fee   : ₹{apt.fee}\n\n'
+                f'Please complete your payment via UPI to confirm your slot.\n'
+                f'UPI ID: {UPI_ID}\n\n'
+                f'We will confirm within 30 minutes after payment.\n\n'
+                f'Regards,\nDr.SOS Online Team'
+            )
+        )
+        # Redirect to UPI payment page
+        return redirect(url_for('upi_payment',
+                                apt_id=apt.id,
+                                name=apt.patient_name,
+                                amount=fee,
+                                consult_type=consult_type))
     return render_template('online/consult.html', doctors=doctors, prefill_doctor=prefill_doctor)
 
 
@@ -172,6 +273,51 @@ def contact():
 # Register blueprints
 app.register_blueprint(edu_bp)
 app.register_blueprint(online_bp)
+
+
+# ─────────────────────────── UPI PAYMENT ───────────────────────────
+
+@app.route('/payment/upi')
+def upi_payment():
+    apt_id       = request.args.get('apt_id', '')
+    patient_name = request.args.get('name', 'Patient')
+    amount       = request.args.get('amount', '99')
+    consult_type = request.args.get('consult_type', 'phone')
+    # Build UPI deep-link (works with GPay, PhonePe, Paytm, BHIM)
+    txn_note = f'DrSOS Consultation #{apt_id}'
+    upi_link = (
+        f"upi://pay?pa={UPI_ID}"
+        f"&pn={UPI_NAME.replace(' ', '%20')}"
+        f"&am={amount}"
+        f"&cu=INR"
+        f"&tn={txn_note.replace(' ', '%20')}"
+    )
+    return render_template(
+        'payment_upi.html',
+        upi_link=upi_link,
+        upi_id=UPI_ID,
+        amount=amount,
+        apt_id=apt_id,
+        patient_name=patient_name,
+        consult_type=consult_type
+    )
+
+
+@app.route('/payment/success')
+def payment_success():
+    apt_id = request.args.get('apt_id', '')
+    if apt_id:
+        apt = Appointment.query.get(int(apt_id))
+        if apt:
+            apt.payment_status = 'paid'
+            db.session.commit()
+            # Notify admin of payment
+            send_notification(
+                subject=f'[Dr.SOS] Payment Received – Appointment #{apt_id}',
+                body=f'Patient {apt.patient_name} has confirmed payment of ₹{apt.fee} for appointment #{apt_id}.'
+            )
+    flash('Payment confirmed! We will contact you within 30 minutes to confirm your appointment.', 'success')
+    return redirect(url_for('online.home'))
 
 
 # ─────────────────────────── LANDING PAGE ───────────────────────────
