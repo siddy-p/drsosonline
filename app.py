@@ -320,6 +320,14 @@ def payment_success():
     return redirect(url_for('online.home'))
 
 
+# ─────────────────────────── HEALTH CHECK ───────────────────────────
+
+@app.route('/health')
+def health():
+    from flask import jsonify
+    return jsonify({'status': 'ok', 'service': 'drsosonline'}), 200
+
+
 # ─────────────────────────── LANDING PAGE ───────────────────────────
 
 @app.route('/')
