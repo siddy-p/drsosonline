@@ -115,11 +115,10 @@
             <span class="edu-elig-qn">3</span>
             <div>
               <strong>Preferred country?</strong>
-              <div class="edu-elig-opts">
-                <span><i class="fas fa-globe me-1" style="color:var(--primary)"></i> Russia</span>
-                <span class="selected"><i class="fas fa-globe me-1"></i> Georgia</span>
-                <span><i class="fas fa-globe me-1" style="color:var(--primary)"></i> China</span>
-                <span><i class="fas fa-globe me-1" style="color:var(--primary)"></i> Kazakhstan</span>
+                <span>🇷🇺 Russia</span>
+                <span class="selected">🇬🇪 Georgia</span>
+                <span>🇨🇳 China</span>
+                <span>🇰🇿 Kazakhstan</span>
               </div>
             </div>
           </div>
@@ -144,17 +143,17 @@
     <p class="text-center text-white-50 mb-5">NMC-approved, WHO-listed universities with affordable fees for Indian students</p>
     <div class="row g-4 justify-content-center">
       @foreach ([
-        ['fa-globe','Russia','Top NMC-approved universities. 6-year programme in English.','₹18–30 Lakhs total'],
-        ['fa-globe','Georgia','European standard education. No IELTS required. Safe & affordable.','₹20–35 Lakhs total'],
-        ['fa-globe','China','World-class infrastructure. Excellent clinical exposure. Affordable fees.','₹15–25 Lakhs total'],
-        ['fa-globe','Kazakhstan','Growing medical hub. NMC-approved. Modern facilities.','₹18–28 Lakhs total'],
-        ['fa-globe','Kyrgyzstan','Most affordable option. NMC-approved. Indian food available.','₹12–20 Lakhs total'],
-        ['fa-globe','Uzbekistan','Emerging destination. Government universities with low fees.','₹15–22 Lakhs total'],
-        ['fa-globe','UK (PG/PLAB)','For MBBS graduates seeking PG in UK. PLAB pathway guidance.','Varies by programme']
+        ['🇷🇺','Russia','Top NMC-approved universities. 6-year programme in English.','₹18–30 Lakhs total'],
+        ['🇬🇪','Georgia','European standard education. No IELTS required. Safe & affordable.','₹20–35 Lakhs total'],
+        ['🇨🇳','China','World-class infrastructure. Excellent clinical exposure. Affordable fees.','₹15–25 Lakhs total'],
+        ['🇰🇿','Kazakhstan','Growing medical hub. NMC-approved. Modern facilities.','₹18–28 Lakhs total'],
+        ['🇰🇬','Kyrgyzstan','Most affordable option. NMC-approved. Indian food available.','₹12–20 Lakhs total'],
+        ['🇺🇿','Uzbekistan','Emerging destination. Government universities with low fees.','₹15–22 Lakhs total'],
+        ['🇬🇧','UK (PG/PLAB)','For MBBS graduates seeking PG in UK. PLAB pathway guidance.','Varies by programme']
       ] as $country)
       <div class="col-lg-3 col-md-6 fade-in">
         <div class="destination-card">
-          <div class="dest-flag" style="font-size:2rem;color:var(--gold);margin-bottom:12px;"><i class="fas {{ $country[0] }}"></i></div>
+          <div class="dest-flag">{{ $country[0] }}</div>
           <h5>{{ $country[1] }}</h5>
           <p>{{ $country[2] }}</p>
           <span class="dest-cost"><i class="fas fa-tag me-1"></i>{{ $country[3] }}</span>

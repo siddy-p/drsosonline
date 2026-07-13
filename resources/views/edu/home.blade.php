@@ -89,13 +89,13 @@
       <h2 class="section-title text-white">Top Countries for Indian Medical Students</h2>
     </div>
     <div class="dest-scroll-row reveal">
-      <div class="dest-tile"><i class="fas fa-globe" style="color:var(--gold);font-size:1.8rem;display:block;margin-bottom:8px;"></i><strong>Russia</strong></div>
-      <div class="dest-tile"><i class="fas fa-globe" style="color:var(--gold);font-size:1.8rem;display:block;margin-bottom:8px;"></i><strong>Georgia</strong></div>
-      <div class="dest-tile"><i class="fas fa-globe" style="color:var(--gold);font-size:1.8rem;display:block;margin-bottom:8px;"></i><strong>China</strong></div>
-      <div class="dest-tile"><i class="fas fa-globe" style="color:var(--gold);font-size:1.8rem;display:block;margin-bottom:8px;"></i><strong>Kazakhstan</strong></div>
-      <div class="dest-tile"><i class="fas fa-globe" style="color:var(--gold);font-size:1.8rem;display:block;margin-bottom:8px;"></i><strong>Kyrgyzstan</strong></div>
-      <div class="dest-tile"><i class="fas fa-globe" style="color:var(--gold);font-size:1.8rem;display:block;margin-bottom:8px;"></i><strong>Uzbekistan</strong></div>
-      <div class="dest-tile"><i class="fas fa-globe" style="color:var(--gold);font-size:1.8rem;display:block;margin-bottom:8px;"></i><strong>UK (PG)</strong></div>
+      <div class="dest-tile"><span class="dest-flag">🇷🇺</span><strong>Russia</strong></div>
+      <div class="dest-tile"><span class="dest-flag">🇬🇪</span><strong>Georgia</strong></div>
+      <div class="dest-tile"><span class="dest-flag">🇨🇳</span><strong>China</strong></div>
+      <div class="dest-tile"><span class="dest-flag">🇰🇿</span><strong>Kazakhstan</strong></div>
+      <div class="dest-tile"><span class="dest-flag">🇰🇬</span><strong>Kyrgyzstan</strong></div>
+      <div class="dest-tile"><span class="dest-flag">🇺🇿</span><strong>Uzbekistan</strong></div>
+      <div class="dest-tile"><span class="dest-flag">🇬🇧</span><strong>UK (PG)</strong></div>
 
     </div>
   </div>

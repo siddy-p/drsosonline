@@ -344,33 +344,73 @@
     /* ── Mobile ── */
     @media(max-width:768px) {
       body {
-        overflow: auto;
+        overflow: hidden !important;
+        position: fixed;
+        width: 100%;
+        height: 100%;
       }
 
       .split {
         flex-direction: column;
-        height: auto;
-        min-height: 100vh;
+        height: 100vh !important;
+        min-height: 100vh !important;
+        overflow: hidden;
       }
 
       .panel {
-        flex: none;
-        min-height: 50vh;
-        padding: 48px 28px;
+        flex: 1 !important;
+        min-height: 50vh !important;
+        height: 50vh !important;
+        padding: 16px 20px;
+        justify-content: center;
+      }
+
+      .panel-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .portal-badge, .panel-desc, .panel-pills, .panel-tagline {
+        display: none !important;
+      }
+
+      .panel-icon {
+        font-size: 2.2rem !important;
+        margin-bottom: 8px !important;
+      }
+
+      .panel-title {
+        font-size: 1.45rem !important;
+        margin-bottom: 12px !important;
+      }
+
+      .enter-btn {
+        padding: 10px 24px !important;
+        font-size: 0.85rem !important;
       }
 
       .panel:hover {
-        flex: none;
+        flex: 1 !important;
       }
 
       .divider {
         width: 100%;
-        height: 2px;
+        height: 1px;
+        background: rgba(255, 255, 255, .15);
         flex-shrink: 0;
       }
 
       .divider-logo {
+        width: 44px;
+        height: 44px;
+        font-size: 0.9rem;
         transform: none;
+      }
+
+      .cursor {
+        display: none !important;
       }
     }
   </style>
@@ -452,12 +492,16 @@
   <script>
     // Custom cursor colour follows hovered panel
     const cursor = document.getElementById('customCursor');
-    let mouseX = 0, mouseY = 0, curX = 0, curY = 0;
-    document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
-    function animCursor() { curX += (mouseX - curX) * .18; curY += (mouseY - curY) * .18; cursor.style.left = curX + 'px'; cursor.style.top = curY + 'px'; requestAnimationFrame(animCursor); }
-    requestAnimationFrame(animCursor);
-    document.getElementById('panelEdu').addEventListener('mouseenter', () => cursor.className = 'cursor cursor-edu');
-    document.getElementById('panelOnline').addEventListener('mouseenter', () => cursor.className = 'cursor cursor-online');
+    if (cursor && window.innerWidth > 768 && !('ontouchstart' in window)) {
+      let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2, curX = mouseX, curY = mouseY;
+      document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
+      function animCursor() { curX += (mouseX - curX) * .18; curY += (mouseY - curY) * .18; cursor.style.left = curX + 'px'; cursor.style.top = curY + 'px'; requestAnimationFrame(animCursor); }
+      requestAnimationFrame(animCursor);
+      document.getElementById('panelEdu').addEventListener('mouseenter', () => cursor.className = 'cursor cursor-edu');
+      document.getElementById('panelOnline').addEventListener('mouseenter', () => cursor.className = 'cursor cursor-online');
+    } else if (cursor) {
+      cursor.style.display = 'none';
+    }
   </script>
 </body>
 

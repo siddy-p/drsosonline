@@ -122,11 +122,12 @@
       <div class="col-lg-3 col-6">
         <h6 class="footer-heading">MBBS Destinations</h6>
         <ul class="footer-links">
-          <li><a href="{{ route('edu.education') }}#destinations"><i class="fas fa-chevron-right me-1" style="font-size:0.75rem;color:var(--gold);"></i> Russia</a></li>
-          <li><a href="{{ route('edu.education') }}#destinations"><i class="fas fa-chevron-right me-1" style="font-size:0.75rem;color:var(--gold);"></i> Georgia</a></li>
-          <li><a href="{{ route('edu.education') }}#destinations"><i class="fas fa-chevron-right me-1" style="font-size:0.75rem;color:var(--gold);"></i> China</a></li>
-          <li><a href="{{ route('edu.education') }}#destinations"><i class="fas fa-chevron-right me-1" style="font-size:0.75rem;color:var(--gold);"></i> Kazakhstan</a></li>
-          <li><a href="{{ route('edu.education') }}#destinations"><i class="fas fa-chevron-right me-1" style="font-size:0.75rem;color:var(--gold);"></i> Kyrgyzstan</a></li>
+          <li><a href="{{ route('edu.education') }}#destinations">🇷🇺 Russia</a></li>
+          <li><a href="{{ route('edu.education') }}#destinations">🇬🇪 Georgia</a></li>
+          <li><a href="{{ route('edu.education') }}#destinations">🇨🇳 China</a></li>
+          <li><a href="{{ route('edu.education') }}#destinations">🇰🇿 Kazakhstan</a></li>
+          <li><a href="{{ route('edu.education') }}#destinations">🇰🇬 Kyrgyzstan</a></li>
+
 
         </ul>
       </div>
