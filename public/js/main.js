@@ -34,16 +34,16 @@ const revealObserver = new IntersectionObserver((entries, obs) => {
     });
 }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
 
-// Fade-in: stagger limited to 6 items max (0.06s each), then reset
+// Fade-in: stagger limited to 6 items max (0.03s each), then reset
 document.querySelectorAll('.fade-in').forEach((el, i) => {
-    el.style.transitionDelay = `${Math.min(i, 6) * 0.06}s`;
+    el.style.transitionDelay = `${Math.min(i, 6) * 0.03}s`;
     revealObserver.observe(el);
 });
 
 // Reveal: very light stagger per section (no global index carry-over)
 document.querySelectorAll('section, .row').forEach(section => {
     section.querySelectorAll('.reveal').forEach((el, i) => {
-        el.style.transitionDelay = `${i * 0.07}s`;
+        el.style.transitionDelay = `${i * 0.04}s`;
         revealObserver.observe(el);
     });
 });

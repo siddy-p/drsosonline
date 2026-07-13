@@ -51,11 +51,12 @@ a:hover{color:var(--primary);}
 .btn-primary:hover{background:var(--primary-dark)!important;transform:translateY(-2px);}
 
 /* ===================== FADE / REVEAL ANIMATIONS ===================== */
-.fade-in{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease;}
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity .3s ease,transform .3s ease;}
 .fade-in.visible{opacity:1;transform:translateY(0);}
 /* Lightweight reveal for homepage — GPU-accelerated */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .5s cubic-bezier(.25,.46,.45,.94),transform .5s cubic-bezier(.25,.46,.45,.94);will-change:opacity,transform;}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .3s cubic-bezier(.25,.46,.45,.94),transform .3s cubic-bezier(.25,.46,.45,.94);will-change:opacity,transform;}
 .reveal.visible{opacity:1;transform:translateY(0);will-change:auto;}
+
 @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-14px);}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
 @keyframes blobPulse{0%,100%{transform:scale(1) translate(0,0);}50%{transform:scale(1.08) translate(10px,-10px);}}
@@ -389,9 +390,19 @@ select.form-control-auth{cursor:pointer;}
 .edu-nav .navbar-nav .nav-link::after{display:none;} /* Override global nav-link underline */
 .edu-back-link{border:1px solid rgba(255,255,255,.25);font-size:.85rem!important;padding:8px 14px!important;}
 .edu-back-link:hover{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.4);}
-.edu-nav .navbar-toggler{border:none;color:#fff;}
-.edu-nav .navbar-toggler:focus{box-shadow:none;}
+.edu-nav .navbar-toggler, .online-nav .navbar-toggler {
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  padding: 6px 10px !important;
+  outline: none !important;
+}
+.edu-nav .navbar-toggler:focus, .online-nav .navbar-toggler:focus {
+  box-shadow: none !important;
+}
+.edu-nav .navbar-toggler-icon, .online-nav .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
 .edu-nav .navbar-collapse{padding-top:10px;}
+
 @media(min-width:992px){.edu-nav .navbar-collapse{padding-top:0;}}
 
 /* Ghost buttons */
