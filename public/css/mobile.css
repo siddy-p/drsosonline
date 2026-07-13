@@ -10,7 +10,17 @@
   .section-padded { padding: 52px 0; }
   .py-5 { padding-top: 40px !important; padding-bottom: 40px !important; }
   .container { padding-left: 16px; padding-right: 16px; }
-  .custom-cursor { display: none; }
+  .custom-cursor, #customCursor { display: none !important; visibility: hidden !important; opacity: 0 !important; pointer-events: none !important; }
+}
+
+/* Disable custom cursor on all touch-only devices (tablets/phones) regardless of screen width */
+@media (hover: none) and (pointer: coarse) {
+  .custom-cursor, #customCursor {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
 }
 
 /* ===================== NAVBAR ===================== */
