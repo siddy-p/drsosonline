@@ -60,8 +60,8 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
   <div class="container">
-    <a class="navbar-brand d-flex align-items-center" href="{{ route('landing') }}">
-      <img src="{{ asset('images/logo.png') }}" alt="Dr.SOS Online Logo" style="height: 45px; border-radius: 4px;">
+    <a class="navbar-brand" href="{{ route('landing') }}">
+      <span class="brand-dr">Dr.</span><span class="brand-sos">SOS</span>
     </a>
     <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
@@ -106,7 +106,7 @@
     <div class="row g-5">
       <div class="col-lg-4 col-md-6">
         <div class="footer-brand mb-3">
-          <img src="{{ asset('images/logo.png') }}" alt="Dr.SOS Online Logo" style="height: 50px; border-radius: 4px;">
+          <span class="brand-dr">Dr.</span><span class="brand-sos">SOS</span>
         </div>
         <p class="footer-tagline">Your trusted partner for MBBS abroad education and online medical consultations. Head Office: Kerala, India.</p>
         <div class="footer-social mt-3">

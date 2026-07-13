@@ -63,9 +63,9 @@
 <!-- Online Navbar -->
 <nav class="online-nav" id="mainNav">
   <div class="container d-flex align-items-center justify-content-between">
-    <a class="online-brand d-flex align-items-center gap-2" href="{{ route('online.home') }}">
-      <img src="{{ asset('images/logo.png') }}" alt="Dr.SOS Online Logo" style="height: 40px; border-radius: 4px;">
-      <span class="on-sub">Online</span>
+    <a class="online-brand" href="{{ route('online.home') }}">
+      <i class="fas fa-stethoscope me-2"></i>
+      <span class="on-dr">Dr.</span><span class="on-sos">SOS</span><span class="on-sub"> Online</span>
     </a>
     <button class="navbar-toggler-online" onclick="toggleMobileNav()"><i class="fas fa-bars"></i></button>
     <div class="online-nav-links" id="onlineNavLinks">
@@ -95,10 +95,7 @@
   <div class="container">
     <div class="row g-4">
       <div class="col-lg-4">
-        <div class="on-footer-brand d-flex align-items-center gap-2">
-          <img src="{{ asset('images/logo.png') }}" alt="Dr.SOS Online Logo" style="height: 40px; border-radius: 4px;">
-          <span style="color:#fff;font-weight:800">Online</span>
-        </div>
+        <div class="on-footer-brand"><i class="fas fa-stethoscope me-2" style="color:#0d9488"></i><span style="color:#fff;font-weight:800">Dr.SOS Online</span></div>
         <p class="on-footer-tagline">Affordable, accessible medical consultations from the comfort of your home. Phone, WhatsApp & Video — we're here when you need us.</p>
         <div class="footer-social mt-3">
           <a href="#"><i class="fab fa-facebook-f"></i></a>
