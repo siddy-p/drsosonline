@@ -1,15 +1,21 @@
 // ── Custom cursor via requestAnimationFrame (smooth, no lag) ──
 const cursor = document.getElementById('customCursor');
-let mouseX = 0, mouseY = 0;
-let curX = 0, curY = 0;
-document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
-function animateCursor() {
-    curX += (mouseX - curX) * 0.18;
-    curY += (mouseY - curY) * 0.18;
-    if (cursor) { cursor.style.left = curX + 'px'; cursor.style.top = curY + 'px'; }
+if (cursor && window.innerWidth > 768 && !('ontouchstart' in window)) {
+    let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
+    let curX = mouseX, curY = mouseY;
+    document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
+    function animateCursor() {
+        curX += (mouseX - curX) * 0.18;
+        curY += (mouseY - curY) * 0.18;
+        cursor.style.left = curX + 'px';
+        cursor.style.top = curY + 'px';
+        requestAnimationFrame(animateCursor);
+    }
     requestAnimationFrame(animateCursor);
+} else if (cursor) {
+    cursor.style.display = 'none';
 }
-requestAnimationFrame(animateCursor);
+
 
 // ── Navbar scroll effect ──
 const nav = document.getElementById('mainNav');
