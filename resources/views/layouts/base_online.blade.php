@@ -62,29 +62,36 @@
 @endif
 
 <!-- Online Navbar -->
-<nav class="online-nav" id="mainNav">
-  <div class="container d-flex align-items-center justify-content-between">
-    <a class="online-brand" href="{{ route('online.home') }}">
-      <i class="fas fa-stethoscope me-2"></i>
+<nav class="navbar navbar-expand-lg online-nav" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand online-brand" href="{{ route('online.home') }}">
+      <i class="fas fa-stethoscope me-2" style="color: var(--on-secondary)"></i>
       <span class="on-dr">Dr.</span><span class="on-sos">SOS</span><span class="on-sub"> Online</span>
     </a>
-    <button class="navbar-toggler-online" onclick="toggleMobileNav()"><i class="fas fa-bars"></i></button>
-    <div class="online-nav-links" id="onlineNavLinks">
-      <a href="{{ route('online.home') }}" class="onl">Home</a>
-      <a href="{{ route('online.doctors') }}" class="onl">Our Doctors</a>
-      <a href="{{ route('online.palliative_care') }}" class="onl">Palliative Care</a>
-      <a href="{{ route('online.air_ambulance') }}" class="onl">Air Ambulance</a>
-      <a href="{{ route('online.contact') }}" class="onl">Contact</a>
-      <a href="{{ route('landing') }}" class="onl onl-portal"><i class="fas fa-th-large me-1"></i>All Services</a>
-    </div>
-    <div class="online-nav-cta">
-      @auth
-      <a href="{{ route('dashboard') }}" class="btn btn-online-outline btn-sm">Dashboard</a>
-      <a href="{{ route('logout') }}" class="btn btn-online-outline btn-sm">Logout</a>
-      @else
-      <a href="{{ route('login') }}" class="btn btn-online-outline btn-sm">Login</a>
-      @endauth
-      <a href="{{ route('online.consult') }}" class="btn btn-online-primary">Book Now ₹99+</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navOnline">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navOnline">
+      <ul class="navbar-nav mx-auto gap-2">
+        <li class="nav-item"><a class="nav-link" href="{{ route('online.home') }}">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('online.doctors') }}">Our Doctors</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('online.palliative_care') }}">Palliative Care</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('online.air_ambulance') }}">Air Ambulance</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('online.contact') }}">Contact</a></li>
+        <li class="nav-item"><a class="nav-link online-back-link ms-lg-2" href="{{ route('landing') }}"><i class="fas fa-th-large me-1"></i>All Services</a></li>
+      </ul>
+      <div class="d-flex align-items-center gap-3 mt-3 mt-lg-0">
+        @auth
+        <a href="{{ route('dashboard') }}" class="text-white text-decoration-none fw-medium d-flex align-items-center">
+          <div class="nav-avatar me-2" style="background:var(--on-secondary);color:#fff">{{ strtoupper((Auth::user()->profile->first_name ?? Auth::user()->email)[0]) }}</div>
+          Dashboard
+        </a>
+        <a href="{{ route('logout') }}" class="text-white-50 text-decoration-none"><i class="fas fa-right-from-bracket"></i></a>
+        @else
+        <a href="{{ route('login') }}" class="text-white text-decoration-none fw-medium" style="font-size: 0.95rem;">Login</a>
+        <a href="{{ route('online.consult') }}" class="btn btn-online-primary px-3 py-2 fw-bold" style="border-radius: 8px;">Book Now ₹99+</a>
+        @endauth
+      </div>
     </div>
   </div>
 </nav>
@@ -140,12 +147,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="{{ asset('js/main.js') }}"></script>
-<script>
-function toggleMobileNav(){
-  const nl = document.getElementById('onlineNavLinks');
-  nl.classList.toggle('open');
-}
-</script>
 @yield('extra_js')
 </body>
 </html>

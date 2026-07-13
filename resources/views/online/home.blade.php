@@ -62,16 +62,17 @@
 <section class="on-stats-bar">
   <div class="container">
     <div class="on-stats-grid">
-      <div class="on-stat"><span class="on-stat-n"><span class="counter" data-target="500">0</span>+</span><span>Patients Served</span></div>
+      <div class="on-stat reveal"><span class="on-stat-n"><span class="counter" data-target="500">0</span>+</span><span>Patients Served</span></div>
       <div class="on-stat-div"></div>
-      <div class="on-stat"><span class="on-stat-n"><span class="counter" data-target="2">0</span>+</span><span>Specialist Doctors</span></div>
+      <div class="on-stat reveal"><span class="on-stat-n"><span class="counter" data-target="2">0</span>+</span><span>Specialist Doctors</span></div>
       <div class="on-stat-div"></div>
-      <div class="on-stat"><span class="on-stat-n">₹99</span><span>Starting Price</span></div>
+      <div class="on-stat reveal"><span class="on-stat-n">₹99</span><span>Starting Price</span></div>
       <div class="on-stat-div"></div>
-      <div class="on-stat"><span class="on-stat-n">4.9<i class="fas fa-star ms-1" style="color:#f59e0b;font-size:.8rem"></i></span><span>Average Rating</span></div>
+      <div class="on-stat reveal"><span class="on-stat-n">4.9<i class="fas fa-star ms-1" style="color:#f59e0b;font-size:.8rem"></i></span><span>Average Rating</span></div>
     </div>
   </div>
 </section>
+
 
 <!-- HOW IT WORKS -->
 <section class="on-section">
@@ -166,32 +167,38 @@
 </section>
 
 <!-- TESTIMONIALS -->
-<section class="on-section">
+<section class="on-section" style="background: linear-gradient(135deg, var(--on-primary), var(--on-dark)); color: #fff; padding: 80px 0;">
   <div class="container">
-    <div class="on-section-header reveal">
-      <p class="on-eyebrow">Patient Reviews</p>
-      <h2>What Our Patients Say</h2>
+    <div class="on-section-header reveal" style="color:#fff">
+      <p class="on-eyebrow" style="color:var(--on-secondary)">Patient Reviews</p>
+      <h2 class="text-white">What Our Patients Say</h2>
     </div>
-    <div class="row g-4 mt-2">
+    <div class="testimonials-slider reveal" id="testimonialSlider">
       @foreach ([
-        ['"Booked a phone consultation and the doctor called me within the hour. So convenient and affordable!"','Riya Patel, Ahmedabad','R',5],
-        ['"My child had a fever at midnight. Dr. Mehta was available on WhatsApp and guided us through. Lifesaver!"','Suresh Kumar, Chennai','S',5],
-        ['"Highly professional. Video call with Dr. Sharma was just like being in a clinic — she was thorough and kind."','Anjali Nair, Kochi','A',5]
+        ['"Booked a phone consultation and the doctor called me within the hour. So convenient and affordable!"','Riya Patel — Ahmedabad','R'],
+        ['"My child had a fever at midnight. Dr. Mehta was available on WhatsApp and guided us through. Lifesaver!"','Suresh Kumar — Chennai','S'],
+        ['"Highly professional. Video call with Dr. Sharma was just like being in a clinic — she was thorough and kind."','Anjali Nair — Kochi','A']
       ] as $review)
-      <div class="col-lg-4 col-md-6 reveal">
-        <div class="on-review-card">
-          <div class="on-review-stars">{{ str_repeat('⭐', $review[3]) }}</div>
-          <p class="on-review-text">{{ $review[0] }}</p>
-          <div class="on-review-author">
-            <div class="on-review-avatar">{{ $review[2] }}</div>
-            <strong>{{ $review[1] }}</strong>
+      <div class="testimonial-slide {{ $loop->first ? 'active' : '' }}">
+        <div class="testimonial-card" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: #fff; max-width: 720px; margin: 0 auto; padding: 36px; border-radius: 16px;">
+          <p class="testimonial-quote" style="font-size: 1.1rem; font-style: italic; line-height: 1.7; margin-bottom: 24px; color: rgba(255,255,255,0.95);">{{ $review[0] }}</p>
+          <div class="testimonial-author" style="display: flex; align-items: center; gap: 14px;">
+            <div class="testimonial-avatar" style="width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.2rem; flex-shrink: 0; background: var(--on-secondary); color: #fff;">{{ $review[2] }}</div>
+            <div><strong>{{ $review[1] }}</strong></div>
+            <div class="ms-auto">⭐⭐⭐⭐⭐</div>
           </div>
         </div>
       </div>
       @endforeach
     </div>
+    <div class="testimonial-dots text-center mt-4">
+      <span class="t-dot active" onclick="goToSlide(0)"></span>
+      <span class="t-dot" onclick="goToSlide(1)"></span>
+      <span class="t-dot" onclick="goToSlide(2)"></span>
+    </div>
   </div>
 </section>
+
 
 <!-- CTA -->
 <section class="on-cta">
