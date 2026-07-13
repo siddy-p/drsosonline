@@ -1,0 +1,228 @@
+/* ================================================
+   MOBILE.CSS — Comprehensive Mobile Optimisation
+   Breakpoints: 992px (tablet) / 768px (mobile) / 480px (small)
+================================================ */
+
+/* ===================== BASE ===================== */
+@media (max-width: 768px) {
+  html { -webkit-text-size-adjust: 100%; }
+  body { overflow-x: hidden; }
+  .section-padded { padding: 52px 0; }
+  .py-5 { padding-top: 40px !important; padding-bottom: 40px !important; }
+  .container { padding-left: 16px; padding-right: 16px; }
+  .custom-cursor { display: none; }
+}
+
+/* ===================== NAVBAR ===================== */
+@media (max-width: 991px) {
+  .navbar { padding: 10px 0; }
+  .navbar-brand { font-size: 1.15rem; }
+  .navbar-collapse {
+    background: rgba(0,0,0,.96);
+    border-top: 1px solid rgba(255,255,255,.08);
+    border-radius: 0 0 14px 14px;
+    padding: 16px 20px 20px;
+    margin-top: 8px;
+  }
+  .navbar-nav .nav-item { border-bottom: 1px solid rgba(255,255,255,.06); }
+  .navbar-nav .nav-item:last-child { border-bottom: none; }
+  .nav-link { padding: 12px 0 !important; font-size: 1rem; }
+  .nav-link::after { display: none !important; }
+  .navbar-nav .btn-outline-gold { display: block; text-align: center; margin-top: 12px; }
+  .edu-nav .navbar-collapse { padding-bottom: 20px; }
+  .edu-nav .nav-link { padding: 12px 8px !important; }
+  .edu-back-link { margin-top: 8px; display: inline-block; }
+}
+
+/* ===================== HERO ===================== */
+@media (max-width: 768px) {
+  .hero-home { padding: 80px 0 48px; text-align: center; min-height: auto; }
+  .hero-heading { font-size: clamp(1.9rem, 7vw, 2.6rem); }
+  .hero-subtext { font-size: .95rem; max-width: 100%; margin-left: auto; margin-right: auto; }
+  .hero-actions { justify-content: center; }
+  .hero-trust-pills { justify-content: center; }
+  .hero-float-card, .on-float-card { display: none; }
+  .hero-img-col { padding-top: 28px; }
+  .hero-img { max-height: 280px; }
+  .on-hero-img { max-height: 260px; }
+  .on-hero { padding: 80px 0 40px; min-height: auto; }
+  .on-hero-h1 { font-size: clamp(2rem, 7vw, 2.8rem); text-align: center; }
+  .on-hero-sub { text-align: center; max-width: 100%; }
+  .on-hero-actions { justify-content: center; }
+  .on-trust-strip { justify-content: center; }
+  .on-badge { margin-left: auto; margin-right: auto; }
+  .on-price-card { max-width: 380px; margin: 0 auto; }
+  .page-hero { padding: 70px 20px 50px; text-align: center; }
+  .on-page-hero { padding: 64px 0 44px; text-align: center; }
+  .on-page-hero h1 { font-size: clamp(1.6rem, 5.5vw, 2.2rem); }
+}
+
+/* ===================== STATS ===================== */
+@media (max-width: 768px) {
+  .stats-grid { flex-wrap: wrap; justify-content: center; }
+  .stat-pill { padding: 18px 16px; min-width: 45%; }
+  .stat-num { font-size: 1.6rem; }
+  .stat-divider { display: none; }
+  .trust-item h3, .trust-item span.counter { font-size: 1.6rem; }
+}
+
+/* ===================== SECTION TITLES ===================== */
+@media (max-width: 768px) {
+  .section-title { font-size: clamp(1.4rem, 4.5vw, 1.8rem); }
+  .section-header { margin-bottom: 8px; }
+  .section-eyebrow { font-size: .75rem; }
+}
+
+/* ===================== DESTINATIONS ===================== */
+@media (max-width: 768px) {
+  .dest-scroll-row { gap: 10px; }
+  .dest-tile { padding: 18px 20px; min-width: calc(50% - 10px); flex: 0 0 calc(50% - 10px); }
+  .dest-flag { font-size: 2.2rem; }
+  .dest-tile strong { font-size: .85rem; }
+  .destination-card { padding: 20px 16px; }
+}
+
+/* ===================== HOW IT WORKS ===================== */
+@media (max-width: 768px) {
+  .how-steps-row { flex-direction: column; align-items: center; gap: 24px; }
+  .how-home-step { max-width: 100%; min-width: unset; width: 100%; padding: 0 20px; }
+  .how-connector { display: none; }
+  .how-step { padding: 22px 16px; }
+}
+
+/* ===================== TESTIMONIALS ===================== */
+@media (max-width: 768px) {
+  .testimonial-card { padding: 24px 20px; }
+  .testimonial-quote { font-size: .95rem; }
+}
+
+/* ===================== CTA ===================== */
+@media (max-width: 768px) {
+  .cta-home-inner { padding: 36px 24px; text-align: center; justify-content: center; border-radius: 16px; }
+  .cta-home-inner h2 { font-size: 1.5rem; }
+  .cta-home-btns { justify-content: center; flex-wrap: wrap; }
+  .cta h2 { font-size: 1.7rem; }
+  .on-cta-inner { text-align: center; justify-content: center; }
+  .on-cta-text p { margin-bottom: 20px; }
+}
+
+/* ===================== FOOTER ===================== */
+@media (max-width: 768px) {
+  .footer { padding: 48px 0 24px; }
+  .footer .row { text-align: center; }
+  .footer-social { justify-content: center; }
+  .footer-heading { margin-top: 28px; }
+  .footer-bottom { text-align: center; }
+  .online-footer { padding: 48px 0 20px; }
+  .on-footer-brand { justify-content: center; display: flex; }
+}
+
+/* ===================== AUTH / FORMS ===================== */
+@media (max-width: 768px) {
+  .auth-section { padding: 40px 16px; }
+  .auth-section-wide { padding-top: 60px; }
+  .auth-card { padding: 28px 20px; border-radius: 16px; max-width: 100%; }
+  .auth-card-wide { max-width: 100%; }
+  .auth-header h1 { font-size: 1.5rem; }
+  .step-indicator { gap: 4px; }
+  .step span { width: 34px; height: 34px; font-size: .85rem; }
+  .step p { font-size: .68rem; }
+  .step-line { max-width: 36px; }
+}
+
+/* ===================== DASHBOARD ===================== */
+@media (max-width: 768px) {
+  .dashboard-section { padding: 24px 0 60px; }
+  .dashboard-welcome { flex-direction: column; text-align: center; padding: 24px 20px; border-radius: 14px; margin-bottom: 20px; }
+  .dashboard-welcome h1 { font-size: 1.4rem; }
+  .dashboard-card { padding: 20px 18px; border-radius: 14px; }
+  .stat-card { flex-direction: row; padding: 18px; }
+  .stat-icon { width: 48px; height: 48px; border-radius: 10px; }
+  .stat-card h3 { font-size: 1.4rem; }
+  .table-responsive { border-radius: 12px; }
+  .dash-table { min-width: 600px; }
+  .dash-table td, .dash-table th { padding: 10px 12px; white-space: nowrap; }
+  .quick-action-card { padding: 18px 12px; }
+  .quick-action-card i { font-size: 1.5rem; }
+  .quick-action-card span { font-size: .78rem; }
+  .profile-summary-list strong { max-width: 60%; font-size: .85rem; }
+}
+
+/* ===================== ONLINE PORTAL ===================== */
+@media (max-width: 768px) {
+  .on-book-form { padding: 24px 18px; border-radius: 16px; }
+  .on-type-selector { grid-template-columns: 1fr; gap: 12px; }
+  .on-contact-info { padding: 24px 20px; border-radius: 16px; }
+  .on-emergency-banner { padding: 20px; border-radius: 14px; }
+  .on-cta-simple { padding: 28px 20px; border-radius: 16px; }
+  .on-filter-bar {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 8px;
+    justify-content: flex-start;
+  }
+  .on-filter-btn { white-space: nowrap; flex-shrink: 0; }
+}
+
+/* ===================== EDU PORTAL ===================== */
+@media (max-width: 768px) {
+  .edu-eligibility-wrap { padding: 28px 20px; }
+  .edu-elig-preview { padding: 20px 16px; }
+  .edu-faq-q { padding: 14px 16px; }
+  .edu-faq-q span { font-size: .88rem; }
+  .edu-faq-a p { padding: 0 16px 14px; }
+  .edu-why-card { padding: 22px 18px; }
+}
+
+/* ===================== MISC ===================== */
+@media (max-width: 768px) {
+  .whatsapp-float { bottom: 16px; right: 16px; width: 50px; height: 50px; font-size: 1.4rem; }
+  .flash-container { top: 70px; right: 12px; left: 12px; max-width: 100%; }
+  .flash-toast { font-size: .85rem; padding: 12px 14px; }
+  .contact-info-card { padding: 22px 18px; }
+  .booking-info-card { padding: 22px 18px; }
+}
+
+/* ===================== SMALL PHONES (max 480px) ===================== */
+@media (max-width: 480px) {
+  .hero-heading { font-size: 1.8rem; }
+  .hero-actions { flex-direction: column; align-items: center; }
+  .hero-actions .btn-gold,
+  .hero-actions .btn-ghost-white { width: 100%; text-align: center; justify-content: center; }
+  .btn-online-book-lg { padding: 14px 28px; font-size: .95rem; }
+  .on-hero-actions { flex-direction: column; align-items: center; }
+  .on-hero-actions a { width: 100%; text-align: center; justify-content: center; }
+  .stat-pill { min-width: 100%; }
+  .dest-tile { min-width: calc(50% - 6px); flex: 0 0 calc(50% - 6px); padding: 14px 12px; }
+  .auth-card { padding: 22px 16px; }
+  .btn-auth-submit { font-size: .95rem; padding: 13px; }
+  .cta-home-inner { padding: 28px 18px; }
+  .cta-home-inner h2 { font-size: 1.35rem; }
+  .cta-home-btns { flex-direction: column; width: 100%; }
+  .cta-home-btns .btn-gold,
+  .cta-home-btns .btn-ghost-dark { width: 100%; text-align: center; justify-content: center; }
+  .dashboard-welcome h1 { font-size: 1.25rem; }
+  .section-title { font-size: 1.35rem; }
+  .step-line { max-width: 24px; }
+  .step span { width: 30px; height: 30px; font-size: .78rem; }
+  .on-type-card { padding: 16px; }
+}
+
+/* ===================== WCAG TOUCH TARGETS ===================== */
+@media (max-width: 768px) {
+  /* Minimum 44x44px tap targets */
+  .nav-link, .btn-gold, .btn-outline-gold,
+  .btn-auth-submit, .btn-online-primary,
+  .btn-online-book, .btn-online-book-lg,
+  .whatsapp-float, .footer-social a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  /* Prevent zoom on input focus (iOS) */
+  input, select, textarea { font-size: 16px !important; }
+  /* Better tap highlight */
+  a, button { -webkit-tap-highlight-color: rgba(61,126,100,.15); }
+}
