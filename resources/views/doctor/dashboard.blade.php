@@ -5,7 +5,7 @@
   <div class="container">
     <div class="dashboard-welcome fade-in mb-4">
       <div>
-        <h1>Welcome, {{ $doctor->name }} 🩺</h1>
+        <h1>Welcome, {{ $doctor->name }}</h1>
         <p>{{ $doctor->specialty }} specialist | {{ $doctor->qualification }}</p>
       </div>
     </div>

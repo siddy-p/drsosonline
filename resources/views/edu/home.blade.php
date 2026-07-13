@@ -9,7 +9,7 @@
   <div class="container hero-home-inner">
     <div class="row align-items-center g-5">
       <div class="col-lg-6 hero-text-col">
-        <div class="hero-badge">🩺 Trusted by 1,000+ Medical Students from India</div>
+        <div class="hero-badge"><i class="fas fa-shield-halved me-2" style="color: var(--gold)"></i> Trusted by 1,000+ Medical Students from India</div>
         <h1 class="hero-heading">Study <span class="hero-highlight">MBBS Abroad</span> — Your Medical Career Starts Here</h1>
         <p class="hero-subtext">Expert guidance for Indian students seeking MBBS abroad. NMC-approved universities, affordable fees, and complete support from our Kerala office.</p>
         <div class="hero-actions">
@@ -89,13 +89,14 @@
       <h2 class="section-title text-white">Top Countries for Indian Medical Students</h2>
     </div>
     <div class="dest-scroll-row reveal">
-      <div class="dest-tile"><span class="dest-flag">🇷🇺</span><strong>Russia</strong></div>
-      <div class="dest-tile"><span class="dest-flag">🇬🇪</span><strong>Georgia</strong></div>
-      <div class="dest-tile"><span class="dest-flag">🇨🇳</span><strong>China</strong></div>
-      <div class="dest-tile"><span class="dest-flag">🇰🇿</span><strong>Kazakhstan</strong></div>
-      <div class="dest-tile"><span class="dest-flag">🇰🇬</span><strong>Kyrgyzstan</strong></div>
-      <div class="dest-tile"><span class="dest-flag">🇺🇿</span><strong>Uzbekistan</strong></div>
-      <div class="dest-tile"><span class="dest-flag">🇬🇧</span><strong>UK (PG)</strong></div>
+      <div class="dest-tile"><i class="fas fa-globe" style="color:var(--gold);font-size:1.8rem;display:block;margin-bottom:8px;"></i><strong>Russia</strong></div>
+      <div class="dest-tile"><i class="fas fa-globe" style="color:var(--gold);font-size:1.8rem;display:block;margin-bottom:8px;"></i><strong>Georgia</strong></div>
+      <div class="dest-tile"><i class="fas fa-globe" style="color:var(--gold);font-size:1.8rem;display:block;margin-bottom:8px;"></i><strong>China</strong></div>
+      <div class="dest-tile"><i class="fas fa-globe" style="color:var(--gold);font-size:1.8rem;display:block;margin-bottom:8px;"></i><strong>Kazakhstan</strong></div>
+      <div class="dest-tile"><i class="fas fa-globe" style="color:var(--gold);font-size:1.8rem;display:block;margin-bottom:8px;"></i><strong>Kyrgyzstan</strong></div>
+      <div class="dest-tile"><i class="fas fa-globe" style="color:var(--gold);font-size:1.8rem;display:block;margin-bottom:8px;"></i><strong>Uzbekistan</strong></div>
+      <div class="dest-tile"><i class="fas fa-globe" style="color:var(--gold);font-size:1.8rem;display:block;margin-bottom:8px;"></i><strong>UK (PG)</strong></div>
+
     </div>
   </div>
 </section>
@@ -141,7 +142,7 @@
           <div class="testimonial-author">
             <div class="testimonial-avatar">{{ $t[2] }}</div>
             <div><strong>{{ $t[1] }}</strong></div>
-            <div class="ms-auto">⭐⭐⭐⭐⭐</div>
+            <div class="ms-auto" style="color:var(--gold);"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
           </div>
         </div>
       </div>

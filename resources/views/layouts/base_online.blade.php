@@ -123,10 +123,11 @@
       <div class="col-lg-3 col-6">
         <h6 class="footer-heading">Consultation</h6>
         <ul class="footer-links">
-          <li>📞 Phone Call — ₹99</li>
-          <li><i class="fab fa-whatsapp me-1"></i>WhatsApp — ₹99</li>
-          <li>🎥 Video Call — ₹199</li>
-          <li>⏱ Available Mon–Sat</li>
+          <li><i class="fas fa-phone me-1" style="color:var(--on-secondary)"></i> Phone Call — ₹99</li>
+          <li><i class="fab fa-whatsapp me-1" style="color:var(--on-secondary)"></i> WhatsApp — ₹99</li>
+          <li><i class="fas fa-video me-1" style="color:var(--on-secondary)"></i> Video Call — ₹199</li>
+          <li><i class="fas fa-calendar-days me-1" style="color:var(--on-secondary)"></i> Available Mon–Sat</li>
+
         </ul>
       </div>
       <div class="col-lg-3">

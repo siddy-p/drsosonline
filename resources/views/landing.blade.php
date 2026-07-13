@@ -410,10 +410,10 @@
         <p class="panel-desc">University admissions, visa guidance, scholarships, SOP writing, and pre-departure support
           — we get you there.</p>
         <div class="panel-pills">
-          <span class="pill">🎓 MBBS Admissions</span>
-          <span class="pill">🛂 Visa Guidance</span>
-          <span class="pill">✍️ NEET Assessment</span>
-          <span class="pill">🌍 Top NMC Universities</span>
+          <span class="pill"><i class="fas fa-graduation-cap me-1" style="color: var(--gold);"></i> MBBS Admissions</span>
+          <span class="pill"><i class="fas fa-passport me-1" style="color: var(--gold);"></i> Visa Guidance</span>
+          <span class="pill"><i class="fas fa-pen-to-square me-1" style="color: var(--gold);"></i> NEET Assessment</span>
+          <span class="pill"><i class="fas fa-building-columns me-1" style="color: var(--gold);"></i> Top NMC Universities</span>
         </div>
         <button class="enter-btn">Enter EduConsult <i class="fas fa-arrow-right"></i></button>
       </div>
@@ -437,11 +437,12 @@
         <p class="panel-desc">Phone, WhatsApp, and Video consultations with expert doctors. Specialist referrals,
           palliative care, and air ambulance — all in one place.</p>
         <div class="panel-pills">
-          <span class="pill">📞 Phone/WhatsApp</span>
-          <span class="pill">🎥 Video Consult</span>
-          <span class="pill">👨‍⚕️ Specialists</span>
-          <span class="pill">🚁 Air Ambulance</span>
+          <span class="pill"><i class="fas fa-phone me-1" style="color: var(--on-teal)"></i> Phone/WhatsApp</span>
+          <span class="pill"><i class="fas fa-video me-1" style="color: var(--on-teal)"></i> Video Consult</span>
+          <span class="pill"><i class="fas fa-user-doctor me-1" style="color: var(--on-teal)"></i> Specialists</span>
+          <span class="pill"><i class="fas fa-helicopter me-1" style="color: var(--on-teal)"></i> Air Ambulance</span>
         </div>
+
         <button class="enter-btn">Enter Dr.SOS Online <i class="fas fa-arrow-right"></i></button>
       </div>
     </div>

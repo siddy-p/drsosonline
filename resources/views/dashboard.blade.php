@@ -7,7 +7,7 @@
     <!-- Welcome Banner -->
     <div class="dashboard-welcome fade-in">
       <div>
-        <h1>Welcome back, {{ Auth::user()->profile->first_name ?? explode('@', Auth::user()->email)[0] }} 👋</h1>
+        <h1>Welcome back, {{ Auth::user()->profile->first_name ?? explode('@', Auth::user()->email)[0] }}</h1>
         <p>Here's an overview of your education journey and medical consultations with Dr.SOS.</p>
       </div>
       <div class="d-flex gap-2 flex-wrap">

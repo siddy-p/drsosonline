@@ -116,10 +116,10 @@
             <div>
               <strong>Preferred country?</strong>
               <div class="edu-elig-opts">
-                <span>🇷🇺 Russia</span>
-                <span class="selected">🇬🇪 Georgia</span>
-                <span>🇨🇳 China</span>
-                <span>🇰🇿 Kazakhstan</span>
+                <span><i class="fas fa-globe me-1" style="color:var(--primary)"></i> Russia</span>
+                <span class="selected"><i class="fas fa-globe me-1"></i> Georgia</span>
+                <span><i class="fas fa-globe me-1" style="color:var(--primary)"></i> China</span>
+                <span><i class="fas fa-globe me-1" style="color:var(--primary)"></i> Kazakhstan</span>
               </div>
             </div>
           </div>
@@ -130,6 +130,7 @@
               <span>in Georgia, Russia & China</span>
             </div>
           </div>
+
         </div>
       </div>
     </div>
@@ -143,23 +144,24 @@
     <p class="text-center text-white-50 mb-5">NMC-approved, WHO-listed universities with affordable fees for Indian students</p>
     <div class="row g-4 justify-content-center">
       @foreach ([
-        ['🇷🇺','Russia','Top NMC-approved universities. 6-year programme in English.','₹18–30 Lakhs total'],
-        ['🇬🇪','Georgia','European standard education. No IELTS required. Safe & affordable.','₹20–35 Lakhs total'],
-        ['🇨🇳','China','World-class infrastructure. Excellent clinical exposure. Affordable fees.','₹15–25 Lakhs total'],
-        ['🇰🇿','Kazakhstan','Growing medical hub. NMC-approved. Modern facilities.','₹18–28 Lakhs total'],
-        ['🇰🇬','Kyrgyzstan','Most affordable option. NMC-approved. Indian food available.','₹12–20 Lakhs total'],
-        ['🇺🇿','Uzbekistan','Emerging destination. Government universities with low fees.','₹15–22 Lakhs total'],
-        ['🇬🇧','UK (PG/PLAB)','For MBBS graduates seeking PG in UK. PLAB pathway guidance.','Varies by programme']
+        ['fa-globe','Russia','Top NMC-approved universities. 6-year programme in English.','₹18–30 Lakhs total'],
+        ['fa-globe','Georgia','European standard education. No IELTS required. Safe & affordable.','₹20–35 Lakhs total'],
+        ['fa-globe','China','World-class infrastructure. Excellent clinical exposure. Affordable fees.','₹15–25 Lakhs total'],
+        ['fa-globe','Kazakhstan','Growing medical hub. NMC-approved. Modern facilities.','₹18–28 Lakhs total'],
+        ['fa-globe','Kyrgyzstan','Most affordable option. NMC-approved. Indian food available.','₹12–20 Lakhs total'],
+        ['fa-globe','Uzbekistan','Emerging destination. Government universities with low fees.','₹15–22 Lakhs total'],
+        ['fa-globe','UK (PG/PLAB)','For MBBS graduates seeking PG in UK. PLAB pathway guidance.','Varies by programme']
       ] as $country)
       <div class="col-lg-3 col-md-6 fade-in">
         <div class="destination-card">
-          <div class="dest-flag">{{ $country[0] }}</div>
+          <div class="dest-flag" style="font-size:2rem;color:var(--gold);margin-bottom:12px;"><i class="fas {{ $country[0] }}"></i></div>
           <h5>{{ $country[1] }}</h5>
           <p>{{ $country[2] }}</p>
           <span class="dest-cost"><i class="fas fa-tag me-1"></i>{{ $country[3] }}</span>
         </div>
       </div>
       @endforeach
+
     </div>
   </div>
 </section>
@@ -248,9 +250,9 @@
     <h2 class="section-title text-center text-white mb-5">What Our Students Say</h2>
     <div class="testimonials-slider" id="testimonialSlider">
       @foreach ([
-        ['Ananya R.','Kerala → Russia, MBBS','Dr.SOS made my dream of becoming a doctor possible. They handled everything from NEET counselling to my visa. Now studying MBBS in Moscow!','⭐⭐⭐⭐⭐'],
-        ['Vishnu M.','Karnataka → Georgia, MBBS','After struggling with private college fees, MBBS abroad was the best decision. Dr.SOS found me a great university in Tbilisi at half the cost.','⭐⭐⭐⭐⭐'],
-        ['Sneha P.','Tamil Nadu → China, MBBS','The team was available 24/7. My parents were worried but the transparency and support from Dr.SOS put them at ease completely.','⭐⭐⭐⭐⭐']
+        ['Ananya R.','Kerala → Russia, MBBS','Dr.SOS made my dream of becoming a doctor possible. They handled everything from NEET counselling to my visa. Now studying MBBS in Moscow!'],
+        ['Vishnu M.','Karnataka → Georgia, MBBS','After struggling with private college fees, MBBS abroad was the best decision. Dr.SOS found me a great university in Tbilisi at half the cost.'],
+        ['Sneha P.','Tamil Nadu → China, MBBS','The team was available 24/7. My parents were worried but the transparency and support from Dr.SOS put them at ease completely.']
       ] as $t)
       <div class="testimonial-slide {{ $loop->first ? 'active' : '' }}">
         <div class="testimonial-card">
@@ -258,11 +260,12 @@
           <div class="testimonial-author">
             <div class="testimonial-avatar">{{ $t[0][0] }}</div>
             <div><strong>{{ $t[0] }}</strong><span>{{ $t[1] }}</span></div>
-            <div class="ms-auto">{{ $t[3] }}</div>
+            <div class="ms-auto" style="color:var(--gold);"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
           </div>
         </div>
       </div>
       @endforeach
+
     </div>
     <div class="testimonial-dots text-center mt-3">
       <span class="t-dot active" onclick="goToSlide(0)"></span>

@@ -38,7 +38,7 @@
         <div class="on-trust-strip">
           <span><i class="fas fa-shield-halved"></i> 100% Confidential</span>
           <span><i class="fas fa-clock"></i> Confirmed in 30 min</span>
-          <span><i class="fas fa-star"></i> 4.9★ Rated</span>
+          <span><i class="fas fa-star" style="color:var(--on-gold)"></i> 4.9/5 Rating</span>
         </div>
       </div>
       <div class="col-lg-6 on-hero-img-col">
