@@ -74,7 +74,7 @@ jobs:
             cp .env.example .env
             /usr/php82/usr/bin/php artisan key:generate --force
           fi
-          /usr/local/bin/composer install --no-dev --optimize-autoloader --no-interaction
+          /usr/php82/usr/bin/php /usr/local/bin/composer install --no-dev --optimize-autoloader --no-interaction
           /usr/php82/usr/bin/php artisan migrate --force
           /usr/php82/usr/bin/php artisan config:cache
           /usr/php82/usr/bin/php artisan route:cache
