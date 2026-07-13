@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="{{ asset('favicon.ico') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     @yield('extra_css')
 </head>
@@ -59,8 +60,8 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
   <div class="container">
-    <a class="navbar-brand" href="{{ route('landing') }}">
-      <span class="brand-dr">Dr.</span><span class="brand-sos">SOS</span>
+    <a class="navbar-brand d-flex align-items-center" href="{{ route('landing') }}">
+      <img src="{{ asset('images/logo.png') }}" alt="Dr.SOS Online Logo" style="height: 45px; border-radius: 4px;">
     </a>
     <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
@@ -105,7 +106,7 @@
     <div class="row g-5">
       <div class="col-lg-4 col-md-6">
         <div class="footer-brand mb-3">
-          <span class="brand-dr">Dr.</span><span class="brand-sos">SOS</span>
+          <img src="{{ asset('images/logo.png') }}" alt="Dr.SOS Online Logo" style="height: 50px; border-radius: 4px;">
         </div>
         <p class="footer-tagline">Your trusted partner for MBBS abroad education and online medical consultations. Head Office: Kerala, India.</p>
         <div class="footer-social mt-3">

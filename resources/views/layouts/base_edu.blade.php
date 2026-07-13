@@ -7,6 +7,7 @@
   <meta name="description" content="@yield('meta_desc', 'Dr.SOS EduConsult — MBBS abroad for Indian students. NMC-approved universities, affordable fees, expert guidance from Kerala.')">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="{{ asset('favicon.ico') }}">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
   @yield('extra_css')
@@ -62,8 +63,9 @@
 <!-- EDU Navbar -->
 <nav class="navbar navbar-expand-lg edu-nav" id="mainNav">
   <div class="container">
-    <a class="navbar-brand edu-brand" href="{{ route('edu.home') }}">
-      <span class="brand-dr">Dr.</span><span class="brand-sos">SOS</span> <span class="brand-sub">EduConsult</span>
+    <a class="navbar-brand edu-brand d-flex align-items-center gap-2" href="{{ route('edu.home') }}">
+      <img src="{{ asset('images/logo.png') }}" alt="Dr.SOS Online Logo" style="height: 40px; border-radius: 4px;">
+      <span class="brand-sub">EduConsult</span>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
       <span class="navbar-toggler-icon"></span>
@@ -99,7 +101,10 @@
   <div class="container">
     <div class="row g-4">
       <div class="col-lg-4">
-        <div class="footer-brand"><span class="brand-dr">Dr.</span><span style="color:#fff">SOS</span> <span style="color:rgba(255,255,255,.6);font-weight:400">EduConsult</span></div>
+        <div class="footer-brand d-flex align-items-center gap-2">
+          <img src="{{ asset('images/logo.png') }}" alt="Dr.SOS Online Logo" style="height: 40px; border-radius: 4px;">
+          <span style="color:rgba(255,255,255,.6);font-weight:400">EduConsult</span>
+        </div>
         <p class="footer-tagline mt-2">Your trusted partner for MBBS abroad. We help Indian students from 12th BiPC get admitted to NMC-approved medical universities worldwide. Head Office: Kerala, India.</p>
         <div class="footer-social">
           <a href="#"><i class="fab fa-facebook-f"></i></a>
