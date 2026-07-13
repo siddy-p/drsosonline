@@ -372,8 +372,15 @@
         justify-content: center;
       }
 
-      .portal-badge, .panel-desc, .panel-pills, .panel-tagline {
+      .portal-badge, .panel-desc, .panel-pills {
         display: none !important;
+      }
+
+      .panel-tagline {
+        display: block !important;
+        font-size: 0.82rem !important;
+        opacity: 0.75 !important;
+        margin-bottom: 12px !important;
       }
 
       .panel-icon {
