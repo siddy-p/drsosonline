@@ -228,3 +228,26 @@
 .online-footer{background:var(--on-dark);color:rgba(255,255,255,.7);padding:60px 0 20px;border-top:1px solid rgba(255,255,255,.06);}
 .on-footer-brand{font-size:1.3rem;font-weight:800;margin-bottom:12px;}
 .on-footer-tagline{color:rgba(255,255,255,.45);font-size:.85rem;line-height:1.7;}
+
+/* How it works section overrides for Online Consultation (aligns designs but matches colors) */
+.online-portal .how-home {
+  background: #f8fafc !important;
+}
+.online-portal .how-home-step h5 {
+  color: var(--on-text) !important;
+}
+.online-portal .how-home-step p {
+  color: var(--on-muted) !important;
+}
+.online-portal .hhs-num {
+  color: var(--on-secondary) !important;
+  opacity: 0.25 !important;
+}
+.online-portal .hhs-icon {
+  background: rgba(13, 148, 136, 0.12) !important;
+  color: var(--on-secondary) !important;
+}
+.online-portal .how-connector {
+  border-top: 2px dashed rgba(13, 148, 136, 0.3) !important;
+}
+

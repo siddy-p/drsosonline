@@ -75,30 +75,31 @@
 
 
 <!-- HOW IT WORKS -->
-<section class="on-section">
+<section class="section-padded how-home">
   <div class="container">
-    <div class="on-section-header reveal">
-      <p class="on-eyebrow">Simple &amp; Fast</p>
-      <h2>How It Works</h2>
+    <div class="section-header reveal">
+      <p class="section-eyebrow">Simple &amp; Fast</p>
+      <h2 class="section-title">How It Works</h2>
     </div>
-    <div class="on-steps-row">
+    <div class="how-steps-row">
       @foreach ([
         ['fa-calendar-plus','01','Book Your Slot','Choose your doctor, preferred time, and consultation type — phone, WhatsApp or video.'],
         ['fa-circle-check','02','We Confirm',"You'll receive a confirmation call or message within 30 minutes of booking."],
         ['fa-stethoscope','03','Consult Doctor','At your scheduled time, your doctor calls you directly — no travel, no waiting.'],
         ['fa-file-medical','04','Get Prescription','Receive your prescription or health advice digitally after your consultation.']
       ] as $step)
-      <div class="on-step reveal">
-        <div class="on-step-num">{{ $step[1] }}</div>
-        <div class="on-step-icon"><i class="fas {{ $step[0] }}"></i></div>
+      <div class="how-home-step reveal">
+        <div class="hhs-num">{{ $step[1] }}</div>
+        <div class="hhs-icon"><i class="fas {{ $step[0] }}"></i></div>
         <h5>{{ $step[2] }}</h5>
         <p>{{ $step[3] }}</p>
       </div>
-      @if(!$loop->last)<div class="on-step-connector"></div>@endif
+      @if(!$loop->last)<div class="how-connector"></div>@endif
       @endforeach
     </div>
   </div>
 </section>
+
 
 <!-- FEATURED DOCTORS -->
 <section class="on-section on-doctors-home">
