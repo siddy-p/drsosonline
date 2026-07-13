@@ -56,8 +56,19 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT || 22 }}
           script: |
+            if [ ! -d "${{ secrets.SSH_PATH }}" ]; then
+              mkdir -p "${{ secrets.SSH_PATH }}"
+            fi
             cd ${{ secrets.SSH_PATH }}
-            git pull origin master
+            if [ ! -d ".git" ]; then
+              git clone https://${{ secrets.GH_PAT }}@github.com/siddy-p/drsosonline.git .
+            else
+              git pull origin master
+            fi
+            if [ ! -f ".env" ]; then
+              cp .env.example .env
+              php artisan key:generate --force
+            fi
             composer install --no-dev --optimize-autoloader
             php artisan migrate --force
             php artisan config:cache
