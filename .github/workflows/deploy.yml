@@ -43,35 +43,41 @@ jobs:
     if: github.ref == 'refs/heads/master'
 
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
+      - name: Setup SSH Key
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s' "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts 2>/dev/null || true
 
-      - name: Execute SSH deployment commands
-        uses: appleboy/ssh-action@v1.0.3
+      - name: Deploy to Server via SSH
         env:
           DEPLOY_PATH: ${{ secrets.SSH_PATH }}
           GH_PAT: ${{ secrets.GH_PAT }}
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: 22
-          envs: DEPLOY_PATH,GH_PAT
-          script: |
-            set -e
-            mkdir -p "$DEPLOY_PATH"
-            cd "$DEPLOY_PATH"
-            if [ ! -d ".git" ]; then
-              git clone https://$GH_PAT@github.com/siddy-p/drsosonline.git .
-            else
-              git pull origin master
-            fi
-            if [ ! -f ".env" ]; then
-              cp .env.example .env
-              /usr/php82/usr/bin/php artisan key:generate --force
-            fi
-            /usr/local/bin/composer install --no-dev --optimize-autoloader --no-interaction
-            /usr/php82/usr/bin/php artisan migrate --force
-            /usr/php82/usr/bin/php artisan config:cache
-            /usr/php82/usr/bin/php artisan route:cache
-            /usr/php82/usr/bin/php artisan view:cache
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USERNAME }}
+        run: |
+          ssh -i ~/.ssh/deploy_key \
+            -o StrictHostKeyChecking=no \
+            -o BatchMode=yes \
+            "$SSH_USER@$SSH_HOST" \
+            "DEPLOY_PATH='$DEPLOY_PATH' GH_PAT='$GH_PAT' bash -s" << 'ENDSSH'
+          set -e
+          mkdir -p "$DEPLOY_PATH"
+          cd "$DEPLOY_PATH"
+          if [ ! -d ".git" ]; then
+            git clone "https://$GH_PAT@github.com/siddy-p/drsosonline.git" .
+          else
+            git pull origin master
+          fi
+          if [ ! -f ".env" ]; then
+            cp .env.example .env
+            /usr/php82/usr/bin/php artisan key:generate --force
+          fi
+          /usr/local/bin/composer install --no-dev --optimize-autoloader --no-interaction
+          /usr/php82/usr/bin/php artisan migrate --force
+          /usr/php82/usr/bin/php artisan config:cache
+          /usr/php82/usr/bin/php artisan route:cache
+          /usr/php82/usr/bin/php artisan view:cache
+          echo "Deployment completed successfully!"
+          ENDSSH
